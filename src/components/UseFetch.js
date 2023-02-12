@@ -6,29 +6,29 @@ const UseFetch = (url, options) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch(url, options);
-    //     const json = await response.json();
-    //     setData(json);
-    //     console.log(data)
-    //     setLoading(false);
-    //   } catch (error) {
-    //     setError(error);
-    //     setLoading(false);
-    //   }
-    // };
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url, options);
+        const json = await response.json();
+        setData(json);
+        console.log(data)
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
     
-    // fetchData();
+    fetchData();
 
-    fetch(url)
-      //head
-      .then(response => response.json())
-      //body (function)
-      .then(data => {
-        console.log(data);
-        setData(data);
-      });
+    // fetch(url)
+    //   //head
+    //   .then(response => response.json())
+    //   //body (function)
+    //   .then(data => {
+    //     console.log(data);
+    //     setData(data);
+    //   });
 
     }, [url])
 
