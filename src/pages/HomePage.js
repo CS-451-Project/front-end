@@ -1,16 +1,10 @@
 import React from 'react'
 import Button from '../components/Button.js'
 import ProtoDemo from '../components/ProtoDemo.js';
-import UseFetch from '../components/UseFetch.js';
 
 const HomePage = () => {
     const handleClick = () => {
-        const { data, loading, error } = UseFetch(
-            "https://api.example.com/data",
-            {
-            method: "GET",
-            }
-        );
+        console.log("Clicked");
     };
     return (
         <div className='flex justify-center pt-4'>

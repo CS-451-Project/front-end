@@ -2,12 +2,8 @@ import React from 'react'
 import UseFetch from './UseFetch';
 
 const ProtoDemo = () => {
-    const { data, loading, error } = UseFetch(
-    "https://api.example.com/data",
-    {
-      method: "GET",
-    }
-  );
+    const { data } = UseFetch('');
+  
   return (
     <div>
         {data.map((item) => (

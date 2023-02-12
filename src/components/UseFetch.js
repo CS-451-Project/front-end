@@ -21,25 +21,18 @@ const UseFetch = (url, options) => {
     
     // fetchData();
 
-    fetch(url, options)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
+    fetch(url)
+      //head
+      .then(response => response.json())
+      //body (function)
       .then(data => {
-        setData(json);
-          console.log(data)
-      })
-      .catch(error => {
-        setError(error);
-          setLoading(false);
+        console.log(data);
+        setData(data);
       });
 
-  }, [url, options]);
+    }, [url])
 
-  return { data, loading, error };
+  return { data };
 };
 
 export default UseFetch;
