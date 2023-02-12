@@ -10,7 +10,9 @@ const ProtoDemo = () => {
   );
   return (
     <div>
-        
+        {data.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
     </div>
   )
 }
