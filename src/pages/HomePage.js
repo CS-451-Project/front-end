@@ -3,6 +3,7 @@ import Button from '../components/Button.js'
 import ProtoDemo from '../components/ProtoDemo.js';
 
 const HomePage = () => {
+    // this is a function that is called when the button is clicked
     const handleClick = () => {
         console.log("Clicked");
     };

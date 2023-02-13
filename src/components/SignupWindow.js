@@ -4,6 +4,7 @@ import UseFetch from '../components/UseFetch';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const SignupWindow = () => {
+    // these are the states that hold the data from the form
     const [name, setName] = useState('');
     const [age, setAge] = useState(0);
     const [address, setAddress] = useState('');
@@ -11,11 +12,13 @@ const SignupWindow = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
     const [passwordError, setPasswordError] = useState('');
     const [ageError, setAgeError] = useState('');
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
     let employeeObj = {name, age, address, mobileNumber, username, password, confirmPassword};
 
     const handleSubmit = (e) => {
@@ -154,6 +157,7 @@ const SignupWindow = () => {
                             </div>
                         </label >
                         <div className='pb-4'>
+                            {/* // Password checklist component that checks if password is valid */}
                             <PasswordChecklist
                                 rules={["minLength","specialChar","number","match"]}
                                 minLength={8}
