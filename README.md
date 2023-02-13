@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequesites
+
+This project uses NodeJS and npm. You can install them [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). You need these tools / runtimes to run this project.
+
+## Getting Started
+
+After you pull down this repo for the first time, or if there were additional dependencies added that you haven't installed, you must run `npm install`. This command will install the necessary dependencies for the project to run.
+
 ## Available Scripts
 
 In the project directory, you can run:
