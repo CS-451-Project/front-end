@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PasswordChecklist from "react-password-checklist";
-import UseFetch from "../components/UseFetch";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SignupWindow = () => {
@@ -13,7 +12,6 @@ const SignupWindow = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [passwordError, setPasswordError] = useState("");
   const [ageError, setAgeError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
@@ -35,9 +33,6 @@ const SignupWindow = () => {
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     // Tests validation based on regex above.
     if (!passwordValidation.test(password)) {
-      setPasswordError(
-        "Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&)."
-      );
       return;
     }
     if (age < 21) {
@@ -48,19 +43,6 @@ const SignupWindow = () => {
     console.log(employeeObj);
     // Perform authentication here.
   };
-
-  const registerEmployee = {
-    method: "POST",
-    // crossorigin: true,
-    // mode: 'no-cors',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(employeeObj),
-  };
-
-  const { data, loading, error } = UseFetch(
-    "https://localhost:7160/api/employees",
-    registerEmployee
-  );
 
   return (
     <div>

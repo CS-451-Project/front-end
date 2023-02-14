@@ -6,9 +6,7 @@ const ProtoDemo = () => {
   // data is the data from the fetch
   // this sets the data given from the fetch to the data variable
   // same with loading and error
-  const { data, loading, error } = UseFetch(
-    "https://localhost:7000/api/fundraisers"
-  );
+  const { data } = UseFetch("https://localhost:7000/api/fundraisers");
   console.log(data);
   return <div>{data}</div>;
 };

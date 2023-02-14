@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const UseFetch = (url, options) => {
   // state that holds the data from the fetch
@@ -21,7 +21,7 @@ const UseFetch = (url, options) => {
         // sets the data to the json data in the state
         setData(json);
         // log the data
-        console.log(data)
+        console.log(data);
         // sets loading to false, we can use this functinally to display a loading screen
         setLoading(false);
       } catch (error) {
@@ -30,7 +30,7 @@ const UseFetch = (url, options) => {
         setLoading(false);
       }
     };
-    
+
     // calls the fetchData function
     fetchData();
 
@@ -46,7 +46,7 @@ const UseFetch = (url, options) => {
 
     // This [url] is a dependency array
     // It tells useEffect to only run when the url changes
-    }, [url])
+  }, [data, options, url]);
 
   // returns the data, loading, and error
   return { data, loading, error };

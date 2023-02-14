@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import LoginWindow from '../components/LoginWindow';
-import PasswordChecklist from "react-password-checklist"
-import ProtoDemo from '../components/ProtoDemo';
+import React from "react";
+import LoginWindow from "../components/LoginWindow";
 
 const LoginPage = () => {
-
   return (
-    <div  className='flex justify-center'>
-        <LoginWindow />
+    <div className="flex justify-center">
+      <LoginWindow />
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

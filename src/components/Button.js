@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from "prop-types"
+import React from "react";
 
 // the ...props is a spread operator
 // it takes all the props and puts them into the button
 const Button = ({ title, ...props }) => {
   return (
-    <button 
-      className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700" 
+    <button
+      className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700"
       onClick={props.click}
-    {...props}
+      {...props}
     >
       {title}
     </button>
@@ -16,4 +15,3 @@ const Button = ({ title, ...props }) => {
 };
 
 export default Button;
-
