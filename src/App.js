@@ -7,7 +7,7 @@ import SignupPage from './pages/SignupPage.js';
 import AddEmployee from './pages/AddEmployee.js';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {

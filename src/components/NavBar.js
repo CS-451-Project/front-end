@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import closeIcon from '../imgs/closeIcon.png'
-import menuIcon from '../imgs/menuIcon.jpg'
+// import closeIcon from '../imgs/closeIcon.png'
+// import menuIcon from '../imgs/menuIcon.jpg'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 
 function NavBar() {
@@ -51,13 +51,13 @@ function NavBar() {
                                 <a href="/">Home</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="javascript:void(0)">Blog</a>
+                                <a href="/">Blog</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="javascript:void(0)">About US</a>
+                                <a href="/">About US</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="javascript:void(0)">Contact US</a>
+                                <a href="/">Contact US</a>
                             </li>
                             
                         </ul>

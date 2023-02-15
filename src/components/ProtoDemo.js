@@ -11,6 +11,8 @@ const ProtoDemo = () => {
   return (
     <div>
         {data}
+        {loading}
+        {error}
     </div>
   )
 }
