@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const UseFetch = (url, options) => {
   // state that holds the data from the fetch
@@ -46,7 +46,7 @@ const UseFetch = (url, options) => {
 
     // This [url] is a dependency array
     // It tells useEffect to only run when the url changes
-    }, [url])
+    }, [url, data, options])
 
   // returns the data, loading, and error
   return { data, loading, error };

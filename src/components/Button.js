@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 
 // the ...props is a spread operator
 // it takes all the props and puts them into the button

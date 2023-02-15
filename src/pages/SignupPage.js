@@ -1,5 +1,5 @@
-import React, { useState} from 'react'
-import PasswordChecklist from "react-password-checklist"
+import React from 'react'
+// import PasswordChecklist from "react-password-checklist"
 import SignupWindow from '../components/SignupWindow';
 
 const SignupPage = () => {

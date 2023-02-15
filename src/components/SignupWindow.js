@@ -13,7 +13,7 @@ const SignupWindow = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [passwordError, setPasswordError] = useState('');
+    // const [passwordError, setPasswordError] = useState('');
     const [ageError, setAgeError] = useState('');
 
     const [showPassword, setShowPassword] = useState(false);
@@ -23,14 +23,14 @@ const SignupWindow = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        // const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         // Tests validation based on regex above.
-        if (!passwordValidation.test(password)) {
-        setPasswordError(
-            'Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&).'
-        );
-        return;
-        }
+        // if (!passwordValidation.test(password)) {
+        // setPasswordError(
+        //     'Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&).'
+        // );
+        // return;
+        // }
         if (age < 21) {
         setAgeError(
             'Must be older than 21'
@@ -54,6 +54,9 @@ const SignupWindow = () => {
 
   return (
     <div>
+        {data}
+        {loading}
+        {error}
         <div className='relative'>
             <div className='border bg-gray-100 p-4 '>
                 <div className='flex justify-center pb-4'>
