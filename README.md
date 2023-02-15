@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project uses NodeJS and npm. You can install them [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). You need these tools / runtimes to run this project.
 
 INSTALL ESLINT EXTENSION IN VSCODE FOR THE BUILD TO WORK
+Install eslint extension in vscode for the build to work :)
 
 
 ## Getting Started
