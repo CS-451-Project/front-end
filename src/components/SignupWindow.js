@@ -54,9 +54,9 @@ const SignupWindow = () => {
 
   return (
     <div>
-        {data}
+        {/* {data}
         {loading}
-        {error}
+        {error} */}
         <div className='relative'>
             <div className='border bg-gray-100 p-4 '>
                 <div className='flex justify-center pb-4'>

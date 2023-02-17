@@ -9,7 +9,6 @@ import AddEmployee from './pages/AddEmployee.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-
 function App() {
   return (
     // This is the main container that holds all the pages
