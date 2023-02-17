@@ -8,14 +8,17 @@ const ProtoDemo = () => {
   // this sets the data given from the fetch to the data variable
   // same with loading and error
   const [requestOptions, setRequestOptions] = useState({});
-    const { data, loading, error } = UseFetch('https://localhost:7000/api/fundraisers');
+  // const { data, loading, error } = UseFetch('https://localhost:7000/api/fundraisers', requestOptions);
+  UseFetch('https://localhost:7000/api/fundraisers', requestOptions);
+    
     const handleClick = () => {
         setRequestOptions({ method: "GET"}); 
     };
+    
   return (
     <div>
-        {/* {requestOptions}
-        {data}
+      {/* {requestOptions} */}
+        {/* {data}
         {loading}
         {error} */}
         <Button title="GET Data" click={handleClick}/>

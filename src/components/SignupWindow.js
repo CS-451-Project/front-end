@@ -50,7 +50,8 @@ const SignupWindow = () => {
         body: JSON.stringify(employeeObj)
     };
 
-    const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", registerEmployee);
+    // const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", registerEmployee);
+    UseFetch("https://localhost:7160/api/employees", registerEmployee);
 
   return (
     <div>

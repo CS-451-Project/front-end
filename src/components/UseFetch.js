@@ -34,19 +34,12 @@ const UseFetch = (url, options) => {
     // calls the fetchData function
     fetchData();
 
-    // Dont worry abt this
-    // fetch(url)
-    //   //head
-    //   .then(response => response.json())
-    //   //body (function)
-    //   .then(data => {
-    //     console.log(data);
-    //     setData(data);
-    //   });
+
 
     // This [url] is a dependency array
     // It tells useEffect to only run when the url changes
-    }, [url, data, options])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [url, options])
 
   // returns the data, loading, and error
   return { data, loading, error };
