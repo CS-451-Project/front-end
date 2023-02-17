@@ -8,7 +8,7 @@ const Button = ({ title, ...props }) => {
     <button 
       className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700" 
       onClick={props.click}
-    {...props}
+    // {...props}
     >
       {title}
     </button>
