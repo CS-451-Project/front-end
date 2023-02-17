@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequesites
+
+This project uses NodeJS and npm. You can install them [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). You need these tools / runtimes to run this project.
+
+INSTALL ESLINT EXTENSION IN VSCODE FOR THE BUILD TO WORK
+Install eslint extension in vscode for the build to work :)
+
+
+## Getting Started
+
+After you pull down this repo for the first time, or if there were additional dependencies added that you haven't installed, you must run `npm install`. This command will install the necessary dependencies for the project to run.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +80,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
