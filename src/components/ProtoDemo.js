@@ -16,7 +16,7 @@ const ProtoDemo = () => {
     };
     
   return (
-    <div>
+    <div data-testid="my-inner-component">
       {/* {requestOptions} */}
         {/* {data}
         {loading}

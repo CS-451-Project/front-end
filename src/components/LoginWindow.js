@@ -5,7 +5,7 @@ const LoginWindow = () => {
     // use state to store the username, password and passwordError and set the initial value to an empty string
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [passwordError, setPasswordError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     // function to handle the submit button
     const handleSubmit = (e) => {
@@ -13,14 +13,16 @@ const LoginWindow = () => {
         // this is to prevent the page from refreshing when the submit button is clicked
         e.preventDefault();
         // regex to validate the password
-        // const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         // Tests validation based on regex above.
-        // if (!passwordValidation.test(password)) {
-        // setPasswordError(
-        //     'Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&).'
-        // );
-        // return;
-        // }
+        if (!passwordValidation.test(password)) {
+        setPasswordError(
+            'Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&).'
+        );
+        return;
+        }
+        // If validation passes, clear error message.
+        
         console.log(`Username: ${username}`);
         console.log(`Password: ${password}`);
         // Perform authentication here.
