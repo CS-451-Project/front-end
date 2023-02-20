@@ -22,7 +22,6 @@ const LoginWindow = () => {
         return;
         }
         // If validation passes, clear error message.
-        console.log(passwordError)
         console.log(`Username: ${username}`);
         console.log(`Password: ${password}`);
         // Perform authentication here.
