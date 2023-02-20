@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PasswordChecklist from "react-password-checklist"
-import UseFetch from '../components/UseFetch';
+// import UseFetch from '../components/UseFetch';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const SignupWindow = () => {
