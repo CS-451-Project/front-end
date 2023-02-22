@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UseFetch from './UseFetch';
+import Button from './Button';
+
 
 const ProtoDemo = () => {
   // deconstructs the data, loading, and error from the UseFetch function
   // data is the data from the fetch
   // this sets the data given from the fetch to the data variable
   // same with loading and error
-    const { data, loading, error } = UseFetch('https://localhost:3000/api/fundraisers');
-    console.log(data)
+  const [requestOptions, setRequestOptions] = useState({});
+  // const { data, loading, error } = UseFetch('https://localhost:7000/api/fundraisers', requestOptions);
+  UseFetch('https://localhost:7000/api/fundraisers', requestOptions);
+    
+    const handleClick = () => {
+        setRequestOptions({ method: "GET"}); 
+    };
+    
   return (
-    <div>
-        {data}
+    <div data-testid="my-inner-component">
+      {/* {requestOptions} */}
+        {/* {data}
         {loading}
-        {error}
+        {error} */}
+        <Button title="GET Data" click={handleClick}/>
     </div>
   )
 }

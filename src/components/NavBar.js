@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 // import menuIcon from '../imgs/menuIcon.jpg'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 
-function NavBar() {
+const NavBar = () => {
     // state that holds the navbar status
     // if the navbar is open then it is true else it is false
   const [navbar, setNavbar] = useState(false);
