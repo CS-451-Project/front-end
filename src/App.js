@@ -8,6 +8,7 @@ import AddEmployee from './pages/AddEmployee.js';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -16,12 +17,25 @@ function App() {
     // className is the css class that is imported from App.css
     <div className='bg-green-300 min-h-screen'>
       {/* Imported npm package that displays messages throughout the browser pages */}
-      <ToastContainer />
         {/* Container that hold different routes in the pages */}
         <Router>
           {/* Nav bar will show in all browser pages */}
           <div className='pb-8'>
             <NavBar />
+          </div>
+          <div className='bg-white px-16'>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              />
           </div>
 
           {/* Routes in the browser to different pages */}
