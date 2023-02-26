@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {  useParams } from "react-router-dom";
-import UseFetch from '../components/UseFetch'
 
 const IndividualFundraiserPage = () => {
     // const [fundraiserRequestOptions, setFundraiserRequestOptions] = useState({});
