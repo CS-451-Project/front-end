@@ -31,7 +31,7 @@ const IndividualFundraiserPage = () => {
 
     // Tag component
     const Tag = ({tagValue}) => (
-        <div className="pl-2">
+        <div className="pl-4">
             {tagValue}
         </div>
     );
@@ -47,10 +47,9 @@ const IndividualFundraiserPage = () => {
         }) => {
             return (
             <div className='flex-row justify-left text-left pt-4'>
-                <div className='flex pt-4 font-bold text-4xl pb-24'>{title}</div>
-                <div className='flex pt-4 p-12 italic'>Picture will go here</div>
+                <div className='flex font-bold text-4xl pb-6'>{title}</div>
                 <div className='flex text-sm italic'>Created On: { createdDate?.split("T")[0] }</div>
-                <div className='flex text-sm italic'>End Date:  { plannedEndDate?.split("T")[0] }</div>
+                <div className='flex text-sm italic'>Ends On:  { plannedEndDate?.split("T")[0] }</div>
                 <div className='flex text-sm italic'>Tags:  {tags.map((tag) => (
                     <div key="{tag}">
                         <Tag
