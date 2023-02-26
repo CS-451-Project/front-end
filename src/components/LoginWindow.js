@@ -13,9 +13,9 @@ const LoginWindow = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    // const [requestOptions, setRequestOptions] = useState({});
+    const [requestOptions, setRequestOptions] = useState({});
 
-    // const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
+    const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
 
     // const fetchData = async () => {
     //   try {
@@ -52,8 +52,11 @@ const LoginWindow = () => {
         console.log(user);
         // setRequestOptions({ method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(employee) });
         // If validation passes, clear error message.
-        console.log(`Username: ${username}`);
-        console.log(`Password: ${password}`);
+
+
+        // console.log(`Username: ${username}`);
+        // console.log(`Password: ${password}`);
+
         toast('Logged In', {
             position: "top-right",
             autoClose: 5000,

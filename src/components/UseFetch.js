@@ -21,7 +21,7 @@ const UseFetch = (url, options) => {
         // response is the data from the fetch
         const response = await fetch(url, options);
         // json is the data from the response
-        if(response.status === 401){
+        if(response.status === 415){
           console.log("unauthorized");
           navigate(`/login`);
         }
@@ -30,6 +30,7 @@ const UseFetch = (url, options) => {
         setData(json);
         // log the data
         console.log(data)
+        console.log("fetching data")
         // sets loading to false, we can use this functinally to display a loading screen
         setLoading(false);
       } catch (error) {
