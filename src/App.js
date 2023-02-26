@@ -5,6 +5,7 @@ import NavBar from './components/NavBar.js';
 import LoginPage from './pages/LoginPage.js';
 import SignupPage from './pages/SignupPage.js';
 import AddEmployee from './pages/AddEmployee.js';
+import IndividualFundraiserPage from './pages/IndividualFundraiserPage';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/fundraiser/:fundraiserId" element={<IndividualFundraiserPage />} />
           <Route path="/addEmployee" element={<AddEmployee />}/>
         </Routes>
       </Router>
