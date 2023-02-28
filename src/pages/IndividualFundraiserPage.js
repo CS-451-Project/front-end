@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {  useParams } from "react-router-dom";
+import logo from '../imgs/Fundraising-Tree.jpg'
 
 const IndividualFundraiserPage = () => {
     // const [fundraiserRequestOptions, setFundraiserRequestOptions] = useState({});
@@ -9,6 +10,48 @@ const IndividualFundraiserPage = () => {
 
     // Set the request url
     const url = "https://localhost:7000/api/fundraiser/".concat(fundraiserId);
+
+    // Create our number formatter.
+    const currencyFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    
+        // These options are needed to round to whole numbers if that's what you want.
+        minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+        maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+    });
+
+    // Progress bar
+    const ProgressBar = (props) => {
+        const { completed } = props;
+      
+        const containerStyles = {
+          // height: 20,
+          width: '100%',
+          backgroundColor: "#e0e0de",
+          borderRadius: 50,
+        }
+      
+        const fillerStyles = {
+          height: '100%',
+          width: `${completed}%`,
+          borderRadius: 'inherit',
+          textAlign: 'right'
+        }
+      
+        const labelStyles = {
+          color: 'white',
+          fontWeight: 'bold',
+        }
+      
+        return (
+          <div className='h-6' style={containerStyles}>
+            <div className='bg-green-700' style={fillerStyles}>
+              <span className="px-4" style={labelStyles}>{`${completed}%`}</span>
+            </div>
+          </div>
+        );
+      };
 
     // Get the fundraiser
     useEffect(() => {
@@ -46,9 +89,12 @@ const IndividualFundraiserPage = () => {
             tags
         }) => {
             return (
-            <div className='flex-row justify-left text-left pt-4'>
-                <div className='flex font-bold text-4xl pb-6'>{title}</div>
-                <div className='flex text-sm italic'>Created On: { createdDate?.split("T")[0] }</div>
+            <div className='flex-row justify-left text-left pt-4 w-full'>
+                <div className='flex font-bold text-4xl'>{title}</div>
+                <div>
+                    <img src={logo} className="object-contain pt-12" alt="Logo" />
+                </div>
+                <div className='flex text-sm italic pt-12'>Created On: { createdDate?.split("T")[0] }</div>
                 <div className='flex text-sm italic'>Ends On:  { plannedEndDate?.split("T")[0] }</div>
                 <div className='flex text-sm italic'>Tags:  {tags.map((tag) => (
                     <div key="{tag}">
@@ -73,17 +119,24 @@ const IndividualFundraiserPage = () => {
             goalAmount
         }) => {
             return (
-            <div className='flex-row'>
-                <div className='flex pt-4'>Current Amount Raised:  { currentBalance }</div>
-                <div className='flex pt-4'>Goal Amount:  { goalAmount }</div>
-                <div className="text-xl pt-5 font-bold">Make a Donation</div>
+            <div className='flex-row p-6 w-full border-solid border-2 border-green-800 rounded-lg'>
+                <div className='flex pt-4 w-full'>
+                    <ProgressBar className='flex w-full' bgcolor="#6a1b9a" completed={Math.trunc((currentBalance / goalAmount) * 100)} />
+                </div>
+                <div className='flex pt-4 pb-4 w-full'>{ currencyFormatter.format(currentBalance) } raised out of { currencyFormatter.format(goalAmount) }</div>
+                <button 
+                    className="text-xl text-black p-3 font-bold 
+                    rounded-lg bg-yellow-400 hover:bg-yellow-500 duration-200"
+                    >
+                    Make a Donation
+                </button>
             </div>
         )}
 
     return (
         <div id="mainContainer" className='flex-column justify-center pt-4'>
-            <div id="flexContainer" className='flex justify-center pt-4'>
-                <div id="fundraiserContainer" className='flex justify-center pt-4 px-56 pr-96'>
+            <div id="flexContainer" className='flex justify-center pt-4 w-full'>
+                <div id="fundraiserContainer" className='flex justify-center pt-4 px-56 pr-96 w-full'>
                     <Fundraiser 
                         title={fundraiser.title}
                         description={fundraiser.description}
@@ -92,7 +145,7 @@ const IndividualFundraiserPage = () => {
                         tags = {tags}
                         />
                 </div>
-                <div id="donationContainer" className='fixed pt-24 right-24 justify-center'>
+                <div id="donationContainer" className='fixed pt-24 right-16 justify-center'>
                     <DonateArea
                         currentBalance = {fundraiser.currentBalanceAmount}
                         goalAmount = {fundraiser.goalTargetAmount}
@@ -104,23 +157,3 @@ const IndividualFundraiserPage = () => {
 }
 
 export default IndividualFundraiserPage;
-
-{/* <div className='flex justify-center pt-4'>Fundraiser ID: { fundraiserId }</div>
-            <div className='flex justify-center pt-4'>Retrieved Fundraiser Id:  { fundraiser.fundraiserId }</div>
-            <div className='flex justify-center pt-4'>Organizer Id: { fundraiser.organizerId }</div>
-            <div className='flex justify-center pt-4'>PictureId:  { fundraiser.pictureId }</div> */}
-
-{/* <div className='flex justify-center pt-4'>Description:  { fundraiser.description }</div>
-            <div className='flex justify-center pt-4'>Title:  { fundraiser.title }</div>
-            <div className='flex justify-center pt-4'>CreatedDate:  { fundraiser.createdDate }</div>
-            <div className='flex justify-center pt-4'>PlannedEndDate:  { fundraiser.plannedEndDate }</div>
-            <div className='flex justify-center pt-4'>GoalReachedDate:  { fundraiser.goalReachedDate }</div>
-            <div className='flex justify-center pt-4'>GoalTargetAmount:  { fundraiser.goalTargetAmount }</div>
-            <div className='flex justify-center pt-4'>CurrentBalanceAmount:  { fundraiser.currentBalanceAmount }</div>
-            <div className='flex justify-center pt-4'>Tags:  {tags.map((tag) => (
-                <Tag
-                    tagValue = {tag}
-                    />
-
-            ))}
-            </div> */}
