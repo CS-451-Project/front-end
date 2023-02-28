@@ -20,7 +20,7 @@ function App() {
         {/* Container that hold different routes in the pages */}
         <Router>
           {/* Nav bar will show in all browser pages */}
-          <div className='pb-8'>
+          <div>
             <NavBar />
           </div>
           <div className='bg-white px-16'>

@@ -6,7 +6,7 @@ import React from 'react';
 const Button = ({ title, ...props }) => {
   return (
     <button 
-      className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700" 
+      className="bg-green-500 text-white py-2 px-4 hover:bg-green-700 duration-200" 
       onClick={props.click}
     // {...props}
     >
