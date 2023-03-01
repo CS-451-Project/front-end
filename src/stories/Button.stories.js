@@ -6,7 +6,7 @@ import '../App.css';
 export default {
   title: 'Ex/Button',
   component: Button,
-  argTypes: { click: { action: alert('Button clicked!') } },
+  // argTypes: { click: { action: alert('Button clicked!') } },
 };
 
 const Template = (args) => <Button {...args} />;
