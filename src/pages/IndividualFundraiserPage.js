@@ -45,7 +45,7 @@ const IndividualFundraiserPage = () => {
         }
       
         return (
-          <div className='h-6' style={containerStyles}>
+          <div className='h-3' style={containerStyles}>
             <div className='bg-yellow-500' style={fillerStyles}>
               <span className="px-4" style={labelStyles}></span>
             </div>
@@ -146,7 +146,7 @@ const IndividualFundraiserPage = () => {
     return (
         <div id="mainContainer" className='flex-column justify-center pt-4'>
             <div id="flexContainer" className='flex justify-center pt-4 w-full'>
-                <div id="fundraiserContainer" className='flex justify-center pt-4 px-56 pr-96 w-full'>
+                <div id="fundraiserContainer" className='flex justify-center pt-4 pl-72 pr-128 w-full'>
                     <Fundraiser 
                         title={fundraiser.title}
                         description={fundraiser.description}
@@ -155,7 +155,7 @@ const IndividualFundraiserPage = () => {
                         tags = {tags}
                         />
                 </div>
-                <div id="donationContainer" className='fixed pt-24 right-16 justify-center'>
+                <div id="donationContainer" className='fixed pt-24 right-32 justify-center'>
                     <DonateArea
                         currentBalance = {fundraiser.currentBalanceAmount}
                         goalAmount = {fundraiser.goalTargetAmount}
