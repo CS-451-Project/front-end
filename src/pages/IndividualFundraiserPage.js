@@ -46,8 +46,8 @@ const IndividualFundraiserPage = () => {
       
         return (
           <div className='h-6' style={containerStyles}>
-            <div className='bg-green-700' style={fillerStyles}>
-              <span className="px-4" style={labelStyles}>{`${completed}%`}</span>
+            <div className='bg-yellow-500' style={fillerStyles}>
+              <span className="px-4" style={labelStyles}></span>
             </div>
           </div>
         );
@@ -108,7 +108,7 @@ const IndividualFundraiserPage = () => {
                 <div className="flex text-lg">About:</div>
                 <div className='flex pt-4'>{ description }</div>
                 <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-                <div className='flex pt-4 pb-36'>Organizer Information: </div>
+                <div className='flex text-lg pt-4 pb-36'>Organizer Information: </div>
             </div>
         )}
 
@@ -119,17 +119,27 @@ const IndividualFundraiserPage = () => {
             goalAmount
         }) => {
             return (
-            <div className='flex-row p-6 w-full border-solid border-2 border-green-800 rounded-lg'>
-                <div className='flex pt-4 w-full'>
-                    <ProgressBar className='flex w-full' bgcolor="#6a1b9a" completed={Math.trunc((currentBalance / goalAmount) * 100)} />
+            <div className='flex-row bg-green-500 p-6 w-full rounded-lg'>
+                <div className='flex w-full pb-4'>
+                    <ProgressBar className='flex w-full' bgcolor="#6a1b9a"
+                    completed=
+                    {
+                        Math.trunc((currentBalance / goalAmount) * 100) > 10 ? Math.trunc((currentBalance / goalAmount) * 100) : 0
+                    }
+                    />
                 </div>
-                <div className='flex pt-4 pb-4 w-full'>{ currencyFormatter.format(currentBalance) } raised out of { currencyFormatter.format(goalAmount) }</div>
-                <button 
-                    className="text-xl text-black p-3 font-bold 
-                    rounded-lg bg-yellow-400 hover:bg-yellow-500 duration-200"
-                    >
-                    Make a Donation
-                </button>
+                <div className='flex-row inline'>
+                    <div className='flex-row inline text-lg font-bold pt-4 pb-4 w-full'>{ currencyFormatter.format(currentBalance) }</div>
+                    <div className='flex-row pl-1 text-sm italic inline'> raised out of { currencyFormatter.format(goalAmount) }</div>
+                </div>
+                <div className='flex pt-4'>
+                    <button 
+                        className="flex text-xl text-black p-3 font-bold 
+                        rounded-lg bg-yellow-400 hover:bg-yellow-500 duration-200"
+                        >
+                        Make a Donation
+                    </button>
+                </div>
             </div>
         )}
 

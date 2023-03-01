@@ -15,7 +15,7 @@ const NavBar = () => {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
-                            <h2 className="text-2xl font-bold text-black">Grassroots Giving</h2>
+                            <h2 className="text-2xl font-bold text-black">Demo</h2>
                         </a>
                         {/* Small screen menu/close buttons */}
                         {/* This will be hidden on screens at least `md` in size. */}
