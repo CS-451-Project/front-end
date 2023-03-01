@@ -9,10 +9,12 @@ const HomePageFeatFundraiser = (props) => {
                     Today's Featured Fundraiser
                 </div>
                 <div className='border h-fit'>
+                    {/* The data that was passed in from props is mapped and each element is indexed in this mapping */}
                     {props.data.map((fundraiser, index)=>{  
+                        // In the future we can have the featured fundraiser be based on most donated to or something
                         if(index == 5){
-                            // <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
                                 return(
+                                    // This gives the display a link to the indiviudal fundraiser page
                                     <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
                                         <div className='flex justify-center flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
                                             
@@ -28,10 +30,7 @@ const HomePageFeatFundraiser = (props) => {
                                         </div>
                                     </Link>
                                 );
-                            
-                            
-                        } 
-                        
+                        }     
                     })} 
                 </div>
     </div>

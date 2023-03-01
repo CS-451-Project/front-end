@@ -59,7 +59,7 @@ const data = [
 ]
 
 export default {
-    title: 'HomePage/Home Page Fundraiser Carousel',
+    title: 'HomePage/Fundraiser Carousel',
     component: HomePageFundraiserCarousel,
     parameters: {
     reactRouter: {
@@ -69,6 +69,8 @@ export default {
 };
 
 const Template = () => (
+    // Router was needed here because the component uses the Link component from react-router-dom
+    // So the component needed to have a router simulated in the storybook
     <Router>
         <HomePageFundraiserCarousel data = {data}/>
     </Router>

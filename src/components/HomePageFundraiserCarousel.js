@@ -6,6 +6,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const FundraiserCarousel = (props) => {
+    // This is for the display of the carousel
+    // responsive is an object that contains the breakpoints for the carousel and the number of items to display
     const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -25,11 +27,17 @@ const FundraiserCarousel = (props) => {
     };
 
   return (
+    // The map i surronded by the carousel component to display the fundraisers
         <Carousel responsive={responsive}>
+            {/* THe props passed in is mapped */}
             {props.data.map((fundraiser)=>{   
                 return(
+                    // 
                     <div className='flex justify-center p-8' key={fundraiser.fundraiserId}>
+                        {/* The link makes the display clickable and navigates to individual fundraiser*/}
                         <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
+                        {/* The FundraiserDisplaySection component is used to display the fundraiser */}
+                        {/* The props passed in is the object properties */}
                             <FundraiserDisplaySection
                             id = {fundraiser.fundraiserId }
                             title = {fundraiser.title}
@@ -42,7 +50,6 @@ const FundraiserCarousel = (props) => {
 
                         />
                         </Link>
-                        
                     </div>
                 );
             })} 

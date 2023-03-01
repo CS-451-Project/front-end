@@ -85,8 +85,11 @@ const data = [
 ]
 
 export default {
-    title: 'HomePage/Home Page Featured Fundraiser',
+    // This is the name of the component that will be displayed in the storybook
+    title: 'HomePage/Featured Fundraiser',
+    // This is the component that will be displayed in the storybook
     component: HomePageFeatFundraiser,
+    // This is the parameters that will be passed to the component
     parameters: {
     reactRouter: {
       routePath: '/',
@@ -95,6 +98,8 @@ export default {
 };
 
 const Template = () => (
+    // Router was needed here because the component uses the Link component from react-router-dom
+    // So the component needed to have a router simulated in the storybook
     <Router>
         <HomePageFeatFundraiser data = {data}/>
     </Router>

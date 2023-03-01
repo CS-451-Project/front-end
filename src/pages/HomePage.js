@@ -84,6 +84,7 @@ const HomePage = () => {
             
             {/* FEATURED FUNDRAISER */}
             <div className='pt-16 px-8'>
+                {/* THe list of objects from the post request is being set as the props */}
                 <HomePageFeatFundraiser data={data}/>
             </div>
             {/* CARROUSSEL FUNDRAISER SLIDES */}
