@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {  useParams } from "react-router-dom";
-import logo from '../imgs/Fundraising-Tree.jpg'
+import placeholderImage from '../imgs/Fundraising-Tree.jpg'
 
 const IndividualFundraiserPage = () => {
     // const [fundraiserRequestOptions, setFundraiserRequestOptions] = useState({});
@@ -11,7 +11,7 @@ const IndividualFundraiserPage = () => {
     // Set the request url
     const url = "https://localhost:7000/api/fundraiser/".concat(fundraiserId);
 
-    // Create our number formatter.
+    // Number formatter function for cuirrency
     const currencyFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -21,7 +21,7 @@ const IndividualFundraiserPage = () => {
         maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
     });
 
-    // Progress bar
+    // Progress bar component
     const ProgressBar = (props) => {
         const { completed } = props;
       
@@ -92,7 +92,7 @@ const IndividualFundraiserPage = () => {
             <div className='flex-row justify-left text-left pt-4 w-full'>
                 <div className='flex font-bold text-4xl'>{title}</div>
                 <div>
-                    <img src={logo} className="object-contain pt-12" alt="Logo" />
+                    <img src={placeholderImage} className="object-contain pt-12" alt="Logo" />
                 </div>
                 <div className='flex text-sm italic pt-12'>Created On: { createdDate?.split("T")[0] }</div>
                 <div className='flex text-sm italic'>Ends On:  { plannedEndDate?.split("T")[0] }</div>
@@ -143,6 +143,7 @@ const IndividualFundraiserPage = () => {
             </div>
         )}
 
+    // The main program area
     return (
         <div id="mainContainer" className='flex-column justify-center pt-4'>
             <div id="flexContainer" className='flex justify-center pt-4 w-full'>
