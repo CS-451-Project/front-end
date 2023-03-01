@@ -11,19 +11,22 @@ const HomePageFeatFundraiser = (props) => {
                 <div className='border h-fit'>
                     {props.data.map((fundraiser, index)=>{  
                         if(index == 5){
-                            return(
-                                <div className='flex justify-center flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
-                                    <img src={placeHolderFundraiser} alt="Logo" />
-                                    <div className='p-4 overflow-auto'>
-                                        <h1 className='text-3xl pb-1'>
-                                            {fundraiser.title}
-                                        </h1>
-                                        <p className=''>
-                                            {fundraiser.description}
-                                        </p>
+                            <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
+                                return(
+                                    <div className='flex justify-center flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
+                                        <img src={placeHolderFundraiser} alt="Logo" />
+                                        <div className='p-4 overflow-auto'>
+                                            <h1 className='text-3xl pb-1'>
+                                                {fundraiser.title}
+                                            </h1>
+                                            <p className=''>
+                                                {fundraiser.description}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            );
+                                );
+                            </Link>
+                            
                         } 
                         
                     })} 
