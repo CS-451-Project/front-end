@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import placeHolderFundraiser from '../imgs/placeHolderFundraiserPic.jpg';
 
 const HomePageFeatFundraiser = (props) => {
