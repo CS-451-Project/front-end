@@ -63,9 +63,9 @@ export default {
     component: HomePageFundraiserCarousel,
     parameters: {
     reactRouter: {
-      routePath: '/',
+        routePath: '/',
+        }
     }
-  }
 };
 
 const Template = () => (

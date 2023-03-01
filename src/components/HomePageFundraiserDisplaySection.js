@@ -16,7 +16,6 @@ const FundraiserDisplaySection = (props) => {
             </p>
 
             {/* {props.goalTargetAmount} */}
-            
             {/* {props.createdDate} */}
             {/* {props.goalReachedDate} */}
             {/* {props.plannedEndDate} */}
