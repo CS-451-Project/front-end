@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         Header: ["Source Serif Pro"],
+        HomePageHeading: ["Golos+Text"],
       },
       backgroundImage: {
         homePagePic:
@@ -14,7 +15,7 @@ module.exports = {
           "url('./imgs/placeHolderFundraiserPic.jpg')",
       },
       height: {
-        100: '30rem',
+        100: '36rem',
       },
     },
   },

@@ -4,7 +4,7 @@ import placeHolderFundraiser from '../imgs/placeHolderFundraiserPic.jpg';
 
 const FundraiserDisplaySection = (props) => {
   return (
-    <div className='w-96 h-fit bg-white truncate'>
+    <div className='w-96 h-fit bg-green-600 truncate text-white'>
         <img src={placeHolderFundraiser} alt="Logo" />
         <div className='p-4'>
             <h1 className='text-2xl mb-4 truncate'>
@@ -14,12 +14,12 @@ const FundraiserDisplaySection = (props) => {
             <p className='truncate '>
                 {props.description}
             </p>
-            {props.goalTargetAmount}
+
+            {/* {props.goalTargetAmount} */}
             
-            {/* {props.description} */}
-            {props.createdDate}
-            {props.goalReachedDate}
-            {props.plannedEndDate}
+            {/* {props.createdDate} */}
+            {/* {props.goalReachedDate} */}
+            {/* {props.plannedEndDate} */}
             {/* {props.tags} */}
             {/* {props.tags.map((fundraiser)=>{   
                 return(
