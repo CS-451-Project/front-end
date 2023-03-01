@@ -1,5 +1,5 @@
 import React from "react";
-import HomePageFundraiserCarousel from "../components/HomePageFundraiserCarousel";
+import HomePageFeatFundraiser from "../components/HomePageFeatFundraiser";
 import '../App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -55,12 +55,38 @@ const data = [
             "tag1",
             "tag2"
         ]
+    },
+    {
+        "fundraiserId": "5",
+        "title": "Fundraiser 5",
+        "goalTargetAmount": 1000,
+        "description": "This is a fundraiser for a good cause",
+        "createdDate": "2021-01-01",
+        "goalReachedDate": "2021-01-01",
+        "plannedEndDate": "2021-01-01",
+        "tags": [
+            "tag1",
+            "tag2"
+        ]
+    },
+    {
+        "fundraiserId": "6",
+        "title": "Fundraiser 6",
+        "goalTargetAmount": 1000,
+        "description": "This is a fundraiser for a good cause",
+        "createdDate": "2021-01-01",
+        "goalReachedDate": "2021-01-01",
+        "plannedEndDate": "2021-01-01",
+        "tags": [
+            "tag1",
+            "tag2"
+        ]
     }
 ]
 
 export default {
-    title: 'HomePage/Home Page Fundraiser Carousel',
-    component: HomePageFundraiserCarousel,
+    title: 'HomePage/Home Page Featured Fundraiser',
+    component: HomePageFeatFundraiser,
     parameters: {
     reactRouter: {
       routePath: '/',
@@ -70,7 +96,7 @@ export default {
 
 const Template = () => (
     <Router>
-        <HomePageFundraiserCarousel data = {data}/>
+        <HomePageFeatFundraiser data = {data}/>
     </Router>
 );
 
