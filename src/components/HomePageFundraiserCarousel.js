@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import FundraiserDisplaySection from './HomePageFundraiserDisplaySection';
-import Button from './Button';
 import { format } from 'date-fns'
+import { Link } from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -29,7 +29,8 @@ const FundraiserCarousel = (props) => {
             {props.data.map((fundraiser)=>{   
                 return(
                     <div className='flex justify-center p-8' key={fundraiser.fundraiserId}>
-                        <FundraiserDisplaySection
+                        <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
+                            <FundraiserDisplaySection
                             id = {fundraiser.fundraiserId }
                             title = {fundraiser.title}
                             goalTargetAmount = {fundraiser.goalTargetAmount}
@@ -40,6 +41,8 @@ const FundraiserCarousel = (props) => {
                             tags = {fundraiser.tags}
 
                         />
+                        </Link>
+                        
                     </div>
                 );
             })} 
