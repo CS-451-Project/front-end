@@ -27,7 +27,7 @@ const FundraiserCarousel = (props) => {
     };
 
   return (
-    // The map i surronded by the carousel component to display the fundraisers
+    // The map surronded by the carousel component to display the fundraisers
         <Carousel responsive={responsive}>
             {/* THe props passed in is mapped */}
             {props.data.map((fundraiser)=>{   
@@ -35,20 +35,21 @@ const FundraiserCarousel = (props) => {
                     // 
                     <div className='flex justify-center p-8' key={fundraiser.fundraiserId}>
                         {/* The link makes the display clickable and navigates to individual fundraiser*/}
-                        <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
+                        <Link to={`/fundraiser/${fundraiser.fundraiserId}`} data-testid='link-to-fundraiser'>
                         {/* The FundraiserDisplaySection component is used to display the fundraiser */}
                         {/* The props passed in is the object properties */}
-                            <FundraiserDisplaySection
-                            id = {fundraiser.fundraiserId }
-                            title = {fundraiser.title}
-                            goalTargetAmount = {fundraiser.goalTargetAmount}
-                            description = {fundraiser.description}
-                            createdDate = {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
-                            goalReachedDate = {format(new Date(fundraiser.goalReachedDate), 'MM/dd/yyyy')}
-                            plannedEndDate = {format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy')}
-                            tags = {fundraiser.tags}
-
-                        />
+                            <div data-testid="fundraiser-section-id">
+                                <FundraiserDisplaySection
+                                id = {fundraiser.fundraiserId }
+                                title = {fundraiser.title}
+                                goalTargetAmount = {fundraiser.goalTargetAmount}
+                                description = {fundraiser.description}
+                                createdDate = {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
+                                goalReachedDate = {format(new Date(fundraiser.goalReachedDate), 'MM/dd/yyyy')}
+                                plannedEndDate = {format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy')}
+                                tags = {fundraiser.tags}
+                                />
+                            </div>
                         </Link>
                     </div>
                 );

@@ -51,7 +51,7 @@ const HomePage = () => {
                         Make a difference in someone's life
                     </h1>
                 </div>
-                <div className='flex justify-center pt-16'>
+                <div className='flex justify-center pt-16' data-testid="button-test-id">
                     <Button title="Create Fundraiser" />
                 </div>
             </div>
@@ -83,12 +83,12 @@ const HomePage = () => {
             </div>
             
             {/* FEATURED FUNDRAISER */}
-            <div className='pt-16 px-8'>
+            <div className='pt-16 px-8' data-testid="feat-fundraiser-test-id">
                 {/* THe list of objects from the post request is being set as the props */}
                 <HomePageFeatFundraiser data={data}/>
             </div>
             {/* CARROUSSEL FUNDRAISER SLIDES */}
-            <div className='pt-16'>
+            <div className='pt-16' data-testid="carousel-test-id">
                 <div className='pl-8 text-5xl font-HomePageHeading font-semibold'>
                     General Fundraisers
                 </div>

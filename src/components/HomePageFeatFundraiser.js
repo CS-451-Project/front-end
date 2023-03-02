@@ -16,8 +16,7 @@ const HomePageFeatFundraiser = (props) => {
                                 return(
                                     // This gives the display a link to the indiviudal fundraiser page
                                     <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
-                                        <div className='flex justify-center flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
-                                            
+                                        <div className='flex flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
                                             <img src={placeHolderFundraiser} alt="Logo" />
                                             <div className='p-4 overflow-auto'>
                                                 <h1 className='text-3xl pb-1'>
