@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-// import closeIcon from '../imgs/closeIcon.png'
-// import menuIcon from '../imgs/menuIcon.jpg'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 
 const NavBar = () => {
