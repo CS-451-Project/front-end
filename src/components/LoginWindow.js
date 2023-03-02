@@ -1,11 +1,37 @@
 import React, { useState } from 'react'
+import UseFetch from './UseFetch';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 // import PasswordChecklist from "react-password-checklist"
 
 const LoginWindow = () => {
+
+    const navigate = useNavigate();
+
     // use state to store the username, password and passwordError and set the initial value to an empty string
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    // const [requestOptions, setRequestOptions] = useState({});
+
+    // const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
+
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await fetch(url, options);
+    //     if(response.status === 404){
+    //       throw new Error("404 Not Found");
+    //     }
+    //     const data = await response.json();
+    //     setData(data);
+    //     console.log(data)
+    //     setLoading(false);
+    //   } catch (error) {
+    //     setError(error);
+    //     setLoading(false);
+    //   }
+    // };
 
     // function to handle the submit button
     const handleSubmit = (e) => {
@@ -21,14 +47,34 @@ const LoginWindow = () => {
         );
         return;
         }
+        
+        let user = {username, password};
+        console.log(user);
+        // setRequestOptions({ method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(employee) });
         // If validation passes, clear error message.
-        console.log(`Username: ${username}`);
-        console.log(`Password: ${password}`);
+
+
+        // console.log(`Username: ${username}`);
+        // console.log(`Password: ${password}`);
+
+        toast('Logged In', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
+        navigate(`/`);
         // Perform authentication here.
+
     };
 
   return (
-    <div >
+    <div>
         <div className='border bg-gray-100 p-4 '>
             <div className='flex justify-center pb-4'>
                 <h1 className='font-bold text-2xl'>
@@ -78,11 +124,8 @@ const LoginWindow = () => {
                             className='p-4 border bg-green-400 hover:bg-green-600 duration-200' 
                         />
                     </div>
-                    
                 </form>
-
             </div>
-            
         </div>
     </div>
   )
