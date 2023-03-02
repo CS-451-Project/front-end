@@ -14,15 +14,6 @@ const HomePage = () => {
     const [data, setData] = useState([]);
     const [tags, setTags] = useState([]);
 
-    // const [requestOptions, setRequestOptions] = useState({ method: "POST ", headers: {"Content-Type": "application/json"}, body: JSON.stringify({})});
-    // const { data, loading, error } = UseFetch("https://localhost:7000/api/fundraiser", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({})
-    //     });
-
     useEffect(() => {
     fetch(`https://localhost:7000/api/fundraiser`, {
         method: 'POST',

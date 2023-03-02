@@ -13,9 +13,9 @@ const LoginWindow = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [requestOptions, setRequestOptions] = useState({});
+    // const [requestOptions, setRequestOptions] = useState({});
 
-    const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
+    // const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
 
     // const fetchData = async () => {
     //   try {

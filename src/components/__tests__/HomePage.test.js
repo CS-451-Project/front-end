@@ -5,7 +5,6 @@ import HomePageFundraiserCarousel from '../../components/HomePageFundraiserCarou
 import HomePageFundraiserDisplaySection from '../../components/HomePageFundraiserDisplaySection';
 import HomePageFeatFundraiser from '../HomePageFeatFundraiser';
 
-
 const testData = [
     {
         "fundraiserId": "1",
