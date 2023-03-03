@@ -1,4 +1,4 @@
-name: build
+name: test
 
 # Controls when the action will run.
 on:
@@ -26,11 +26,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: build
+      - name: build and test
         run: |
           npm ci
           npm run build --if-present
           npm run build-storybook
-          npm run test
+          npm test
         env:
          CI: ""
