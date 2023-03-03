@@ -87,8 +87,6 @@ describe("Home Page", () => {
         const mockFetch = Promise.resolve({json: () => Promise.resolve(fakeResponse)});
         jest.spyOn(global, 'fetch').mockImplementation(() => mockFetch);
     });
-    
-
 });
 
 // This test describes the Carousel Slides inside the homepage
