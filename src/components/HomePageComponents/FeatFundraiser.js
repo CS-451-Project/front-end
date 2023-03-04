@@ -14,20 +14,20 @@ const HomePageFeatFundraiser = (props) => {
                         // In the future we can have the featured fundraiser be based on most donated to or something
                         if(index == 2){
                                 return(
-                                    // This gives the display a link to the indiviudal fundraiser page
-                                    <Link to={`/organizer/${fundraiser.organizerId}/fundraiser/${fundraiser.fundraiserId}`} >
                                         <div className='flex flex-wrap h-fit w-fit bg-green-600 text-white' key={fundraiser.fundraiserId}>
-                                            <img src={placeHolderFundraiser} alt="Logo" className='w-fit'/>
-                                            <div className='w-1/2 p-4 overflow-auto'>
-                                                <h1 className='text-3xl pb-1'>
-                                                    {fundraiser.title}
-                                                </h1>
-                                                <p className=''>
-                                                    {fundraiser.description}
-                                                </p>
-                                            </div>
+                                            {/* This gives the display a link to the indiviudal fundraiser page */}
+                                            <Link to={`/organizer/${fundraiser.organizerId}/fundraiser/${fundraiser.fundraiserId}`} >
+                                                <img src={placeHolderFundraiser} alt="Logo" className='w-fit'/>
+                                                <div className='w-1/2 p-4 overflow-auto'>
+                                                    <h1 className='text-3xl pb-1'>
+                                                        {fundraiser.title}
+                                                    </h1>
+                                                    <p className=''>
+                                                        {fundraiser.description}
+                                                    </p>
+                                                </div>
+                                            </Link>        
                                         </div>
-                                    </Link>
                                 );
                         }     
                     })} 

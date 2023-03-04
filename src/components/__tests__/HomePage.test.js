@@ -100,12 +100,7 @@ describe("Featured fundraiser", () => {
     // data-testid='link-to-fundraiser'
     test('render the featured fundraiser', () => {
         // This test checks if the carousel is rendered
-        const { queryAllByTestId } = render(
-            <Router>
-                <FeatFundraiser data = {testData}/>
-            </Router>
-        
-        );
+        const { queryAllByTestId } = render(<Router><FeatFundraiser data = {testData}/></Router>);
         // This assertion if there is the link component with the test id 'link-to-fundraiser'
         expect(queryAllByTestId('link-to-fundraiser')).toBeTruthy();
     });
