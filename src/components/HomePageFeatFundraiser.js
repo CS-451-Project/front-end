@@ -12,10 +12,10 @@ const HomePageFeatFundraiser = (props) => {
                     {/* The data that was passed in from props is mapped and each element is indexed in this mapping */}
                     {props.data.map((fundraiser, index)=>{  
                         // In the future we can have the featured fundraiser be based on most donated to or something
-                        if(index == 5){
+                        if(index == 2){
                                 return(
                                     // This gives the display a link to the indiviudal fundraiser page
-                                    <Link to={`/fundraiser/${fundraiser.fundraiserId}`} >
+                                    <Link to={`/organizer/${fundraiser.organizerId}/fundraiser/${fundraiser.fundraiserId}`} >
                                         <div className='flex flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
                                             <img src={placeHolderFundraiser} alt="Logo" />
                                             <div className='p-4 overflow-auto'>
