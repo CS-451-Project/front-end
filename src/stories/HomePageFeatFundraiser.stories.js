@@ -1,5 +1,5 @@
 import React from "react";
-import HomePageFeatFundraiser from "../components/HomePageFeatFundraiser";
+import FeatFundraiser from "../components/HomePageComponents/FeatFundraiser";
 import '../App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -88,7 +88,7 @@ export default {
     // This is the name of the component that will be displayed in the storybook
     title: 'HomePage/Featured Fundraiser',
     // This is the component that will be displayed in the storybook
-    component: HomePageFeatFundraiser,
+    component: FeatFundraiser,
     // This is the parameters that will be passed to the component
     parameters: {
     reactRouter: {
@@ -101,7 +101,7 @@ const Template = () => (
     // Router was needed here because the component uses the Link component from react-router-dom
     // So the component needed to have a router simulated in the storybook
     <Router>
-        <HomePageFeatFundraiser data = {data}/>
+        <FeatFundraiser data = {data}/>
     </Router>
 );
 
