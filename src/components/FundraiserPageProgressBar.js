@@ -30,6 +30,6 @@ const ProgressBar = (props) => {
         </div>
       </div>
     );
-  };
+};
 
 export default ProgressBar

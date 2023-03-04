@@ -10,8 +10,8 @@ const FundraiserPage = () => {
     const {userId, fundraiserId} = useParams();
     
     // Set the fundraiser and user api uri's
-    const userUrl = "https://localhost:7000/api/user/".concat(userId);
-    const fundraiserUrl = "https://localhost:7000/api/fundraiser/".concat(fundraiserId);
+    const userUrl = `https://localhost:7000/api/user/${userId}`;
+    const fundraiserUrl = `https://localhost:7000/api/fundraiser/${fundraiserId}`;
 
     // Get the fundraiser
     useEffect(() => {
