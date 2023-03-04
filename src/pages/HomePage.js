@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../components/Button';
-import FundraiserCarousel from '../components/HomePageFundraiserCarousel';
+import FundraiserCarousel from '../components/HomePageComponents/FundraiserCarousel';
 import StepsPic from '../imgs/StepsPic.jpg';
-import HomePageFeatFundraiser from '../components/HomePageFeatFundraiser';
+import HomePageFeatFundraiser from '../components/HomePageComponents/FeatFundraiser';
 
 const HomePage = () => {
     const [obj, setObj] = useState({

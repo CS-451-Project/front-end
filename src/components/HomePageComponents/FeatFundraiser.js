@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import placeHolderFundraiser from '../imgs/placeHolderFundraiserPic.jpg';
+import placeHolderFundraiser from '../../imgs/placeHolderFundraiserPic.jpg';
 
 const HomePageFeatFundraiser = (props) => {
   return (
@@ -16,9 +16,9 @@ const HomePageFeatFundraiser = (props) => {
                                 return(
                                     // This gives the display a link to the indiviudal fundraiser page
                                     <Link to={`/organizer/${fundraiser.organizerId}/fundraiser/${fundraiser.fundraiserId}`} >
-                                        <div className='flex flex-row h-96 w-full bg-green-600 text-white' key={fundraiser.fundraiserId}>
-                                            <img src={placeHolderFundraiser} alt="Logo" />
-                                            <div className='p-4 overflow-auto'>
+                                        <div className='flex flex-wrap h-fit w-fit bg-green-600 text-white' key={fundraiser.fundraiserId}>
+                                            <img src={placeHolderFundraiser} alt="Logo" className='w-fit'/>
+                                            <div className='w-1/2 p-4 overflow-auto'>
                                                 <h1 className='text-3xl pb-1'>
                                                     {fundraiser.title}
                                                 </h1>

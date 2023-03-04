@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {  useParams } from "react-router-dom";
-import DonateArea from '../components/FundraiserPageDonateArea';
-import Fundraiser from '../components/FundraiserPageFundraiser';
+import DonateArea from '../components/FundraiserPageComponents/DonateArea';
+import Fundraiser from '../components/FundraiserPageComponents/Fundraiser';
 
 const FundraiserPage = () => {
     const [fundraiser, setFundraiser] = useState([]);

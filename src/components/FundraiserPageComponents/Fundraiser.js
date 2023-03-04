@@ -1,6 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns'
-import placeholderImage from '../imgs/placeHolderFundraiserPic.jpg'
+import placeholderImage from '../../imgs/placeHolderFundraiserPic.jpg'
 
 // Fundraiser Component
 const Fundraiser = (props) => {

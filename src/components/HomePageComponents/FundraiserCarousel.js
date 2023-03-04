@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FundraiserDisplaySection from './HomePageFundraiserDisplaySection';
+import FundraiserDisplaySection from './FundraiserDisplaySection';
 import { format } from 'date-fns'
 import { Link } from 'react-router-dom';
 import Carousel from "react-multi-carousel";
