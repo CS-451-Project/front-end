@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import UseFetch from '../components/UseFetch';
 import Button from '../components/Button';
 import FundraiserCarousel from '../components/HomePageFundraiserCarousel';
 import StepsPic from '../imgs/StepsPic.jpg';
-import placeHolderFundraiser from '../imgs/placeHolderFundraiserPic.jpg';
 import HomePageFeatFundraiser from '../components/HomePageFeatFundraiser';
 
 const HomePage = () => {

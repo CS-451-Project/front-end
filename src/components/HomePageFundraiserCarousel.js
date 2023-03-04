@@ -35,7 +35,7 @@ const FundraiserCarousel = (props) => {
                     // 
                     <div className='flex justify-center p-8' key={fundraiser.fundraiserId}>
                         {/* The link makes the display clickable and navigates to individual fundraiser*/}
-                        <Link to={`/fundraiser/${fundraiser.fundraiserId}`} data-testid='link-to-fundraiser'>
+                        <Link to={`/organizer/${fundraiser.organizerId}/fundraiser/${fundraiser.fundraiserId}`} data-testid='link-to-fundraiser'>
                         {/* The FundraiserDisplaySection component is used to display the fundraiser */}
                         {/* The props passed in is the object properties */}
                             <div data-testid="fundraiser-section-id">

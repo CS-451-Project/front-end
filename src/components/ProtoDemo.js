@@ -24,7 +24,7 @@ const ProtoDemo = () => {
         {error} */}
         <Button title="GET Data" click={handleClick}/>
     </div>
-  )
-}
+  );
+};
 
 export default ProtoDemo;
