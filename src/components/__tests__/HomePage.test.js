@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { format } from 'date-fns'
 import HomePage from '../../pages/HomePage';
-import HomePageFundraiserCarousel from '../../components/HomePageFundraiserCarousel';
-import HomePageFundraiserDisplaySection from '../../components/HomePageFundraiserDisplaySection';
-import HomePageFeatFundraiser from '../HomePageFeatFundraiser';
+import FundraiserCarousel from '../HomePageComponents/FundraiserCarousel';
+import FundraiserDisplaySection from '../HomePageComponents/FundraiserDisplaySection';
+import FeatFundraiser from '../HomePageComponents/FeatFundraiser';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const testData = [
     {
@@ -63,7 +64,12 @@ const testData = [
 
 // This test describes the Home Page
 describe("Home Page", () => {
-    render(<HomePage/>);
+    render(
+        <Router>
+            <HomePage/>
+        </Router>
+    
+    );
     // Using test.only will only run this test
     // using test.skip will skip this test
 
@@ -94,7 +100,7 @@ describe("Featured fundraiser", () => {
     // data-testid='link-to-fundraiser'
     test('render the featured fundraiser', () => {
         // This test checks if the carousel is rendered
-        const { queryAllByTestId } = render(<HomePageFeatFundraiser data = {testData}/>);
+        const { queryAllByTestId } = render(<Router><FeatFundraiser data = {testData}/></Router>);
         // This assertion if there is the link component with the test id 'link-to-fundraiser'
         expect(queryAllByTestId('link-to-fundraiser')).toBeTruthy();
     });
@@ -104,7 +110,7 @@ describe("Featured fundraiser", () => {
 describe("Carousel Slides and the display section", () => {
     test('render the carousel', () => {
         // This test checks if the carousel is rendered
-        const { queryAllByTestId } = render(<HomePageFundraiserCarousel data = {testData}/>);
+        const { queryAllByTestId } = render(<FundraiserCarousel data = {testData}/>);
         // This assertion if there is the link component with the test id 'link-to-fundraiser'
         expect(queryAllByTestId('link-to-fundraiser')).toBeTruthy();
         // This assertion checks if there is a child compoenent of displaying the fundraiser information
@@ -113,7 +119,7 @@ describe("Carousel Slides and the display section", () => {
     });
 
     test('render display section', () => {
-        render(<HomePageFundraiserDisplaySection 
+        render(<FundraiserDisplaySection 
             id = {1}
             title = {"Mock Fundraiser"}
             goalTargetAmount = {1000}

@@ -1,13 +1,13 @@
 import React from "react";
-import HomePageFundraiserDisplaySection from "../components/HomePageFundraiserDisplaySection";
+import FundraiserDisplaySection from "../components/HomePageComponents/FundraiserDisplaySection";
 import '../App.css';
 
 export default {
     title: "HomePage/Fundraiser Display Section",
-    component: HomePageFundraiserDisplaySection,
+    component: FundraiserDisplaySection,
 };
 
-const Template = (args) => <HomePageFundraiserDisplaySection {...args} />;
+const Template = (args) => <FundraiserDisplaySection {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

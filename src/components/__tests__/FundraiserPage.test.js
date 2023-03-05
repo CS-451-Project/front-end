@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import Fundraiser from '../FundraiserPageFundraiser';
+import Fundraiser from '../FundraiserPageComponents/Fundraiser';
 import FundraiserPage from '../../pages/FundraiserPage';
-import DonateArea from '../FundraiserPageDonateArea';
+import DonateArea from '../FundraiserPageComponents/DonateArea';
 
 describe("Fundraiser Page", () => {
     render(<FundraiserPage />);

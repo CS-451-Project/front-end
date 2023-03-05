@@ -1,5 +1,5 @@
 import React from "react";
-import HomePageFundraiserCarousel from "../components/HomePageFundraiserCarousel";
+import FundraiserCarousel from "../components/HomePageComponents/FundraiserCarousel";
 import '../App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -60,7 +60,7 @@ const data = [
 
 export default {
     title: 'HomePage/Fundraiser Carousel',
-    component: HomePageFundraiserCarousel,
+    component: FundraiserCarousel,
     parameters: {
     reactRouter: {
         routePath: '/',
@@ -72,7 +72,7 @@ const Template = () => (
     // Router was needed here because the component uses the Link component from react-router-dom
     // So the component needed to have a router simulated in the storybook
     <Router>
-        <HomePageFundraiserCarousel data = {data}/>
+        <FundraiserCarousel data = {data}/>
     </Router>
 );
 

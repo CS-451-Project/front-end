@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {  useParams } from "react-router-dom";
-import DonateArea from '../components/FundraiserPageDonateArea';
-import Fundraiser from '../components/FundraiserPageFundraiser';
+import DonateArea from '../components/FundraiserPageComponents/DonateArea';
+import Fundraiser from '../components/FundraiserPageComponents/Fundraiser';
+import { format } from 'date-fns'
 
 const FundraiserPage = () => {
     const [fundraiser, setFundraiser] = useState([]);
@@ -54,8 +55,9 @@ const FundraiserPage = () => {
                     <Fundraiser 
                         title={fundraiser.title}
                         description={fundraiser.description}
-                        createdDate={fundraiser.createdDate} 
-                        plannedEndDate={fundraiser.plannedEndDate}
+                        createdDate={( fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
+                        // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
+                        plannedEndDate={( fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy') : "" }
                         tags = {tags}
                         organizerName={user.firstName + " " + user.lastName}
                         organizerEmail={user.email}

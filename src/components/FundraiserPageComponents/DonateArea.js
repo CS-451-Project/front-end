@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBar from './FundraiserPageProgressBar';
+import ProgressBar from './ProgressBar';
 
 // Number formatter function for currency
 const currencyFormatter = new Intl.NumberFormat('en-US', {

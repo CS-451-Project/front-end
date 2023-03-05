@@ -1,5 +1,5 @@
 import React from 'react'
-import placeHolderFundraiser from '../imgs/placeHolderFundraiserPic.jpg';
+import placeHolderFundraiser from '../../imgs/placeHolderFundraiserPic.jpg';
 
 
 const FundraiserDisplaySection = (props) => {
