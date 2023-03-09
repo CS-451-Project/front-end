@@ -4,13 +4,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
-// import 'flowbite';
-// import {
-//   MDBDropdown,
-//   MDBDropdownMenu,
-//   MDBDropdownToggle,
-//   MDBDropdownItem,
-// } from 'mdb-react-ui-kit';
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -18,6 +11,11 @@ const NavBar = () => {
     // if the navbar is open then it is true else it is false
     const [navbar, setNavbar] = useState(false);
     const [isOpen, setOpen] = useState(false);
+    let userId = "";
+
+    if(localStorage.length === 1){
+        userId = localStorage.getItem("userId");
+    }
 
     const handleClick = () => {
         localStorage.removeItem('userId');
@@ -97,7 +95,7 @@ const NavBar = () => {
                                     <div className={`absolute top-11 -left-32 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
                                         <ul classname="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                             <li>
-                                                <a href="/" className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                                <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                             </li>
                                             <li >
                                                 <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
@@ -135,7 +133,7 @@ const NavBar = () => {
                             <div className={`absolute right-0 -top-2 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
                                 <ul classname=" z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                     <li>
-                                        <a href="/" className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                        <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                     </li>
                                     <li >
                                         <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>

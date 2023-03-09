@@ -68,7 +68,6 @@ describe("Home Page", () => {
         <Router>
             <HomePage/>
         </Router>
-    
     );
     // Using test.only will only run this test
     // using test.skip will skip this test

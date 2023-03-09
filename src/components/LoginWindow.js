@@ -44,7 +44,6 @@ const LoginWindow = () => {
             .then(data => {
                 localStorage.setItem('userId', data);
                 navigate(`/`);
-                // window.location.reload();
                 toast.success('Logged In', {
                     position: "top-right",
                     autoClose: 5000,
@@ -60,13 +59,10 @@ const LoginWindow = () => {
                 console.error('Error:', error);
                 setError(error.message);
             });
-
-        // navigate(`/`);
-
     };
 
   return (
-    <div>
+    <div className='w-1/2'>
         <div className='border bg-gray-100 p-4 '>
             <div className='flex justify-center pb-4'>
                 <h1 className='font-bold text-2xl'>
@@ -78,20 +74,22 @@ const LoginWindow = () => {
             </div>
             <div className=''>
                 {/* // form to handle the username and password */}
-                <form className='flex flex-col' onSubmit={handleSubmit}>
+                <form className='flex flex-col' onSubmit={handleSubmit} name="loginForm">
                     {/* // username input */}
                     {/* //the label tag is used to label the input field */}
-                    <label className='flex flex-col py-4'>
+                    <label className='flex flex-col py-4' htmlFor="email">
                             {/* // the input tag is used to create an input field */}
                             <input 
-                            // the type attribute is used to specify the type of input field
+                                // the type attribute is used to specify the type of input field
                                 type="email"
                                 // id is used to identify the input field
                                 id="email"
                                 // value is used to set the initial value of the input field
                                 value={Email}
+                                name="email"
                                 // placeholder is used to set the placeholder text of the input field
-                                placeholder='Username'
+                                placeholder='Email'
+                                data-testid="add-email-input"
                                 // onChange is used to handle the change event of the input field
                                 // onchange is a arrow function that takes in an event as a parameter
                                 // event.target.value is used to get the value of the input field
@@ -100,29 +98,41 @@ const LoginWindow = () => {
                                 required
                                 />
                     </label>
-                    <label className='flex flex-col py-4'>
+                    <label className='flex flex-col py-4' htmlFor="password">
                             <input 
                                 type="password"
                                 id="password"
                                 value={Password}
                                 placeholder='Password'
+                                data-testid="add-password-input"
                                 onChange={(event) => setPassword(event.target.value)}
                                 className='bordermin-w-36 p-2'
                                 required
                             />
                     </label >
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center pb-8'>
                         {/* // the submit button */}
                         <input 
                             // the type attribute is used to specify the type of input field
                             type="submit" 
                             // the value attribute is used to set the value of the input field
                             value="Log In" 
-                            className='p-4 border bg-green-400 hover:bg-green-600 duration-200' 
+                            className='p-4 border rounded-md bg-green-500 hover:bg-green-700 duration-200 text-white font-bold' 
                         />
                     </div>
                 </form>
             </div>
+            <div className='flex justify-center '>
+                <div className='flex flex-col'>
+                    <h1>Don't have an account?</h1>
+                    <button className='bg-green-400 p-2 border rounded-md w-full hover:bg-green-300 duration-200'>Create Account</button>
+                </div>
+            </div>
+            <div className='pt-8'>
+                <a href="/" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">Forgot Password?</a>
+            </div>
+            
+            
         </div>
     </div>
   )
