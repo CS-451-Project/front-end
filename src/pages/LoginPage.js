@@ -6,7 +6,7 @@ import LoginWindow from '../components/LoginWindow';
 const LoginPage = () => {
 
   return (
-    <div  className='flex justify-center'>
+    <div  className='flex justify-center pt-16' data-testid="window-id">
         <LoginWindow />
     </div>
   )

@@ -1,10 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { CgProfile } from 'react-icons/cg'
 
 const NavBar = () => {
+    const navigate = useNavigate();
     // state that holds the navbar status
     // if the navbar is open then it is true else it is false
-  const [navbar, setNavbar] = useState(false);
+    const [navbar, setNavbar] = useState(false);
+    const [isOpen, setOpen] = useState(false);
+    let userId = "";
+
+    if(localStorage.length === 1){
+        userId = localStorage.getItem("userId");
+    }
+
+    const handleClick = () => {
+        localStorage.removeItem('userId');
+        navigate('/');
+        toast.success('Logged out successfully!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
   
   return (
           <nav className="w-full bg-gray-100 shadow">
@@ -13,7 +39,7 @@ const NavBar = () => {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
-                            <h2 className="text-2xl font-bold text-black">Fundraiser Demo</h2>
+                            <h2 className="text-2xl font-bold text-black">DEMO</h2>
                         </a>
                         {/* Small screen menu/close buttons */}
                         {/* This will be hidden on screens at least `md` in size. */}
@@ -60,37 +86,78 @@ const NavBar = () => {
                             
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
-                        <div className="mt-3 space-y-2 md:hidden ">
-                          <a
-                              href="/login"
-                              className="inline-block w-full px-4 py-2 text-center text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
-                          >
-                              Log in
-                          </a>
-                          <a
-                              href="/signup"
-                              className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100 duration-200"
-                          >
-                              Sign up
-                          </a>
-                      </div>
+                        {localStorage.length === 1 ? (
+                            <div className="mt-3 space-y-2 md:hidden flex justify-center ">
+                                <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
+                                    <CgProfile  size={40} />
+                                </button>
+                                <div className='relative'>
+                                    <div className={`absolute top-11 -left-32 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
+                                        <ul classname="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                                            <li>
+                                                <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                            </li>
+                                            <li >
+                                                <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="mt-3 space-y-2 md:hidden ">
+                                <a
+                                    href="/login"
+                                    className="inline-block w-full px-4 py-2 text-center text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
+                                >
+                                    Log in
+                                </a>
+                                <a
+                                    href="/signup"
+                                    className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100 duration-200"
+                                >
+                                    Sign up
+                                </a>
+                            </div>
+                        )}
                     </div>
                 </div>
-                {/* Login and signup buttons  for large screens*/}
-                <div className="hidden space-x-2 md:inline-block">
-                    <a
-                        href="/login"
-                        className="px-4 py-2 text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
-                    >
-                        Log in
-                    </a>
-                    <a
-                        href="/signup"
-                        className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100 duration-200"
-                    >
-                        Sign up
-                    </a>
-                </div>
+                {/* Login and signup buttons for large screens*/}
+                {localStorage.length === 1 ? (
+                    // Should show profile pic with options to go to dashboard and logout
+                    <div className="hidden space-x-2 md:inline-block">
+                        <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
+                            <CgProfile  size={40} />
+                        </button>
+                        <div className='relative'>
+                            <div className={`absolute right-0 -top-2 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
+                                <ul classname=" z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                                    <li>
+                                        <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                    </li>
+                                    <li >
+                                        <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="hidden space-x-2 md:inline-block">
+                        <a
+                            href="/login"
+                            className="px-4 py-2 text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
+                        >
+                            Log in
+                        </a>
+                        <a
+                            href="/signup"
+                            className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100 duration-200"
+                        >
+                            Sign up
+                        </a>
+                    </div>
+                )}
             </div>
         </nav>
   )
