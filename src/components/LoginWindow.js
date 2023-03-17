@@ -3,6 +3,7 @@ import UseFetch from './UseFetch';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 // import PasswordChecklist from "react-password-checklist"
 
 const LoginWindow = () => {
@@ -13,6 +14,7 @@ const LoginWindow = () => {
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [showPassword, setShowPassword] = useState(false);
 
     // function to handle the submit button
     const handleSubmit = (e) => {
@@ -61,9 +63,10 @@ const LoginWindow = () => {
             });
     };
 
+
   return (
-    <div className='w-1/2'>
-        <div className='border bg-gray-100 p-4 '>
+    <div className='relative'>
+        <div className='border bg-gray-100 p-4 w-96'>
             <div className='flex justify-center pb-4'>
                 <h1 className='font-bold text-2xl'>
                     Login
@@ -100,7 +103,7 @@ const LoginWindow = () => {
                     </label>
                     <label className='flex flex-col py-4' htmlFor="password">
                             <input 
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 id="password"
                                 value={Password}
                                 placeholder='Password'
@@ -109,6 +112,10 @@ const LoginWindow = () => {
                                 className='bordermin-w-36 p-2'
                                 required
                             />
+                            <div className='absolute pt-3 right-6'>
+                                {showPassword ? <AiOutlineEye onClick={() => setShowPassword(!showPassword)}/> 
+                                : <AiOutlineEyeInvisible onClick={() => setShowPassword(!showPassword)}/>} 
+                            </div>
                     </label >
                     <div className='flex justify-center pb-8'>
                         {/* // the submit button */}
@@ -125,7 +132,7 @@ const LoginWindow = () => {
             <div className='flex justify-center '>
                 <div className='flex flex-col'>
                     <h1>Don't have an account?</h1>
-                    <button className='bg-green-400 p-2 border rounded-md w-full hover:bg-green-300 duration-200'>Create Account</button>
+                    <button className='bg-green-400 p-2 border rounded-md w-full hover:bg-green-300 duration-200' onClick={() => navigate(`/signup`)}>Create Account</button>
                 </div>
             </div>
             <div className='pt-8'>
