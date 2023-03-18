@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns'
 import placeholderImage from '../../imgs/placeHolderFundraiserPic.jpg'
 
 // Fundraiser Component
@@ -26,7 +25,8 @@ const Fundraiser = (props) => {
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
             <div className='flex text-lg'>Organizer: </div>
             <div className='flex pt-4'>{props.organizerName}</div>
-            <div className='flex pb-36'>{props.organizerEmail}</div>
+            <div className='flex'>{props.organizerEmail}</div>
+            <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
         </div>
     )
 }
