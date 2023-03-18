@@ -32,7 +32,7 @@ const DonationPage = () => {
             createdDate={( fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
             // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
             plannedEndDate={( fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy') : "" }
-            tags = {tags}
+            // tags = {tags}
         />
     </div>
   )
