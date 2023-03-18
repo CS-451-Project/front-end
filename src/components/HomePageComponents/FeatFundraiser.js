@@ -6,7 +6,7 @@ const HomePageFeatFundraiser = (props) => {
   return (
     <div>
         <div className='text-5xl pb-4 font-HomePageHeading font-semibold'>
-                    Today's Featured Fundraiser
+                    Featured Fundraiser
                 </div>
                 <div className='h-fit'>
                     {/* The data that was passed in from props is mapped and each element is indexed in this mapping */}

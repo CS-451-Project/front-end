@@ -8,7 +8,7 @@ const FundraiserDisplaySection = (props) => {
         <img src={placeHolderFundraiser} alt="Logo" />
         <div className='p-4'>
             <h1 className='text-2xl mb-4 truncate'>
-            {props.title}
+              {props.title}
             </h1>
             {/* {props.id} */}
             <p className='truncate '>
@@ -34,4 +34,3 @@ const FundraiserDisplaySection = (props) => {
 }
 
 export default FundraiserDisplaySection;
-
