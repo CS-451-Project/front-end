@@ -6,6 +6,7 @@ module.exports = {
       sans: ["Inter", "sans-serif"],
       Header: ["Source Serif Pro"],
       HomePageHeading: ["Golos+Text"],
+      Approved: ["IBM+Plex+Sans"],
     },
     extend: {
       spacing: {
