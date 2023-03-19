@@ -26,7 +26,7 @@ const Donations = (props) => {
                                 </td>
                                 <td className='pl-4'>
                                     <div className=''>
-                                        Donor's Name
+                                        {donation.name == null ? "Anonymous" : donation.name}
                                     </div>
                                     <div className='inline'>
                                         {currencyFormatter.format(donation.amount)}
@@ -36,7 +36,7 @@ const Donations = (props) => {
                                         {(donation.date != null) ? format(new Date(donation.date), 'MM/dd/yyyy') : "" } 
                                     </div>
                                     <div className=''>
-                                        {donation.message === "" ? "Hope this helps" : donation.message}
+                                        {donation.message}
                                     </div>
                                 </td>
                             </tr>

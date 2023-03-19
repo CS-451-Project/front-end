@@ -31,8 +31,8 @@ const NavBar = () => {
             theme: "light",
         });
     }
-  
-  return (
+
+    return (
           <nav className="w-full bg-gray-100 shadow">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
               {/* Logo and menu button */}
@@ -83,7 +83,6 @@ const NavBar = () => {
                             <li className="text-black hover:text-green-600 duration-200">
                                 <a href="/">Contact US</a>
                             </li>
-                            
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
                         {localStorage.length === 1 ? (
