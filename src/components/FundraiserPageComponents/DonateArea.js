@@ -14,7 +14,9 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
 
 // The donation area component
 const DonateArea = (props) => {
+    
     const navigate = useNavigate();
+    
     const handleDonate = () => {
         navigate('donation');
     }
