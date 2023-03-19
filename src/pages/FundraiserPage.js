@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {  useParams } from "react-router-dom";
 import DonateArea from '../components/FundraiserPageComponents/DonateArea';
 import Fundraiser from '../components/FundraiserPageComponents/Fundraiser';
+import Donations from '../components/FundraiserPageComponents/Donations';
 import { format } from 'date-fns'
 
 const FundraiserPage = () => {
@@ -65,39 +66,6 @@ const FundraiserPage = () => {
 
     }, []);
 
-    // Number formatter function for currency
-    const currencyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        
-        // These options are needed to round to whole numbers if that's what you want.
-        minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-        maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-    });
-
-    const DisplayDonations = (props) => {
-        return (
-            <div className='flex-row pb-32'>
-                <div className='flex text-lg'>Donations: </div>
-                {props.donations.map((donation) => (
-                <div key={donation.donationId}>
-                    <div className="flex-row pt-2">
-                        <div className='flex-row inline pt-4 pb-4 w-full'>
-                            {currencyFormatter.format(donation.amount)}
-                        </div>
-                        <div className='flex-row pl-1 text-sm italic inline'>
-                            {donation.message}
-                        </div>
-                        <div className='flex-row pl-1 text-sm italic inline'>
-                        {(donation.date != null) ? format(new Date(donation.date), 'MM/dd/yyyy') : "" } 
-                        </div>
-                    </div>
-                </div>
-            ))}
-            </div>
-        )
-    }
-
     return (
         // The fundraiser
         <div id="mainContainer" className='flex-column justify-center pt-4'>
@@ -113,7 +81,7 @@ const FundraiserPage = () => {
                         organizerName={user.firstName + " " + user.lastName}
                         organizerEmail={user.email}
                     />
-                    <DisplayDonations 
+                    <Donations 
                         donations = {donations}
                     />
                 </div>
