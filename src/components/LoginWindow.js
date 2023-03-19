@@ -45,6 +45,8 @@ const LoginWindow = () => {
             // body (function)
             .then(data => {
                 localStorage.setItem('userId', data);
+                // const base64 = require(`Basic ${base64.encode(`${user.Email}:${user.Password}`)}`);
+                // localStorage.setItem('AuthHeader', `${user.Email}:${user.Password}`);
                 navigate(`/`);
                 toast.success('Logged In', {
                     position: "top-right",

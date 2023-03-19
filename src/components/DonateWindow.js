@@ -1,23 +1,60 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 
 const DonateWindow = (props) => {
+    var base64 = require('base-64');
+    const {userId, fundraiserId} = useParams();
     const navigate = useNavigate()
     // const [donateValue, setDonateValue] = useState('')
-    const [donationAmount, setDonationAmount] = useState()
-    const [donationMessage, setDonationMessage] = useState('')
+    const [Amount, setAmount] = useState()
+    const [Message, setMessage] = useState('')
     const [cardName, setCardName] = useState('')
     const [cardNumber, setCardNumber] = useState('')
     const [cardExpiry, setCardExpiry] = useState('')
     const [cardCVC, setCardCVC] = useState('')
     const [cardZip, setCardZip] = useState('')
 
-
     const handleSubmit = (e) => {
         // the e.preventDefault() is to prevent the page from refreshing
         e.preventDefault()
-        console.log('submit')
+
+        let donate = { fundraiserId, Amount, Message };
+        console.log(donate)
+
+        if(localStorage.length === 0){
+            fetch(`https://localhost:7000/api/donation`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(donate)
+            })
+            // head
+            .then(response => {
+                console.log(response)
+                navigate(`/approved`)
+            })
+        }
+        else if(localStorage.length > 0){
+            console.log(localStorage.getItem("AuthHeader"))
+            fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/donation`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
+            },
+            body: JSON.stringify(donate)
+            })
+            // head
+            .then(response => {
+                console.log(response)
+                navigate(`/approved`)
+            })
+        }
+
+        
     }
 
     function cc_format_number(value) {
@@ -71,25 +108,25 @@ const DonateWindow = (props) => {
             <div className='flex  p-4 justify-center border-b'>
                 <div className='flex flex-col relative'>
                     <label className='flex justify-center'>
-                        <div className='absolute top-4 left-11 font-bold text-3xl'>$</div>
+                        <div className='absolute top-4 left-3 font-bold text-3xl'>$</div>
                             <input
-                                className='border-2 border-gray-300 p-4  rounded-lg text-right text-3xl w-48' 
+                                className='border-2 border-gray-300 p-4 rounded-lg text-right text-3xl w-48' 
                                 type="number"
+                                step="0.01"
                                 min="1" 
-                                value={donationAmount}
-                                onChange={(e) => setDonationAmount(e.target.value)}
+                                value={Amount}
+                                onChange={(e) => setAmount(e.target.value)}
                                 name='donationAmount' 
                                 placeholder='0.00'
-                                
                                 required
-                            /> 
+                            />
                     </label>
                     <textarea 
-                        className='border-2 border-gray-300 p-2 rounded-lg w-64 h-48 mt-2' 
+                        className='border-2 border-gray-300 p-2 rounded-lg w-full h-48 mt-2' 
                         type="text" 
                         name='donationMessage' 
-                        value={donationMessage}
-                        onChange={(e) => setDonationMessage(e.target.value)}
+                        value={Message}
+                        onChange={(e) => setMessage(e.target.value)}
                         placeholder='Leave a message'
                         required 
                         />
@@ -98,12 +135,12 @@ const DonateWindow = (props) => {
             <div className='text-4xl flex justify-center py-6'>
                 Payment Information
             </div>
-            <div className='px-16'>
+            <div className=''>
                     <label>
                         <div className='text-xl'>Name on Card</div>
                         <input
                             className='border-2 border-gray-300 p-2 rounded-lg w-full '
-                            type="text"
+                            type="text" 
                             name='cardName'
                             value={cardName}
                             onChange={(e) => setCardName(e.target.value)}
@@ -111,12 +148,11 @@ const DonateWindow = (props) => {
                             required
                         />
                     </label>
-
-                <div className='flex flex-wrap justify-start w-full  py-4'>
-                    <label className='md:w-2/3 '>
+                <div className='flex flex-wrap justify-start w-full py-4'>
+                    <label className='md:w-1/2 '>
                         <div className='text-xl'>Card Number</div>
                         <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-full'
+                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                             type="text"
                             name='cardName'
                             value={cc_format_number(cardNumber)}
@@ -125,10 +161,10 @@ const DonateWindow = (props) => {
                             required
                         />
                     </label>
-                    <label className='md:w-1/3 w-full'>
+                    <label className='md:w-1/2 w-full'>
                     <div className='text-xl'>Security Code</div>
                     <input
-                        className='border-2 border-gray-300 p-2 rounded-lg md:w-full'
+                        className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                         type="number"
                         name='cardCVC'
                         maxLength={3}
@@ -144,11 +180,11 @@ const DonateWindow = (props) => {
                 </label>
                 </div>
 
-                <div className='flex flex-wrap   py-4'>
+                <div className='flex flex-wrap  w-full py-4'>
                     <label className='md:w-1/2'>
                         <div className='text-xl'>Expiration Date</div>
                         <input
-                            className='border-2 border-gray-300 p-2 rounded-lg'
+                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                             type="text"
                             name='cardExpiry'
                             value={cc_format_expdate(cardExpiry)}
@@ -160,7 +196,7 @@ const DonateWindow = (props) => {
                     <label className='md:w-1/2'>
                         <div className='text-xl'>Zip Code</div>
                         <input
-                            className='border-2 border-gray-300 p-2 rounded-lg'
+                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                             type="number"
                             name='cardZip'
                             maxLength="5"
@@ -175,11 +211,7 @@ const DonateWindow = (props) => {
                         />
                     </label>
                 </div>
-
             </div>
-
-
-
 
             <div className='flex flex-wrap p-4 justify-between'>
                 <button className='bg-gray-500 text-white p-2 rounded-lg' onClick={() => navigate(-1)}>Back</button>

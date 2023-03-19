@@ -27,6 +27,7 @@ const DonationPage = () => {
   return (
     <div className='p-16'>
         <DonateWindow 
+            id = {fundraiser.FundraiserId}
             title={fundraiser.title}
             description={fundraiser.description}
             createdDate={( fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
