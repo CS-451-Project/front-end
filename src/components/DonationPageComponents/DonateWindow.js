@@ -135,11 +135,12 @@ const DonateWindow = (props) => {
             <div className='text-4xl flex justify-center py-6'>
                 Payment Information
             </div>
-            <div className=''>
-                    <label>
+            <div className='flex justify-center flex-col'>
+                <div className='flex flex-wrap w-full py-4'>
+                    <label className='md:w-1/2 '>
                         <div className='text-xl'>Name on Card</div>
                         <input
-                            className='border-2 border-gray-300 p-2 rounded-lg w-full '
+                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                             type="text" 
                             name='cardName'
                             value={cardName}
@@ -148,7 +149,6 @@ const DonateWindow = (props) => {
                             required
                         />
                     </label>
-                <div className='flex flex-wrap justify-start w-full py-4'>
                     <label className='md:w-1/2 '>
                         <div className='text-xl'>Card Number</div>
                         <input
@@ -161,26 +161,26 @@ const DonateWindow = (props) => {
                             required
                         />
                     </label>
-                    <label className='md:w-1/2 w-full'>
-                    <div className='text-xl'>Security Code</div>
-                    <input
-                        className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                        type="number"
-                        name='cardCVC'
-                        maxLength={3}
-                        value={cardCVC}
-                        onChange={(e) => {
-                            if (e.target.value.length < 4) {
-                                setCardCVC(e.target.value)
-                            }
-                        }}
-                        placeholder='CVC'
-                        required
-                    />
-                </label>
                 </div>
-
-                <div className='flex flex-wrap  w-full py-4'>
+                <div className='flex flex-wrap w-full py-4'>
+                    
+                    <label className='md:w-1/2 w-full'>
+                        <div className='text-xl'>Security Code</div>
+                        <input
+                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
+                            type="number"
+                            name='cardCVC'
+                            maxLength={3}
+                            value={cardCVC}
+                            onChange={(e) => {
+                                if (e.target.value.length < 4) {
+                                    setCardCVC(e.target.value)
+                                }
+                            }}
+                            placeholder='CVC'
+                            required
+                        />
+                    </label>
                     <label className='md:w-1/2'>
                         <div className='text-xl'>Expiration Date</div>
                         <input
@@ -193,6 +193,10 @@ const DonateWindow = (props) => {
                             required
                         />
                     </label>
+                </div>
+
+                <div className='flex flex-wrap w-full py-4'>
+                    
                     <label className='md:w-1/2'>
                         <div className='text-xl'>Zip Code</div>
                         <input
