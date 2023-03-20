@@ -23,7 +23,6 @@ describe('DonateWindow', () => {
                     title={"fundraiserTitle"}
                     description={"fundraiserDescription"}
                     createdDate={"12/12/2020"} 
-                    // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
                     plannedEndDate={"12/30/2020"}
                 />
             </Router>
