@@ -11,11 +11,11 @@ const FundraiserPage = () => {
     const [tags, setTags] = useState([]);
     const [donations, setDonations] = useState([]);
     const {userId, fundraiserId} = useParams();
-    
+
     // Set the fundraiser and user api uri's
     const userUrl = `https://localhost:7000/api/user/${userId}`;
     const fundraiserUrl = `https://localhost:7000/api/fundraiser/${fundraiserId}`;
-    const donationsUrl = `https://localhost:7000/api/fundraiser/${fundraiserId}/donation`
+    const donationsUrl = `https://localhost:7000/api/fundraiser/${fundraiserId}/donation`;
 
     // Get the fundraiser
     useEffect(() => {
@@ -48,6 +48,7 @@ const FundraiserPage = () => {
         setUser(data);
         }
     );
+
     }, [])
 
     // Get the donations
@@ -61,7 +62,6 @@ const FundraiserPage = () => {
         .then(response => response.json())
         .then(data => {
         setDonations(data);
-        
         })
 
     }, []);
@@ -71,7 +71,7 @@ const FundraiserPage = () => {
         <div id="mainContainer" className='flex-column justify-center pt-4'>
             <div id="flexContainer" className='flex justify-center pt-4 w-full'>
                 <div id="fundraiserContainer" className='flex-row justify-center pt-4 pl-72 pr-128 w-full'>
-                    <Fundraiser 
+                    <Fundraiser
                         title={fundraiser.title}
                         description={fundraiser.description}
                         createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
@@ -81,7 +81,7 @@ const FundraiserPage = () => {
                         organizerName={user.firstName + " " + user.lastName}
                         organizerEmail={user.email}
                     />
-                    <Donations 
+                    <Donations
                         donations = {donations}
                     />
                 </div>
