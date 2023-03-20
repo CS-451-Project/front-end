@@ -135,84 +135,99 @@ const DonateWindow = (props) => {
             <div className='text-4xl flex justify-center py-6'>
                 Payment Information
             </div>
-            <div className='flex justify-center flex-col'>
+            <div className=''>
                 <div className='flex flex-wrap w-full py-4'>
                     <label className='md:w-1/2 '>
-                        <div className='text-xl'>Name on Card</div>
-                        <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                            type="text" 
-                            name='cardName'
-                            value={cardName}
-                            onChange={(e) => setCardName(e.target.value)}
-                            placeholder='Full Name'
-                            required
-                        />
+                        <div className='text-xl md:pl-16'>Name on Card</div>
+                        <div className='md:pl-16'>
+                            <input
+                                className='border-2 flex justify-center border-gray-300 p-2 rounded-lg md:w-1/2'
+                                type="text" 
+                                name='cardName'
+                                value={cardName}
+                                onChange={(e) => setCardName(e.target.value)}
+                                placeholder='Full Name'
+                                required
+                            />
+                        </div>
+                        
                     </label>
                     <label className='md:w-1/2 '>
-                        <div className='text-xl'>Card Number</div>
-                        <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                            type="text"
-                            name='cardName'
-                            value={cc_format_number(cardNumber)}
-                            onChange={(e) => setCardNumber(e.target.value)}
-                            placeholder='XXXX XXXX XXXX XXXX'
-                            required
-                        />
+                        <div className='text-xl md:pl-16'>Card Number</div>
+                        <div className='md:pl-16'>
+                            <input
+                                className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
+                                type="text"
+                                name='cardName'
+                                value={cc_format_number(cardNumber)}
+                                onChange={(e) => setCardNumber(e.target.value)}
+                                placeholder='XXXX XXXX XXXX XXXX'
+                                required
+                            />
+                        </div>
+                        
                     </label>
                 </div>
                 <div className='flex flex-wrap w-full py-4'>
                     
                     <label className='md:w-1/2 w-full'>
-                        <div className='text-xl'>Security Code</div>
-                        <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                            type="number"
-                            name='cardCVC'
-                            maxLength={3}
-                            value={cardCVC}
-                            onChange={(e) => {
-                                if (e.target.value.length < 4) {
-                                    setCardCVC(e.target.value)
-                                }
-                            }}
-                            placeholder='CVC'
-                            required
-                        />
+                        <div className='text-xl md:pl-16'>Security Code</div>
+                        <div className='md:pl-16'>
+                            <input
+                                className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
+                                type="number"
+                                name='cardCVC'
+                                maxLength={3}
+                                value={cardCVC}
+                                onChange={(e) => {
+                                    if (e.target.value.length < 4) {
+                                        setCardCVC(e.target.value)
+                                    }
+                                }}
+                                placeholder='CVC'
+                                required
+                            />
+                        </div>
+                        
                     </label>
                     <label className='md:w-1/2'>
-                        <div className='text-xl'>Expiration Date</div>
-                        <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                            type="text"
-                            name='cardExpiry'
-                            value={cc_format_expdate(cardExpiry)}
-                            onChange={(e) => setCardExpiry(e.target.value)}
-                            placeholder='MM/YY'
-                            required
-                        />
+                        <div className='text-xl md:pl-16'>Expiration Date</div>
+                        <div className='md:pl-16'>
+                            <input
+                                className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
+                                type="text"
+                                name='cardExpiry'
+                                value={cc_format_expdate(cardExpiry)}
+                                onChange={(e) => setCardExpiry(e.target.value)}
+                                placeholder='MM/YY'
+                                required
+                            />
+                        </div>
+                        
                     </label>
                 </div>
 
                 <div className='flex flex-wrap w-full py-4'>
                     
                     <label className='md:w-1/2'>
-                        <div className='text-xl'>Zip Code</div>
-                        <input
-                            className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
-                            type="number"
-                            name='cardZip'
-                            maxLength="5"
-                            value={cardZip}
-                            onChange={(e) => {
-                                if (e.target.value.length < 6) {
-                                    setCardZip(e.target.value)
-                                }
-                            }}
-                            placeholder='Zip Code'
-                            required
-                        />
+                        <div className='text-xl md:pl-16'>Zip Code</div>
+                        <div className='md:pl-16'>
+                            <input
+                                className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
+                                type="number"
+                                name='cardZip'
+                                maxLength="5"
+                                value={cardZip}
+                                onChange={(e) => {
+                                    if (e.target.value.length < 6) {
+                                        setCardZip(e.target.value)
+                                    }
+                                }}
+                                placeholder='Zip Code'
+                                required
+                            />
+                        </div>
+                        
                     </label>
                 </div>
             </div>
