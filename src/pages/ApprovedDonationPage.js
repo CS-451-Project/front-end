@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ApprovedDonationWindow from '../components/ApprovedDonationWindow'
+import ApprovedDonationWindow from '../components/ApprovedDonationPageComponents/ApprovedDonationWindow'
 import {useWindowSize} from 'react-use';
 import Confetti from 'react-confetti'
 

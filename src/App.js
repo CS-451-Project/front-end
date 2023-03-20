@@ -7,7 +7,7 @@ import SignupPage from './pages/SignupPage.js';
 import FundraiserPage from './pages/FundraiserPage';
 import Dashboard from './pages/Dashboard';
 import DonationPage from './pages/DonationPage';
-import ApprovedDonation from './pages/ApprovedDonation';
+import ApprovedDonation from './pages/ApprovedDonationPage';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';

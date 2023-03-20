@@ -8,7 +8,7 @@ const DonateWindow = (props) => {
     const {userId, fundraiserId} = useParams();
     const navigate = useNavigate()
     // const [donateValue, setDonateValue] = useState('')
-    const [Amount, setAmount] = useState()
+    const [Amount, setAmount] = useState(0)
     const [Message, setMessage] = useState('')
     const [cardName, setCardName] = useState('')
     const [cardNumber, setCardNumber] = useState('')

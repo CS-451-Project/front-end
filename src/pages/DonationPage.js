@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import DonateWindow from '../components/DonateWindow'
+import DonateWindow from '../components/DonationPageComponents/DonateWindow'
 import { format } from 'date-fns'
 import { useParams } from 'react-router-dom'
 
