@@ -12,6 +12,7 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
+// Returns the amount of progress to display in the progress bar
 const progressBarCompletionAmount = (currentBalance, goalAmount) => {
     // Check if amount is over the limit
     if (currentBalance >= goalAmount) {
