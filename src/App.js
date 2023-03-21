@@ -41,7 +41,8 @@ function App() {
               />
           </div>
 
-          {/* Routes in the browser to different pages */}
+
+        {/* Routes in the browser to different pages */}
         <Routes>
           {/* The path is how you get to the page and the element is what shows on the page */}
           <Route path="/" element={<HomePage />} />
@@ -54,8 +55,15 @@ function App() {
 
         </Routes>
       </Router>
+
+      {/* Basic footer */}
+      <div class="flex bg-neutral-200 p-4 text-center justify-center shadow-top">
+        <div>© 2023 Copyright:</div>
+          <div class="flex font-semibold text-neutral-600 pl-2">
+              Hooli
+          </div>
+        </div>
     </div>
-    
   );
 }
 

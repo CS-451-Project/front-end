@@ -68,7 +68,7 @@ const FundraiserPage = () => {
 
     return (
         // The fundraiser
-        <div id="mainContainer" className='flex-column justify-center pt-4 pb-24'>
+        <div id="mainContainer" className='flex-column justify-center pt-4 pb-12'>
             <div id="flexContainer" className='flex justify-center pt-4 w-full'>
                 <div id="fundraiserContainer" className='flex-row justify-center pt-4 pl-72 pr-128 w-full'>
                     <div className='bg-gray-100 p-12 rounded'>
