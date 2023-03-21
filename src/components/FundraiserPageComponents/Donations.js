@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { format } from 'date-fns'
 import donationHeartImage from '../../imgs/donation-heart.png'
 
@@ -12,27 +12,39 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-const pageDonations = (donations) => {
-
-}
-
 const Donations = (props) => {
+    const [visibleDonations, setVisibleDonations] = useState(3);
+
+    const showMoreDonations = () => {
+        setVisibleDonations((prevValue) => prevValue + 5);
+    }
+
+    const buttonCss = () => {
+        if (visibleDonations >= props.donations.length) {
+            return 'hidden'
+        }
+        else {
+            return 'flex flex-col text-lg text-slate-600 hover:text-blue-300 duration-200 p-2'
+        }
+    }
+
     return (
-        <div className=''>
-            <div className='text-lg'>Donations: </div>
-            {props.donations.map((donation) => (
+        <div>
+            <div className='text-2xl'>Donations: </div>
+            {props.donations.slice(0, visibleDonations).map((donation) => (
                 <div key={donation.donationId} className="pt-4">
-                    <table>
-                        <tbody className=''>
-                            <tr className=''>
+                    <div className='bg-gray-200 rounded p-2'>
+                    <table >
+                        <tbody>
+                            <tr>
                                 <td className='pb-8'>
                                     <img src={donationHeartImage} className="object-contain h-8 w-8" alt="donation-heart" />
                                 </td>
                                 <td className='pl-4 '>
-                                    <div className='text-xl'>
+                                    <div className='font-bold'>
                                         {donation.name == null ? "Anonymous" : donation.name}
                                     </div>
-                                    <div className='inline text-lg'>
+                                    <div className='inline'>
                                         {currencyFormatter.format(donation.amount)}
                                     </div>
                                     <div className='inline px-2'>-</div>
@@ -46,8 +58,16 @@ const Donations = (props) => {
                             </tr>
                         </tbody> 
                     </table>
+                    </div>
                 </div>
             ))}
+            <div className='flex justify-center pt-4'>
+                <button id="show-more-button" 
+                    className={buttonCss()} 
+                    onClick={showMoreDonations}>
+                    Show more
+                </button>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ReactReadMoreReadLess from "react-read-more-read-less";
 import placeholderImage from '../../imgs/placeHolderFundraiserPic.jpg'
+import { CgProfile } from 'react-icons/cg'
 
 // Fundraiser Component
 const Fundraiser = (props) => {
@@ -9,8 +11,6 @@ const Fundraiser = (props) => {
             <div className="object-contain pt-4">
                 <img src={placeholderImage} className="object-contain pt-4" alt="Logo" />
             </div>
-            {/* <div className='flex text-sm italic pt-4'>Created On: {( props.createdDate != null ) ? format(new Date(props.createdDate), 'MM/dd/yyyy') : "" }</div> */}
-            {/* <div className='flex text-sm italic'>Ends On: {( props.plannedEndDate != null) ? format(new Date(props.plannedEndDate), 'MM/dd/yyyy') : "" }</div> */}
             <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
             <div className='flex text-sm italic'>Ends On: {props.plannedEndDate}</div>
             <div className='flex text-sm italic'>Tags:  {props.tags.map((tag) => (
@@ -20,12 +20,36 @@ const Fundraiser = (props) => {
             ))}
             </div>
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-            <div className="flex text-lg">About:</div>
-            <div className='flex pt-4'>{ props.description }</div>
+            <div className="flex text-2xl">About:</div>
+            <div className='pt-4'>
+                <ReactReadMoreReadLess
+                    charLimit={300}
+                    readMoreText={"Read more"}
+                    readLessText={"Read less"}
+                    readMoreClassName='flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4'
+                    readLessClassName='flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4'
+                    >
+                    {props.description != undefined ? props.description : ""}
+                </ReactReadMoreReadLess>
+            </div>
+            {/* <div className='flex pt-4'>{ props.description }</div> */}
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-            <div className='flex text-lg'>Organizer: </div>
-            <div className='flex pt-4'>{props.organizerName}</div>
-            <div className='flex'>{props.organizerEmail}</div>
+            <div className='flex text-2xl pb-4'>Organizer: </div>
+            <div className='pl-4'>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <CgProfile  size={40} />
+                            </td>
+                            <td className='pl-4'>
+                                <div className='flex font-bold'>{props.organizerName}</div>
+                                <div className='flex'>{props.organizerEmail}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
         </div>
     )

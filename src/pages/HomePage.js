@@ -49,7 +49,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className='p-8 text-5xl font-HomePageHeading font-semibold'>
+            <div className='p-8 pl-52 text-5xl font-HomePageHeading font-semibold'>
                 Start a fundraiser
             </div>
             {/* STEPS TO FUNDRAISER */}

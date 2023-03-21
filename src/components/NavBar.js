@@ -79,10 +79,10 @@ const NavBar = () => {
                                 <a href="/">Fundraisers</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">About US</a>
+                                <a href="/">Create Fundraiser</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Contact US</a>
+                                <a href="/">Contact Us</a>
                             </li>
                         </ul>
                         {/* Login and signup buttons  for small screens*/}

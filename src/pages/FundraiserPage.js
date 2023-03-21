@@ -72,20 +72,20 @@ const FundraiserPage = () => {
             <div id="flexContainer" className='flex justify-center pt-4 w-full'>
                 <div id="fundraiserContainer" className='flex-row justify-center pt-4 pl-72 pr-128 w-full'>
                     <div className='bg-gray-100 p-12 rounded'>
-                    <Fundraiser
-                        title={fundraiser.title}
-                        description={fundraiser.description}
-                        createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
-                        // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
-                        plannedEndDate={(fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy') : "" }
-                        tags = {tags}
-                        organizerName={user.firstName + " " + user.lastName}
-                        organizerEmail={user.email}
-                        />
-                    <Donations
-                        donations = {donations}
-                        />
-                        </div>
+                        <Fundraiser
+                            title={fundraiser.title}
+                            description={fundraiser.description}
+                            createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MM/dd/yyyy') : "" } 
+                            // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
+                            plannedEndDate={(fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy') : "" }
+                            tags = {tags}
+                            organizerName={user.firstName + " " + user.lastName}
+                            organizerEmail={user.email}
+                            />
+                        <Donations
+                            donations = {donations}
+                            />
+                    </div>
                 </div>
                 {/* The donation area */}
                 <div id="donationContainer" className='fixed pt-24 right-32 justify-center'>
