@@ -24,15 +24,15 @@ const Donations = (props) => {
                                 <td className='pb-8'>
                                     <img src={donationHeartImage} className="object-contain h-8 w-8" alt="donation-heart" />
                                 </td>
-                                <td className='pl-4'>
-                                    <div className=''>
+                                <td className='pl-4 '>
+                                    <div className='text-xl'>
                                         {donation.name == null ? "Anonymous" : donation.name}
                                     </div>
-                                    <div className='inline'>
+                                    <div className='inline text-lg'>
                                         {currencyFormatter.format(donation.amount)}
                                     </div>
                                     <div className='inline px-2'>-</div>
-                                    <div className='inline'>
+                                    <div className='inline italic'>
                                         {(donation.date != null) ? format(new Date(donation.date), 'MM/dd/yyyy') : "" } 
                                     </div>
                                     <div className=''>
