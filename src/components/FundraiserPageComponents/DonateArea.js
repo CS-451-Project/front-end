@@ -1,5 +1,6 @@
 import React from 'react';
 import ProgressBar from './ProgressBar';
+import { useNavigate } from 'react-router-dom';
 
 // Number formatter function for currency
 const currencyFormatter = new Intl.NumberFormat('en-US', {
@@ -13,6 +14,12 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
 
 // The donation area component
 const DonateArea = (props) => {
+    
+    const navigate = useNavigate();
+    
+    const handleDonate = () => {
+        navigate('donation');
+    }
         return (
         <div className='flex-row bg-green-500 p-6 w-full rounded-lg'>
             <div className='flex w-full pb-4'>
@@ -31,7 +38,8 @@ const DonateArea = (props) => {
                 <button 
                     className="flex text-xl text-black p-3 font-bold 
                     rounded-lg bg-yellow-400 hover:bg-yellow-500 duration-200"
-                    >
+                    onClick={handleDonate}
+                >
                     Make a Donation
                 </button>
             </div>

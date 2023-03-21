@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
-      Header: ["Source Serif Pro"],
+      Header: ["Merriweather"],
       HomePageHeading: ["Golos+Text"],
+      Approved: ["IBM+Plex+Sans"],
     },
     extend: {
       spacing: {
