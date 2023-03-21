@@ -54,7 +54,7 @@ const Donations = (props) => {
                             </div>
                             <div className='inline px-2'>-</div>
                             <div className='inline italic'>
-                                {(donation.date != null) ? format(new Date(donation.date), 'MM/dd/yyyy') : "" } 
+                                {(donation.date != null) ? format(new Date(donation.date), 'MMMM dd, yyyy') : "" } 
                             </div>
                             <div className=''>
                                 {donation.message}
