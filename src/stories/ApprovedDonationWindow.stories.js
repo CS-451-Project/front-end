@@ -14,14 +14,6 @@ export default {
     }
 };
 
-const Template = () => {
-    <ApprovedDonationWindow
-        id = {"fundraiserId"}
-        title={"fundraiserTitle"}
-        description={"fundraiserDescription"}
-        createdDate={"12/12/2020"}
-        plannedEndDate={"12/30/2020"}
-    />
-};
+const Template = () => <ApprovedDonationWindow/>;
 
 export const DefaultApprovedDonationWindow = Template.bind({});
