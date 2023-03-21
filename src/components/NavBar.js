@@ -13,12 +13,13 @@ const NavBar = () => {
     const [isOpen, setOpen] = useState(false);
     let userId = "";
 
-    if(localStorage.length === 1){
+    if(localStorage.length > 0){
         userId = localStorage.getItem("userId");
     }
 
     const handleClick = () => {
         localStorage.removeItem('userId');
+        localStorage.removeItem('AuthHeader');
         navigate('/');
         toast.success('Logged out successfully!', {
             position: "top-right",
@@ -75,7 +76,7 @@ const NavBar = () => {
                                 <a href="/">Home</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Blog</a>
+                                <a href="/">Fundraisers</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
                                 <a href="/">About US</a>
@@ -85,7 +86,7 @@ const NavBar = () => {
                             </li>
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
-                        {localStorage.length === 1 ? (
+                        {localStorage.length > 0 ? (
                             <div className="mt-3 space-y-2 md:hidden flex justify-center ">
                                 <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
                                     <CgProfile  size={40} />
@@ -122,7 +123,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 {/* Login and signup buttons for large screens*/}
-                {localStorage.length === 1 ? (
+                {localStorage.length > 0 ? (
                     // Should show profile pic with options to go to dashboard and logout
                     <div className="hidden space-x-2 md:inline-block">
                         <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
