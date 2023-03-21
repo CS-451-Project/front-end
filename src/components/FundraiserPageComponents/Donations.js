@@ -35,7 +35,7 @@ const Donations = (props) => {
 
     return (
         <div>
-            <div className='text-2xl'>Donations: </div>
+            <div className='text-2xl pb-4'>Donations: </div>
             {props.donations.slice(0, visibleDonations).map((donation) => (
                 <div key={donation.donationId} className="pt-4">
                     <div className='bg-gray-200 rounded p-2'>

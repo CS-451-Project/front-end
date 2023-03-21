@@ -5,6 +5,8 @@ import { CgProfile } from 'react-icons/cg'
 
 // Fundraiser Component
 const Fundraiser = (props) => {
+    const readMoreReadLessCss = 'flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4';
+
     return (
         <div className='flex-row justify-left text-left w-full'>
             <div className='flex font-bold text-4xl'>{props.title}</div>
@@ -26,8 +28,8 @@ const Fundraiser = (props) => {
                     charLimit={300}
                     readMoreText={"Read more"}
                     readLessText={"Read less"}
-                    readMoreClassName='flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4'
-                    readLessClassName='flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4'
+                    readMoreClassName={readMoreReadLessCss}
+                    readLessClassName={readMoreReadLessCss}
                     >
                     {props.description != undefined ? props.description : ""}
                 </ReactReadMoreReadLess>
