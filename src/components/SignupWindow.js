@@ -52,7 +52,7 @@ const SignupWindow = () => {
 
     
   return (
-    <div>
+    <div className='pt-4'>
 
         <div className='relative'>
             <div className='border bg-gray-100 p-4 '>

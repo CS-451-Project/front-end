@@ -114,8 +114,12 @@ const DonateWindow = (props) => {
                                 type="number"
                                 step="0.01"
                                 min="1" 
+                                maxLength={3}
                                 value={Amount}
-                                onChange={(e) => setAmount(e.target.value)}
+                                onChange={(e) => {
+                                    const newValue = e.target.value.slice(0, 8);
+                                    setAmount(newValue)
+                                }}
                                 name='donationAmount' 
                                 placeholder='0.00'
                                 required
@@ -136,12 +140,13 @@ const DonateWindow = (props) => {
                 Payment Information
             </div>
             <div className=''>
-                <div className='flex flex-wrap w-full py-4'>
+                <div className='flex flex-wrap w-full py-4 justify-center'>
                     <label className='md:w-1/2 '>
-                        <div className='text-xl md:pl-16'>Name on Card</div>
-                        <div className='md:pl-16'>
+                        <div className='text-xl md:pl-48'>Name on Card</div>
+                        <div className='md:pl-48'>
+                            
                             <input
-                                className='border-2 flex justify-center border-gray-300 p-2 rounded-lg md:w-1/2'
+                                className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                                 type="text" 
                                 name='cardName'
                                 value={cardName}
@@ -168,11 +173,11 @@ const DonateWindow = (props) => {
                         
                     </label>
                 </div>
-                <div className='flex flex-wrap w-full py-4'>
+                <div className='flex flex-wrap w-full py-4 justify-center'>
                     
-                    <label className='md:w-1/2 w-full'>
-                        <div className='text-xl md:pl-16'>Security Code</div>
-                        <div className='md:pl-16'>
+                    <label className='md:w-1/2 '>
+                        <div className='text-xl md:pl-48'>Security Code</div>
+                        <div className='md:pl-48'>
                             <input
                                 className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                                 type="number"
@@ -207,11 +212,11 @@ const DonateWindow = (props) => {
                     </label>
                 </div>
 
-                <div className='flex flex-wrap w-full py-4'>
+                <div className='flex flex-wrap w-full py-4 md:justify-start justify-center'>
                     
                     <label className='md:w-1/2'>
-                        <div className='text-xl md:pl-16'>Zip Code</div>
-                        <div className='md:pl-16'>
+                        <div className='text-xl md:pl-48'>Zip Code</div>
+                        <div className='md:pl-48'>
                             <input
                                 className='border-2 border-gray-300 p-2 rounded-lg md:w-1/2'
                                 type="number"

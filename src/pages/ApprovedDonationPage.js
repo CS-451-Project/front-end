@@ -8,7 +8,7 @@ const ApprovedDonation = () => {
 
   return (
     
-    <div className='p-16'>
+    <div className='p-16 flex justify-center'>
         <Confetti
             width={width-20}
             height={height}
@@ -17,7 +17,10 @@ const ApprovedDonation = () => {
             tweenDuration={1000}
             // color={['#ff0000', '#00ff00', '#0000ff']}
         />
-        <ApprovedDonationWindow />
+        <div className='w-fit'>
+          <ApprovedDonationWindow />
+        </div>
+        
     </div>
   )
 }
