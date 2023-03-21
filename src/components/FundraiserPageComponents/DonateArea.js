@@ -29,7 +29,7 @@ const progressBarCompletionAmount = (currentBalance, goalAmount) => {
 // The donation area component
 const DonateArea = (props) => {
         return (
-        <div className='flex-row bg-green-500 p-6 w-full rounded-lg'>
+        <div className='flex-row bg-gray-100 p-6 w-full rounded-lg'>
             <div className='flex w-full pb-4'>
                 <ProgressBar className='flex w-full' bgcolor="#6a1b9a"
                 completed=

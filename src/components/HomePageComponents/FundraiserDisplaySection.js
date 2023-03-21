@@ -20,4 +20,3 @@ const FundraiserDisplaySection = (props) => {
 }
 
 export default FundraiserDisplaySection;
-

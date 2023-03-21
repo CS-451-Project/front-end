@@ -18,7 +18,7 @@ const pageDonations = (donations) => {
 
 const Donations = (props) => {
     return (
-        <div className='pb-32'>
+        <div className=''>
             <div className='text-lg'>Donations: </div>
             {props.donations.map((donation) => (
                 <div key={donation.donationId} className="pt-4">
