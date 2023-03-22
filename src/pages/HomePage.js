@@ -41,7 +41,7 @@ const HomePage = () => {
                         
                     </div>
                     <div className='flex justify-center flex-col p-4 font-Header font-semibold text-black h-full '>
-                        <div className='flex justify-center'>
+                        <div className='flex justify-center pb-16'>
                             <Button title="Create Fundraiser" />
                         </div>
                         
