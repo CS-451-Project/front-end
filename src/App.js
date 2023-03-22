@@ -8,6 +8,7 @@ import FundraiserPage from './pages/FundraiserPage';
 import Dashboard from './pages/Dashboard';
 import DonationPage from './pages/DonationPage';
 import ApprovedDonation from './pages/ApprovedDonationPage';
+import Footer from './components/Footer';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -57,15 +58,8 @@ function App() {
         </Routes>
       </Router>
 
-      {/* Basic footer */}
-      <div className='pt-16'>
-        <div class="flex bg-neutral-200 p-4 justify-center absolute bottom-0 w-full">
-          <div>© 2023 Copyright:</div>
-            <div class="flex font-semibold text-neutral-600 pl-2">
-                Hooli
-            </div>
-          </div>
-        </div>
+      <Footer />
+      
       </div>
   );
 }
