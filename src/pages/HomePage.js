@@ -32,7 +32,7 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div>
+        <div className=''>
             {/* PIC HEADER */}
             <div className='bg-homePagePic bg-cover h-100 bg-top relative '>
                 {/* <div className='bg-gradient-to-t from-black h-100'></div> */}
@@ -49,7 +49,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className='p-8 text-5xl font-HomePageHeading font-semibold'>
+            <div className='p-8 pl-52 text-5xl font-HomePageHeading font-semibold'>
                 Start a fundraiser
             </div>
             {/* STEPS TO FUNDRAISER */}
@@ -83,7 +83,7 @@ const HomePage = () => {
             </div>
             {/* CARROUSSEL FUNDRAISER SLIDES */}
             <div className='pt-16' data-testid="carousel-test-id">
-                <div className='pl-8 text-5xl font-HomePageHeading font-semibold'>
+                <div className='pl-24 text-5xl font-HomePageHeading font-semibold'>
                     General Fundraisers
                 </div>
                 <FundraiserCarousel data={data}/>

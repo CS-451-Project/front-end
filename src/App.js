@@ -8,6 +8,7 @@ import FundraiserPage from './pages/FundraiserPage';
 import Dashboard from './pages/Dashboard';
 import DonationPage from './pages/DonationPage';
 import ApprovedDonation from './pages/ApprovedDonationPage';
+import Footer from './components/Footer';
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -18,7 +19,8 @@ function App() {
     // This is the main container that holds all the pages
     // This is where you can add css to the whole app
     // className is the css class that is imported from App.css
-    <div className='bg-green-300 min-h-screen'>
+    <div className='bg-green-300 min-h-screen relative'>
+
       {/* Imported npm package that displays messages throughout the browser pages */}
         {/* Container that hold different routes in the pages */}
         <Router>
@@ -41,7 +43,8 @@ function App() {
               />
           </div>
 
-          {/* Routes in the browser to different pages */}
+
+        {/* Routes in the browser to different pages */}
         <Routes>
           {/* The path is how you get to the page and the element is what shows on the page */}
           <Route path="/" element={<HomePage />} />
@@ -54,8 +57,10 @@ function App() {
 
         </Routes>
       </Router>
-    </div>
-    
+
+      <Footer />
+      
+      </div>
   );
 }
 

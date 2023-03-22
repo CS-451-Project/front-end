@@ -96,7 +96,7 @@ const DonateWindow = (props) => {
 
   return (
     
-    <div className='bg-gray-100 p-4'>
+    <div className='bg-gray-100 rounded p-4'>
         <div className='text-2xl font-bold '>
             You are supporting {props.title}
             <div className='text-sm italic font-normal'>You have until {props.plannedEndDate} to support the cause</div>
