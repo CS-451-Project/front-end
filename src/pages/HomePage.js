@@ -32,7 +32,7 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div className='mx-8'>
+        <div className=''>
             {/* PIC HEADER */}
             <div className='bg-homePagePic bg-cover h-100 bg-top relative '>
                 {/* <div className='bg-gradient-to-t from-black h-100'></div> */}
