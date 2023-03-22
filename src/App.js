@@ -18,7 +18,8 @@ function App() {
     // This is the main container that holds all the pages
     // This is where you can add css to the whole app
     // className is the css class that is imported from App.css
-    <div className='bg-green-300 min-h-screen'>
+    <div className='bg-green-300 min-h-screen relative'>
+
       {/* Imported npm package that displays messages throughout the browser pages */}
         {/* Container that hold different routes in the pages */}
         <Router>
@@ -57,13 +58,15 @@ function App() {
       </Router>
 
       {/* Basic footer */}
-      <div class="flex bg-neutral-200 p-4 text-center justify-center shadow-top">
-        <div>© 2023 Copyright:</div>
-          <div class="flex font-semibold text-neutral-600 pl-2">
-              Hooli
+      <div className='pt-16'>
+        <div class="flex bg-neutral-200 p-4 justify-center absolute bottom-0 w-full">
+          <div>© 2023 Copyright:</div>
+            <div class="flex font-semibold text-neutral-600 pl-2">
+                Hooli
+            </div>
           </div>
         </div>
-    </div>
+      </div>
   );
 }
 
