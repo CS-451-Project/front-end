@@ -37,7 +37,7 @@ const DonateArea = (props) => {
         navigate('donation');
     }
         return (
-        <div className='flex-row bg-gray-100 lg:p-6 py-2 w-full rounded-lg border-solid max-lg:border-t border-yellow-500'>
+        <div className='flex-row bg-gray-100 lg:p-6 py-2 w-full lg:rounded-lg rounded-t-lg border-solid max-lg:border-t border-yellow-500'>
             <div className='flex m-auto lg:w-full w-1/2 lg:pb-4'>
                 <ProgressBar className='flex w-full' bgcolor="#6a1b9a"
                 completed=
