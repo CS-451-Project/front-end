@@ -42,8 +42,8 @@ const Donations = (props) => {
                     <table>
                     <tbody>
                     <tr>
-                        <td className='pb-8'>
-                            <img src={donationHeartImage} className="object-contain h-8 w-8" alt="donation-heart" />
+                        <td className='pb-8 w-8'>
+                            <img src={donationHeartImage} className="object-contain" alt="donation-heart" />
                         </td>
                         <td className='pl-4 '>
                             <div className='font-bold'>
