@@ -108,7 +108,7 @@ const Donations = (props) => {
                 </div>
                 <div className={buttonDividerCss()}>/</div>
                 <div className='flex justify-center'>
-                    <button id="show-more-button" 
+                    <button id="show-less-button" 
                         className={showLessButtonCss()} 
                         onClick={showLessDonations}>
                         Show less
