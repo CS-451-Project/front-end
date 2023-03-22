@@ -21,15 +21,47 @@ const Donations = (props) => {
         setVisibleDonations((prevValue) => prevValue + 5);
     }
 
+    // Updates the amount of shown donations when show less button is clicked
+    const showLessDonations = () => {
+        setVisibleDonations((prevValue) => prevValue - 5);
+    }
+
     // Returns the css for the show more button
-    const buttonCss = () => {
+    const showMoreButtonCss = () => {
         // Button should be hidden if all donations are already displayed
         if (visibleDonations >= props.donations.length) {
             return 'hidden'
         }
         // Display the button
         else {
-            return 'flex flex-col text-lg text-slate-600 hover:text-blue-300 duration-200 p-2'
+            return 'flex flex-col text-lg text-slate-600 hover:text-blue-300 duration-200 inline'
+        }
+    }
+
+    // Returns the css for the show less button
+    const showLessButtonCss = () => {
+        // Button should be hidden if there are no donations to collapse
+        if (visibleDonations <= 3) {
+            return 'hidden'
+        }
+        else if (visibleDonations < props.donations.length & visibleDonations > 3) {
+            return 'flex flex-col text-lg text-slate-600 hover:text-blue-300 duration-200 inline'
+        }
+        else if (visibleDonations >= props.donations.length) {
+            return 'flex flex-col text-lg text-slate-600 hover:text-blue-300 duration-200'
+        }
+    }
+
+    // Returns the css for the button forward slash divider
+    const buttonDividerCss = () => {
+        // if (visibleDonations < 4) {
+        //     return 'hidden'
+        // }
+        if (visibleDonations > 4 & visibleDonations < props.donations.length) {
+            return 'flex inline text-lg text-slate-600 px-2';
+        }
+        else {
+            return 'opacity-0';
         }
     }
 
@@ -66,12 +98,22 @@ const Donations = (props) => {
                     </div>
                 </div>
             ))}
-            <div className='flex justify-center pt-4'>
-                <button id="show-more-button" 
-                    className={buttonCss()} 
-                    onClick={showMoreDonations}>
-                    Show more
-                </button>
+            <div className='flex inline justify-center pt-6'>
+                <div className='flex justify-center'>
+                    <button id="show-more-button" 
+                        className={showMoreButtonCss()} 
+                        onClick={showMoreDonations}>
+                        Show more
+                    </button>
+                </div>
+                <div className={buttonDividerCss()}>/</div>
+                <div className='flex justify-center'>
+                    <button id="show-more-button" 
+                        className={showLessButtonCss()} 
+                        onClick={showLessDonations}>
+                        Show less
+                    </button>
+                </div>
             </div>
         </div>
     )

@@ -87,7 +87,7 @@ const NavBar = () => {
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
                         {localStorage.length > 0 ? (
-                            <div className="mt-3 space-y-2 md:hidden flex justify-center ">
+                            <div className="mt-3 space-y-2 md:hidden flex justify-center">
                                 <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
                                     <CgProfile  size={40} />
                                 </button>
