@@ -5,7 +5,7 @@ import { CgProfile } from 'react-icons/cg'
 
 // Fundraiser Component
 const Fundraiser = (props) => {
-    const readMoreReadLessCss = 'flex flex-col items-center text-slate-600 hover:text-blue-300 duration-200 pt-4';
+    const readMoreReadLessCss = 'flex flex-col items-center text-lg text-slate-600 hover:text-blue-300 duration-200 pt-4';
 
     return (
         <div className='flex-row justify-left text-left w-full'>

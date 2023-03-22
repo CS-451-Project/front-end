@@ -68,32 +68,30 @@ const FundraiserPage = () => {
 
     return (
         // The fundraiser
-        <div id="mainContainer" className='flex-column justify-center pt-4 pb-12'>
-            <div id="flexContainer" className='flex justify-center pt-4 w-full'>
-                <div id="fundraiserContainer" className='flex-row justify-center pt-4 pl-72 pr-128 w-full'>
-                    <div className='bg-gray-100 p-12 rounded'>
-                        <Fundraiser
-                            title={fundraiser.title}
-                            description={fundraiser.description}
-                            createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MMMM dd, yyyy') : "" } 
-                            // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
-                            plannedEndDate={(fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MMMM dd, yyyy') : "" }
-                            tags = {tags}
-                            organizerName={user.firstName + " " + user.lastName}
-                            organizerEmail={user.email}
-                            />
-                        <Donations
-                            donations = {donations}
-                            />
-                    </div>
+        <div id="mainContainer" className='flex flex-column justify-center pt-4 lg:pb-12 pb-12 bg-bottom'>
+            <div id="fundraiserContainer" className='flex-row justify-center pt-4 lg:pl-52 lg:pr-128 px-8 w-full'>
+                <div className='bg-gray-100 p-12 rounded'>
+                    <Fundraiser
+                        title={fundraiser.title}
+                        description={fundraiser.description}
+                        createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MMMM dd, yyyy') : "" } 
+                        // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
+                        plannedEndDate={(fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MMMM dd, yyyy') : "" }
+                        tags = {tags}
+                        organizerName={user.firstName + " " + user.lastName}
+                        organizerEmail={user.email}
+                        />
+                    <Donations
+                        donations = {donations}
+                        />
                 </div>
-                {/* The donation area */}
-                <div id="donationContainer" className='fixed pt-24 right-32 justify-center'>
-                    <DonateArea
-                        currentBalance = {fundraiser.currentBalanceAmount}
-                        goalAmount = {fundraiser.goalTargetAmount}
-                    />
-                </div>
+            </div>
+            {/* The donation area */}
+            <div id="donationContainer" className='fixed lg:right-32 lg:top-48 max-lg:w-full max-lg:bottom-0 justify-center'>
+                <DonateArea
+                    currentBalance = {fundraiser.currentBalanceAmount}
+                    goalAmount = {fundraiser.goalTargetAmount}
+                />
             </div>
         </div>
     )
