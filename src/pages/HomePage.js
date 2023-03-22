@@ -32,16 +32,20 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div className=''>
+        <div className=' '>
             {/* PIC HEADER */}
-            <div className='bg-homePagePic bg-cover h-100 bg-top relative '>
+            <div className='bg-homePagePic bg-cover h-100 bg-top bg-fixed'>
                 {/* <div className='bg-gradient-to-t from-black h-100'></div> */}
-                <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-black pb-16'>
+                <div className=' bg-gradient-to-t from-black pb-16 h-100'>
                     <div className='flex justify-center pb-8' data-testid="button-test-id">
-                        <Button title="Create Fundraiser" />
+                        
                     </div>
-                    <div className='flex justify-center p-4 font-Header font-semibold text-black '>
-                        <h1 className='text-6xl text-white'>
+                    <div className='flex justify-center flex-col p-4 font-Header font-semibold text-black h-full '>
+                        <div className='flex justify-center'>
+                            <Button title="Create Fundraiser" />
+                        </div>
+                        
+                        <h1 className='text-center text-6xl text-white'>
                             Make a difference in someone's life
                         </h1>
                     </div>
@@ -49,7 +53,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className='p-8 pl-52 text-5xl font-HomePageHeading font-semibold'>
+            <div className='p-8  text-5xl font-HomePageHeading font-semibold'>
                 Start a fundraiser
             </div>
             {/* STEPS TO FUNDRAISER */}
