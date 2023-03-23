@@ -13,13 +13,15 @@ const Fundraiser = (props) => {
             <div className="object-contain pt-4">
                 <img src={placeholderImage} className="object-contain pt-4" alt="Logo" />
             </div>
-            <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
-            <div className='flex text-sm italic'>Ends On: {props.plannedEndDate}</div>
-            <div className='flex text-sm italic'>Tags:  {props.tags.map((tag) => (
-                <div key={tag}>
-                    <div className="pl-4">{tag}</div>
-                </div>
-            ))}
+            <div className=''>
+                <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
+                <div className='flex text-sm italic pt-1 pb-2'>Ends On: {props.plannedEndDate}</div>
+                <div className='flex flex-wrap text-sm'>Tags:  {props.tags.map((tag) => (
+                    <div key={tag} className='pl-2 pb-1'>
+                        <div className="px-2 border border-gray-800 rounded-lg pb-1">{tag}</div>
+                    </div>
+                ))}
+            </div>
             </div>
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
             <div className="flex text-2xl">About:</div>
@@ -44,7 +46,7 @@ const Fundraiser = (props) => {
                             <td>
                                 <CgProfile  size={40} />
                             </td>
-                            <td className='pl-4'>
+                            <td className='pl-4 flex flex-col flex-wrap'>
                                 <div className='flex font-bold'>{props.organizerName}</div>
                                 <div className='flex'>{props.organizerEmail}</div>
                             </td>

@@ -74,10 +74,10 @@ const Donations = (props) => {
                     <table>
                     <tbody>
                     <tr>
-                        <td className='pb-8 w-8'>
+                        <td className='flex content-baseline pt-2 w-8'>
                             <img src={donationHeartImage} className="object-contain" alt="donation-heart" />
                         </td>
-                        <td className='pl-4 '>
+                        <td className='pl-4'>
                             <div className='font-bold'>
                                 {donation.name == null ? "Anonymous" : donation.name}
                             </div>
