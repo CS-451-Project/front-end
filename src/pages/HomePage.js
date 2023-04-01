@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import Button from '../components/Button';
 import FundraiserCarousel from '../components/HomePageComponents/FundraiserCarousel';
 import StepsPic from '../imgs/StepsPic.jpg';
 import HomePageFeatFundraiser from '../components/HomePageComponents/FeatFundraiser';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = () => {
+    const navigate = useNavigate();
     const [obj, setObj] = useState({
         "Acending": true,
     });
@@ -41,8 +44,27 @@ const HomePage = () => {
                         
                     </div>
                     <div className='flex justify-center flex-col p-4 font-Header font-semibold text-black h-full '>
-                        <div className='flex justify-center pb-16'>
-                            <Button title="Create Fundraiser" />
+                        <div className='flex justify-center pb-16 pt-48'>
+                            <button 
+                                className="bg-green-500 text-white py-2 px-4 hover:bg-green-700 duration-200 rounded-lg"  
+                                onClick={localStorage.length === 0 ? 
+                                    () => {
+                                        navigate("/login")
+                                        toast.warn('You need to be logged in to create a fundraiser', {
+                                        position: "top-right",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "light",
+                                    });
+                                    } : 
+                                    () => navigate("/createFundraiser")}
+                            >
+                                Create Fundraiser
+                            </button>
                         </div>
                         
                         <h1 className='text-center text-6xl text-white'>

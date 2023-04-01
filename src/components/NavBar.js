@@ -79,7 +79,21 @@ const NavBar = () => {
                                 <a href="/">Fundraisers</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Create Fundraiser</a>
+                                <button onClick={localStorage.length === 0 ? 
+                                    () => {
+                                        navigate("/login")
+                                        toast.warn('You need to be logged in to create a fundraiser', {
+                                        position: "top-right",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "light",
+                                    });
+                                    } : 
+                                    () => navigate("/createFundraiser")}>Create Fundraiser</button>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
                                 <a href="/">Contact Us</a>

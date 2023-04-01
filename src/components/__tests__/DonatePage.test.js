@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import DonateWindow from '../DonationPageComponents/DonateWindow';
+import DonateForm from '../DonationPageComponents/DonateForm';
 import DonationPage from '../../pages/DonationPage';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ describe('DonateWindow', () => {
     test('renders the donate window', () => {
         render(
             <Router>
-                <DonateWindow
+                <DonateForm
                     id = {"fundraiserId"}
                     title={"fundraiserTitle"}
                     description={"fundraiserDescription"}
@@ -96,7 +96,7 @@ describe('DonateWindow', () => {
     test('user does not donate and goes back', () => {
         render(
             <Router>
-                <DonateWindow
+                <DonateForm
                     id = {"fundraiserId"}
                     title={"fundraiserTitle"}
                     description={"fundraiserDescription"}
