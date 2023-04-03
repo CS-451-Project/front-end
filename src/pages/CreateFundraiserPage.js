@@ -43,24 +43,33 @@ const CreateFundraiserPage = () => {
 
     return (
         <div className='p-4'>
-            <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-1/2">
+            <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
                 {/* Stepper */}
                 <div className="horizontal container mt-5 ">
+                    {/* This is the progression bar for the multi-step form */}
                     <Stepper steps={steps} currentStep={currentStep} />
-
+                    {/* This is the content (in this case the different forms) of the multi-step form */}
                     <div className="my-10 p-10 ">
                     <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
                     </div>
                 </div>
 
                 {/* navigation button */}
-                {currentStep !== steps.length && (
+                {currentStep !== steps.length ? (
                     <StepperControl
                     handleClick={handleClick}
                     currentStep={currentStep}
                     steps={steps}
                     />
-                )}
+                )
+                : (
+                    <div className="cursor-pointer flex justify-center mt-4 mb-8">
+                        <button className='mx-4 p-4  rounded-lg bg-green-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white'>
+                            <a href="/fundraisers">Go to Fundraiser</a>
+                        </button>
+                    </div>
+                     
+                    )}
             </div>
         </div>
         

@@ -1,67 +1,79 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const Stepper = ({ steps, currentStep }) => {
+  // This is the new steps array that we will use to update the steps
     const [newStep, setNewStep] = useState([]);
+
+    // This is the reference to the steps array, that means that if we update the steps array, the reference will also be updated
+    // Similar to using states, but the difference is that useRef will not trigger a re-render when its value changes
     const stepsRef = useRef();
-
+    
     const updateStep = (stepNumber, steps) => {
-    const newSteps = [...steps];
-    console.log(newSteps);
-    let count = 0;
-    while (count < newSteps.length) {
-      //current step
-      if (count === stepNumber) {
-        newSteps[count] = {
-          ...newSteps[count],
-          highlighted: true,
-          selected: true,
-          completed: true,
-        };
-        count++;
+      const newSteps = [...steps];
+      // console.log(newSteps);
+      let count = 0;
+      while (count < newSteps.length) {
+        //current step
+        if (count === stepNumber) {
+          newSteps[count] = {
+            ...newSteps[count],
+            highlighted: true,
+            selected: true,
+            completed: false,
+          };
+          count++;
+        }
+        //step completed
+        else if (count < stepNumber) {
+          newSteps[count] = {
+            ...newSteps[count],
+            highlighted: false,
+            selected: true,
+            completed: true,
+          };
+          count++;
+        }
+        //step pending
+        else {
+          newSteps[count] = {
+            ...newSteps[count],
+            highlighted: false,
+            selected: false,
+            completed: false,
+          };
+          count++;
+        }
       }
 
-      //step completed
-      else if (count < stepNumber) {
-        newSteps[count] = {
-          ...newSteps[count],
-          highlighted: false,
-          selected: true,
-          completed: true,
-        };
-        count++;
-      }
-      //step pending
-      else {
-        newSteps[count] = {
-          ...newSteps[count],
-          highlighted: false,
-          selected: false,
-          completed: false,
-        };
-        count++;
-      }
-    }
-
-    return newSteps;
+      return newSteps;
   };
 
-    useEffect(() => {
-        const stepsState = steps.map((step, index) =>
-        Object.assign(
-            {},
-            {
-            description: step,
-            completed: false,
-            highlighted: index === 0 ? true : false,
-            selected: index === 0 ? true : false,
-            }
-        )
-        );
+  
+  // ...spread operator is used to copy the properties of an object to another object so that we don't mutate the original object
 
-        stepsRef.current = stepsState;
-        const current = updateStep(currentStep - 1, stepsRef.current);
-        setNewStep(current);
-    }, [steps, currentStep]);
+  useEffect(() => {
+    // This is the steps array that we will use to update the steps
+      const stepsState = steps.map((step, index) =>
+      // Here we are creating a new object with the properties of the step object and adding the new properties
+      // Object.assign is used to copy the properties of an object to another object so that we don't mutate the original object
+      Object.assign(
+          {},
+          {
+          name: step,
+          completed: false,
+          highlighted: index === 0 ? true : false,
+          selected: index === 0 ? true : false,
+          }
+        )
+      );
+
+      stepsRef.current = stepsState;
+      console.log(stepsRef.current)
+
+      const current = updateStep(currentStep - 1, stepsRef.current);
+      
+      setNewStep(current);
+  }, [steps, currentStep]);
 
   return (
     <div className="mx-4 p-4 flex justify-between items-center">
@@ -80,7 +92,7 @@ const Stepper = ({ steps, currentStep }) => {
             <div
                 className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3  ${
                 step.selected
-                    ? "bg-green-600 text-white font-bold border border-green-600 "
+                    ? "bg-blue-600 text-white font-bold border border-green-600 "
                     : ""
                 }`}
             >
@@ -97,7 +109,7 @@ const Stepper = ({ steps, currentStep }) => {
                 step.highlighted ? "text-green-500" : "text-gray-400"
                 }`}
             >
-                {step.description}
+                {step.name}
             </div>
             </div>
             {/* Progress Line */}
