@@ -75,11 +75,11 @@ const FundraiserPage = () => {
                         title={fundraiser.title}
                         description={fundraiser.description}
                         createdDate={(fundraiser.createdDate != null) ? format(new Date(fundraiser.createdDate), 'MMMM dd, yyyy') : "" } 
-                        // {format(new Date(fundraiser.createdDate), 'MM/dd/yyyy')}
                         plannedEndDate={(fundraiser.plannedEndDate != null) ? format(new Date(fundraiser.plannedEndDate), 'MMMM dd, yyyy') : "" }
                         tags = {tags}
                         organizerName={user.firstName + " " + user.lastName}
                         organizerEmail={user.email}
+                        fundraiserPictureUrl={fundraiser.pictureId}
                         />
                     <Donations
                         donations = {donations}
