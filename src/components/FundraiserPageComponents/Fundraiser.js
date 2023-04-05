@@ -47,7 +47,7 @@ const Fundraiser = (props) => {
                                 <CgProfile  size={40} />
                             </td>
                             <td className='pl-4 flex flex-col flex-wrap'>
-                                <div className='flex font-bold'>{props.organizerName}</div>
+                                <div className='flex font-bold'>{props.organizerName == "undefined undefined" ? "Unknown" : props.organizerName}</div>
                                 <div className='flex'>{props.organizerEmail}</div>
                             </td>
                         </tr>
