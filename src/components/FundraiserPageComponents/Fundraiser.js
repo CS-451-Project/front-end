@@ -13,15 +13,13 @@ const Fundraiser = (props) => {
             <div className="flex object-cover pt-8 h-[35rem] justify-center">
                 <img src={props.fundraiserPictureUrl == null ? placeholderImage : props.fundraiserPictureUrl} alt="Logo"/>
             </div>
-            <div className=''>
-                <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
-                <div className='flex text-sm italic pt-1 pb-2'>Ends On: {props.plannedEndDate}</div>
-                <div className='flex flex-wrap text-sm'>Tags:  {props.tags.map((tag) => (
-                    <div key={tag} className='pl-2 pb-1'>
-                        <div className="px-2 border border-gray-800 rounded-lg pb-1">{tag}</div>
-                    </div>
-                ))}
-            </div>
+            <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
+            <div className='flex text-sm italic pt-1 pb-2'>Ends On: {props.plannedEndDate}</div>
+            <div className='flex flex-wrap text-sm'>Tags:  {props.tags.map((tag) => (
+                <div key={tag} className='pl-2 pb-1'>
+                    <div className="px-2 border border-gray-800 rounded-lg pb-1">{tag}</div>
+                </div>
+            ))}
             </div>
             <hr className="h-px opacity-25 my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
             <div className="flex text-2xl">About:</div>
