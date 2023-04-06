@@ -10,7 +10,7 @@ const Fundraiser = (props) => {
     return (
         <div className='flex-row justify-left text-left w-full'>
             <div className='flex font-bold text-4xl'>{props.title}</div>
-            <div className="flex object-cover pt-8 h-[35rem]">
+            <div className="flex object-cover pt-8 h-[35rem] justify-center">
                 <img src={props.fundraiserPictureUrl == null ? placeholderImage : props.fundraiserPictureUrl} alt="Logo"/>
             </div>
             <div className=''>

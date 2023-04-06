@@ -69,7 +69,7 @@ const FundraiserPage = () => {
     return (
         // The fundraiser
         <div id="mainContainer" className='flex flex-column justify-center pt-4 lg:pb-12 pb-12 bg-bottom'>
-            <div id="fundraiserContainer" className='flex-row justify-center pt-4 lg:pl-24 lg:pr-96 px-8 w-full'>
+            <div id="fundraiserContainer" className='flex-row justify-center pt-4 2xl:pl-56 2xl:pr-128 lg:pl-24 lg:pr-96 px-8 w-full'>
                 <div className='bg-gray-100 p-12 rounded'>
                     <Fundraiser
                         title={fundraiser.title}
@@ -87,7 +87,7 @@ const FundraiserPage = () => {
                 </div>
             </div>
             {/* The donation area */}
-            <div id="donationContainer" className='fixed lg:right-16 lg:top-48 max-lg:w-full max-lg:bottom-0 justify-center'>
+            <div id="donationContainer" className='fixed 2xl:right-28 lg:right-16 lg:top-48 max-lg:w-full max-lg:bottom-0 justify-center'>
                 <DonateArea
                     currentBalance = {fundraiser.currentBalanceAmount}
                     goalAmount = {fundraiser.goalTargetAmount}
