@@ -5,7 +5,7 @@ import NavBar from './components/NavBar.js';
 import LoginPage from './pages/LoginPage.js';
 import SignupPage from './pages/SignupPage.js';
 import FundraiserPage from './pages/FundraiserPage';
-import Dashboard from './pages/Dashboard';
+import UserDashboardPage from './pages/UserDashboardPage';
 import DonationPage from './pages/DonationPage';
 import ApprovedDonation from './pages/ApprovedDonationPage';
 import Footer from './components/Footer';
@@ -51,7 +51,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/organizer/:userId/fundraiser/:fundraiserId" element={<FundraiserPage />} />
-          <Route path="dashboard/user/:userId" element={<Dashboard />} />
+          <Route path="dashboard/:userId" element={<UserDashboardPage />} />
           <Route path="/organizer/:userId/fundraiser/:fundraiserId/donation" element={<DonationPage />} />
           <Route path="/approved" element={<ApprovedDonation />} />
 
