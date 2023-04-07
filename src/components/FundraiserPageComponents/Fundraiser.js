@@ -10,14 +10,14 @@ const Fundraiser = (props) => {
     return (
         <div className='flex-row justify-left text-left w-full'>
             <div className='flex font-bold text-4xl'>{props.title}</div>
-            <div className="object-contain pt-4">
-                <img src={placeholderImage} className="object-contain pt-4" alt="Logo" />
+            <div className="flex object-cover pt-8 h-[35rem] justify-center">
+                <img src={props.fundraiserPictureUrl == null ? placeholderImage : props.fundraiserPictureUrl} alt="Logo"/>
             </div>
             <div className='flex text-sm italic pt-4'>Created On: {props.createdDate}</div>
-            <div className='flex text-sm italic'>Ends On: {props.plannedEndDate}</div>
-            <div className='flex text-sm italic'>Tags:  {props.tags.map((tag) => (
-                <div key={tag}>
-                    <div className="pl-4">{tag}</div>
+            <div className='flex text-sm italic pt-1 pb-2'>Ends On: {props.plannedEndDate}</div>
+            <div className='flex flex-wrap text-sm'>Tags:  {props.tags.map((tag) => (
+                <div key={tag} className='pl-2 pb-1'>
+                    <div className="px-2 border border-gray-800 rounded-lg pb-1">{tag}</div>
                 </div>
             ))}
             </div>
@@ -44,8 +44,8 @@ const Fundraiser = (props) => {
                             <td>
                                 <CgProfile  size={40} />
                             </td>
-                            <td className='pl-4'>
-                                <div className='flex font-bold'>{props.organizerName}</div>
+                            <td className='pl-4 flex flex-col flex-wrap'>
+                                <div className='flex font-bold'>{props.organizerName == "undefined undefined" ? "Unknown" : props.organizerName}</div>
                                 <div className='flex'>{props.organizerEmail}</div>
                             </td>
                         </tr>
