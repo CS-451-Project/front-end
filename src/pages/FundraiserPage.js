@@ -87,7 +87,7 @@ const FundraiserPage = () => {
                 </div>
             </div>
             {/* The donation area */}
-            <div id="donationContainer" className='fixed 3xl:right-28 lg:right-16 lg:top-48 max-lg:w-full max-lg:bottom-0 justify-center'>
+            <div id="donationContainer" className='flex flex-col fixed 3xl:right-28 lg:right-16 lg:top-48 max-lg:w-full max-lg:bottom-0 justify-center z-10'>
                 <DonateArea
                     currentBalance = {fundraiser.currentBalanceAmount}
                     goalAmount = {fundraiser.goalTargetAmount}
