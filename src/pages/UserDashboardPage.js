@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {  useParams } from "react-router-dom";
-import FundraiserCarousel from '../components/HomePageComponents/FundraiserCarousel';
+import UserFundraiserCarousel from '../components/UserDashboardPageComponents/UserFundraiserCarousel';
 import { CgProfile } from 'react-icons/cg'
 import editButtonImage from '../imgs/icons8-edit-48.png'
 
@@ -72,7 +72,7 @@ const UserDashboardPage = () => {
             </div>
             <div className='pt-10' data-testid="carousel-test-id">
                 <div className='text-3xl'>Your Fundraisers</div>
-                <FundraiserCarousel data={userFundraisers}/>
+                <UserFundraiserCarousel data={userFundraisers}/>
             </div>
         </div>
         

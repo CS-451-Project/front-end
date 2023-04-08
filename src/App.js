@@ -43,7 +43,6 @@ function App() {
               />
           </div>
 
-
         {/* Routes in the browser to different pages */}
         <Routes>
           {/* The path is how you get to the page and the element is what shows on the page */}
