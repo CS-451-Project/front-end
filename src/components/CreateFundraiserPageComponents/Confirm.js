@@ -6,27 +6,7 @@ const Confirm = () => {
   
   return (
     <div>
-      <div>
-        {userData.Title}
-      </div>
-      <div>
-        {userData.GoalTargetAmount}
-      </div>
-      <div>
-        {userData.Description}
-      </div>
-      {
-        userData.tags.map((tag, index) => {
-          return (
-            <div key={index}>
-              {tag}
-            </div>
-          )
-        })
-      }
-      {/* <div>
-        {userData["tags"].map((tag) => tag) || ""}
-      </div> */}
+      Confirm
     </div>
   )
 }

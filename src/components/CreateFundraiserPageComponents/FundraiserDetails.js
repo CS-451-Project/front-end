@@ -5,15 +5,18 @@ import { TagsInput } from 'react-tag-input-component';
 const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
   const [selected, setSelected] = useState([]);
+  const [displayedTags, setDisplayedTags] = useState(JSON.stringify(userData.tags));
+  let tagArray = [];
 
-  // useEffect(() => {
-  //   // userData["tags"]?.map((tag) => {
-  //   //   console.log("tag");
-  //   //   console.log(tag)
-  //   // })
-  //   // console.log(userData);
+  useEffect(() => {
+    // userData["tags"]?.map((tag) => {
+    //   tagArray.push(tag);
+    // })
+    const tagArray = [...userData.tags];
+    setSelected(tagArray);
+    // console.log(userData["tags"]);
 
-  // }, []);
+  }, []);
   
 
   const handleChange = (e) => {
@@ -87,18 +90,7 @@ const FundraiserDetails = () => {
             // value={userData["tags"]?.map((tag) => tag) || ""}
             value={selected}
             name="tags"
-            placeHolder="enter up to 5 tags"
-          />
-        </label>
-        <label>
-          <input
-            onChange={handleChange}
-            value={userData["tags"] || ""}
-            name="tags"
-            placeholder={JSON.stringify(userData["tags"])}
-            type="text"
-            className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border"
-            disabled={true}
+            placeHolder="enter your tags"
           />
         </label>
       </div>
