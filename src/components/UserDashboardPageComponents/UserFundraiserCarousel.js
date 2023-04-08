@@ -29,12 +29,11 @@ const UserFundraiserCarousel = (props) => {
         <Carousel responsive={responsive}>
             {props.data.map((fundraiser)=>{   
                 return(
-                    // 
-                    <div className='flex justify-center p-8' key={fundraiser.fundraiserId}>
+                    <div className='flex justify-center py-8' key={fundraiser.fundraiserId}>
                         {/* The link makes the display clickable and navigates to individual fundraiser*/}
                         {/* The FundraiserDisplaySection component is used to display the fundraiser */}
                         {/* The props passed in is the object properties */}
-                        <div data-testid="fundraiser-section-id">
+                        <div>
                             <UserFundraiserDisplaySection
                             fundraiserId = {fundraiser.fundraiserId }
                             organizerId={fundraiser.organizerId}
