@@ -68,7 +68,7 @@ const Stepper = ({ steps, currentStep }) => {
       );
 
       stepsRef.current = stepsState;
-      console.log(stepsRef.current)
+      // console.log(stepsRef.current)
 
       const current = updateStep(currentStep - 1, stepsRef.current);
       
@@ -76,7 +76,7 @@ const Stepper = ({ steps, currentStep }) => {
   }, [steps, currentStep]);
 
   return (
-    <div className="mx-4 p-4 flex justify-between items-center">
+    <div className="mx-4 p-4 pt-8 flex justify-between items-center">
       {newStep.map((step, index) => {
         return (
         <div
