@@ -23,7 +23,7 @@ const NavBar = () => {
         navigate('/');
         toast.success('Logged out successfully!', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -93,9 +93,9 @@ const NavBar = () => {
                                 </button>
                                 <div className='relative'>
                                     <div className={`absolute top-11 -left-32 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
-                                        <ul classname="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                                        <ul className="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                             <li>
-                                                <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                                <a href={`/dashboard/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                             </li>
                                             <li >
                                                 <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
@@ -133,7 +133,7 @@ const NavBar = () => {
                             <div className={`absolute right-0 -top-2 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
                                 <ul classname=" z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                     <li>
-                                        <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                        <a href={`/dashboard/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                     </li>
                                     <li >
                                         <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
