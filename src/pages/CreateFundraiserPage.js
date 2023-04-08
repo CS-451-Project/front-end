@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import Stepper from '../components/CreateFundraiserPageComponents/Stepper';
 import StepperControl from '../components/CreateFundraiserPageComponents/StepperControl';
-import { UseContextProvider, useStepperContext } from '../components/CreateFundraiserPageComponents/StepperContext';
+import { UseContextProvider, useStepperContext } from '../components/contexts/StepperContext';
 
 import FundraiserDetails from '../components/CreateFundraiserPageComponents/FundraiserDetails';
 import BankInformation from '../components/CreateFundraiserPageComponents/BankInfo';
@@ -48,13 +48,17 @@ const CreateFundraiserPage = () => {
                 <div className="horizontal container mt-5 ">
                     {/* This is the progression bar for the multi-step form */}
                     <Stepper steps={steps} currentStep={currentStep} />
+
                     {/* This is the content (in this case the different forms) of the multi-step form */}
+                    {/* This is wrapped in a useContext so all the variables can be shared within the different forms */}
                     <div className="my-10 p-10 ">
-                    <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
+                    <UseContextProvider>
+                        {displayStep(currentStep)}
+                    </UseContextProvider>
                     </div>
                 </div>
 
-                {/* navigation button */}
+                {/* navigation buttons */}
                 {currentStep !== steps.length ? (
                     <StepperControl
                     handleClick={handleClick}
@@ -69,7 +73,7 @@ const CreateFundraiserPage = () => {
                         </button>
                     </div>
                      
-                    )}
+                )}
             </div>
         </div>
         
