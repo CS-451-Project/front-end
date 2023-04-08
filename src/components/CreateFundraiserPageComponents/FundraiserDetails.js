@@ -4,19 +4,14 @@ import { TagsInput } from 'react-tag-input-component';
 
 const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(userData.tags);
   const [displayedTags, setDisplayedTags] = useState(JSON.stringify(userData.tags));
   let tagArray = [];
 
-  useEffect(() => {
-    // userData["tags"]?.map((tag) => {
-    //   tagArray.push(tag);
-    // })
-    const tagArray = [...userData.tags];
-    setSelected(tagArray);
-    // console.log(userData["tags"]);
-
-  }, []);
+  // useEffect(() => {
+  //   const tagArray = [...userData.tags];
+  //   setSelected(tagArray);
+  // }, []);
   
 
   const handleChange = (e) => {
@@ -25,20 +20,8 @@ const FundraiserDetails = () => {
   };
 
   const handleTags = (tags) => {
-      // console.log(tags);
       setSelected(tags);
       setUserData({ ...userData, tags: tags });
-      console.log(JSON.stringify(userData.tags));
-      console.log(tags);
-      // console.log(selected);
-
-      // const limitedArray = selected.splice(0, 5);
-      // setSelected(tags);
-      // console.log(tags);
-      // console.log("Limited Array ");
-      // console.log(limitedArray);
-      // setUserData({ ...userData, tags: limitedArray });
-
   };
   
   return (
@@ -56,7 +39,7 @@ const FundraiserDetails = () => {
           />
         </label>
         <label className='flex justify-center'>
-          <input
+          <textarea
             onChange={handleChange}
             value={userData["Description"] || ""}
             name="Description"
@@ -88,7 +71,7 @@ const FundraiserDetails = () => {
           <TagsInput
             onChange={handleTags}
             // value={userData["tags"]?.map((tag) => tag) || ""}
-            value={selected}
+            value={selected != null ? selected : []}
             name="tags"
             placeHolder="enter your tags"
           />

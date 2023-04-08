@@ -7,15 +7,15 @@ const Preview = () => {
   return (
     <div>
       <div>
-        {userData.Title}
+        Title: {userData.Title}
       </div>
       <div>
-        {userData.GoalTargetAmount}
+        GoalTargetAmount: {userData.GoalTargetAmount}
       </div>
       <div>
-        {userData.Description}
+        Description: {userData.Description}
       </div>
-      {
+      {/* {
         userData.tags.map((tag, index) => {
           return (
             <div key={index}>
@@ -23,10 +23,38 @@ const Preview = () => {
             </div>
           )
         })
-      }
+      } */}
       <div>
-        {userData.BankName}
+        tags: {JSON.stringify(userData.tags)}
       </div>
+      <div>
+        Account_Name Name: {userData.Account_Name}
+      </div>
+      <div>
+        Address: {userData.Address}
+      </div>
+      <div>
+        City: {userData.City}
+      </div>
+      <div>
+        State: {userData.State}
+      </div>
+      <div>
+        Zipcode: {userData.Zipcode}
+      </div>
+      <div>
+        Bank_Name: {userData.Bank_Name}
+      </div>
+      <div>
+        Account_Num: {userData.Account_Num}
+      </div>
+      <div>
+        Routing_Num: {userData.Routing_Num}
+      </div>
+      <div>
+        Account_Type: {userData.Account_Type}
+      </div>
+      
       {/* <div>
         {userData["tags"].map((tag) => tag) || ""}
       </div> */}
