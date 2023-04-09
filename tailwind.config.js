@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
-      Header: ["Source Serif Pro"],
+      Header: ["Merriweather"],
       HomePageHeading: ["Golos+Text"],
+      Approved: ["IBM+Plex+Sans"],
     },
     extend: {
       spacing: {
@@ -24,6 +25,12 @@ module.exports = {
       height: {
         100: '36rem',
       },
+      top: {
+        100: '38rem',
+      },
+      screens: {
+        '3xl': '1600px',
+      }
     }
   },
   plugins: [],

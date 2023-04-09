@@ -14,23 +14,10 @@ const FundraiserDisplaySection = (props) => {
             <p className='truncate '>
                 {props.description}
             </p>
-
-            {/* {props.goalTargetAmount} */}
-            {/* {props.createdDate} */}
-            {/* {props.goalReachedDate} */}
-            {/* {props.plannedEndDate} */}
-            {/* {props.tags} */}
-            {/* {props.tags.map((fundraiser)=>{   
-                return(
-                    <div>
-                        {fundraiser}
-                    </div>
-                );
-            })}  */}
         </div>
-        
     </div>
   )
 }
 
 export default FundraiserDisplaySection;
+

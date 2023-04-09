@@ -14,16 +14,17 @@ const NavBar = () => {
     const [isOpen, setOpen] = useState(false);
     let userId = "";
 
-    if(localStorage.length === 1){
+    if(localStorage.length > 0){
         userId = localStorage.getItem("userId");
     }
 
     const handleClick = () => {
         localStorage.removeItem('userId');
+        localStorage.removeItem('AuthHeader');
         navigate('/');
         toast.success('Logged out successfully!', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -86,19 +87,18 @@ const NavBar = () => {
                             <li className="text-black text-lg hover:text-green-600 duration-200 hover:underline underline-offset-2">
                                 <a href="/">Contact US</a>
                             </li>
-                            
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
-                        {localStorage.length === 1 ? (
-                            <div className="mt-3 space-y-2 md:hidden flex justify-center ">
+                        {localStorage.length > 0 ? (
+                            <div className="mt-3 space-y-2 md:hidden flex justify-center">
                                 <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
                                     <CgProfile  size={40} />
                                 </button>
                                 <div className='relative'>
                                     <div className={`absolute top-11 -left-32 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
-                                        <ul classname="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                                        <ul className="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                             <li>
-                                                <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                                <a href={`/dashboard/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                             </li>
                                             <li >
                                                 <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>
@@ -126,7 +126,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 {/* Login and signup buttons for large screens*/}
-                {localStorage.length === 1 ? (
+                {localStorage.length > 0 ? (
                     // Should show profile pic with options to go to dashboard and logout
                     <div className="hidden space-x-2 md:inline-block">
                         <button onClick={() => setOpen(!isOpen)} className='px-4 py-2.5 text-center inline-flex items-center'>
@@ -136,7 +136,7 @@ const NavBar = () => {
                             <div className={`absolute right-0 -top-2 w-44 bg-white rounded divide-y divide-gray-100 shadow ${isOpen ? "block" : "hidden"}`}>
                                 <ul classname=" z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                                     <li>
-                                        <a href={`dashboard/user/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
+                                        <a href={`/dashboard/${userId}`} className="block py-2 px-4 hover:bg-gray-100">Dashboard</a>
                                     </li>
                                     <li >
                                         <a onClick={handleClick} href="/" className="block py-2 px-4 hover:bg-gray-100">Log Out</a>

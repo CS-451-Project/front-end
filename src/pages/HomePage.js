@@ -32,7 +32,7 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div>
+        <div className=' '>
             {/* PIC HEADER */}
             <div className='bg-homePagePic bg-cover h-[100vh] bg-center'>
                 <div className='w-full flex justify-center p-4 font-HomePageHeading font-semibold text-black'>

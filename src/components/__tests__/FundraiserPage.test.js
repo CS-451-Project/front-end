@@ -2,9 +2,14 @@ import { render, screen } from '@testing-library/react';
 import Fundraiser from '../FundraiserPageComponents/Fundraiser';
 import FundraiserPage from '../../pages/FundraiserPage';
 import DonateArea from '../FundraiserPageComponents/DonateArea';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe("Fundraiser Page", () => {
-    render(<FundraiserPage />);
+    render(
+        <Router>
+            <FundraiserPage />
+        </Router>
+    );
 
     // Checks if the useEffect is called and the mock fetch is called
     test('useEffect fetch', () => {
@@ -16,15 +21,19 @@ describe("Fundraiser Page", () => {
 })
 
 describe("Render fundraiser component", () => {
-    render(<Fundraiser
-        title={"Test fundraiser"}
-        description={"This is the best description ever"}
-        createdDate={"2021-23-11"} 
-        plannedEndDate={"2021-01-01"}
-        tags = {["tag1", "tag2"]}
-        organizerName={"Albus Dingledore"}
-        organizerEmail={"ADizzy@harryTotter.com"}
-        />
+    render(
+        <Router>
+            <Fundraiser
+                title={"Test fundraiser"}
+                description={"This is the best description ever"}
+                createdDate={"2021-23-11"} 
+                plannedEndDate={"2021-01-01"}
+                tags = {["tag1", "tag2"]}
+                organizerName={"Albus Dingledore"}
+                organizerEmail={"ADizzy@harryTotter.com"}
+            />
+        </Router>
+    
     );
     
     const fundraiserTitleText = screen.getByText(/Test fundraiser/i);
@@ -35,10 +44,14 @@ describe("Render fundraiser component", () => {
 })
 
 describe("Render donate area component", () => {
-    render(<DonateArea
-        currentBalance = {1000.00}
-        goalAmount = {2000.00}
-        />
+    render(
+        <Router>
+            <DonateArea
+                currentBalance = {1000.00}
+                goalAmount = {2000.00}
+            />
+        </Router>
+    
     );
 
     const donationAmount = screen.getByText(/2,000/i)

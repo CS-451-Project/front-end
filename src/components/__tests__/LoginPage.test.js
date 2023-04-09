@@ -27,22 +27,25 @@ describe('LoginWindow', () => {
                 <LoginWindow/>
             </Router>
         );
-        const email = "azdummy@gmail.com";
-        const password = 'test';
         
+        // expect the title to be in the document
         expect(screen.getByRole('heading', { name: "Login" })).toBeInTheDocument();
         
+        // user fills out email input
         fireEvent.change(screen.getByRole('textbox', { name: "" }), {
             persist: jest.fn(),
             target: { name: "", value: "azdummy@gmail.com" }
         });
         expect(screen.getByRole('textbox', { name: "" })).toHaveValue("azdummy@gmail.com");
 
+        // user fills out password input
         fireEvent.change(screen.getByRole('textbox', { name: "" }), {
             persist: jest.fn(),
             target: { name: "", value: "test" }
         });
         expect(screen.getByRole('textbox', { name: "" })).toHaveValue("test");
+
+        // user clicks login button
         fireEvent.click(screen.getByRole('button', { name: "Log In" }));
         fireEvent.click(screen.getByRole('button', { name: "Log In" }), {
             persist: jest.fn()
@@ -55,8 +58,6 @@ describe('LoginWindow', () => {
                 <LoginWindow/>
             </Router>
         );
-        const email = "azdummy@gmail.com";
-        const password = 'test';
 
         fireEvent.click(screen.getByRole('button', { name: "Create Account" }));
     });
@@ -67,8 +68,6 @@ describe('LoginWindow', () => {
                 <LoginWindow/>
             </Router>
         );
-        const email = "azdummy@gmail.com";
-        const password = 'test';
         
         fireEvent.click(screen.getByRole('link', { name: "Forgot Password?" }));
     });
