@@ -6,7 +6,7 @@ import React from 'react';
 const Button = ({ title, ...props }) => {
   return (
     <button 
-      className="bg-green-500 text-white py-2 px-4 hover:bg-green-700 duration-200 rounded-lg" 
+      className="bg-green-600 rounded-md outline outline-1 outline-white text-white py-2 px-4 hover:bg-green-700 duration-200" 
       onClick={props.click}
     // {...props}
     >
@@ -16,4 +16,3 @@ const Button = ({ title, ...props }) => {
 };
 
 export default Button;
-

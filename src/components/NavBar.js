@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { TbHeartHandshake } from 'react-icons/tb'
 import { CgProfile } from 'react-icons/cg'
 
 const NavBar = () => {
@@ -32,15 +33,17 @@ const NavBar = () => {
             theme: "light",
         });
     }
-
-    return (
-          <nav className="w-full bg-gray-100 shadow">
+  
+  return (
+          <nav className="w-full bg-gray-200 shadow">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
               {/* Logo and menu button */}
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
-                            <h2 className="text-2xl font-bold text-black">DEMO</h2>
+                            {/* <h2 className="text-2xl font-bold text-black">DEMO</h2> */}
+                            
+                            <TbHeartHandshake className='h-10 w-10' />
                         </a>
                         {/* Small screen menu/close buttons */}
                         {/* This will be hidden on screens at least `md` in size. */}
@@ -72,17 +75,17 @@ const NavBar = () => {
                     >
                       {/* space is adding whitespace */}
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-black hover:text-green-600 duration-200">
+                            {/* <li className="text-black hover:text-green-600 duration-200">
                                 <a href="/">Home</a>
+                            </li> */}
+                            <li className="text-black text-lg hover:text-green-600 duration-200 hover:underline underline-offset-2">
+                                <a href="/">Blog</a>
                             </li>
-                            <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Fundraisers</a>
+                            <li className="text-black text-lg hover:text-green-600 duration-200 hover:underline underline-offset-2">
+                                <a href="/">About US</a>
                             </li>
-                            <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Create Fundraiser</a>
-                            </li>
-                            <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Contact Us</a>
+                            <li className="text-black text-lg hover:text-green-600 duration-200 hover:underline underline-offset-2">
+                                <a href="/">Contact US</a>
                             </li>
                         </ul>
                         {/* Login and signup buttons  for small screens*/}
@@ -108,7 +111,7 @@ const NavBar = () => {
                             <div className="mt-3 space-y-2 md:hidden ">
                                 <a
                                     href="/login"
-                                    className="inline-block w-full px-4 py-2 text-center text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
+                                    className="inline-block w-full px-4 py-2 text-center text-white bg-green-600 rounded-md shadow hover:bg-green-700 duration-200"
                                 >
                                     Log in
                                 </a>
@@ -146,13 +149,13 @@ const NavBar = () => {
                     <div className="hidden space-x-2 md:inline-block">
                         <a
                             href="/login"
-                            className="px-4 py-2 text-white bg-green-600 rounded-md shadow hover:bg-gray-800 duration-200"
+                            className="px-4 py-2 text-white bg-green-600 rounded-md shadow hover:bg-green-700 duration-200"
                         >
                             Log in
                         </a>
                         <a
                             href="/signup"
-                            className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100 duration-200"
+                            className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-green-200 duration-200"
                         >
                             Sign up
                         </a>
