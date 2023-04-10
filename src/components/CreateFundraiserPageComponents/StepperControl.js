@@ -1,5 +1,7 @@
 import React from 'react'
 
+// controls the buttons for the multi-step form
+// buttons are controled by the currentStep and the total number of steps
 const StepperControl = ({ handleClick, currentStep, steps }) => {
   return (
     <div className="container mt-4 mb-8 flex justify-around">

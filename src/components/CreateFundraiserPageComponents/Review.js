@@ -4,6 +4,8 @@ import { useStepperContext } from '../contexts/StepperContext'
 const Preview = () => {
   const { userData, setUserData } = useStepperContext();
   
+  const checkString = typeof userData.Zipcode === "string" ? console.log("true") : console.log("false")
+
   return (
     <div>
       <div>
@@ -28,6 +30,9 @@ const Preview = () => {
         tags: {JSON.stringify(userData.tags)}
       </div>
       <div>
+        -------------------
+      </div>
+      <div>
         Account_Name Name: {userData.Account_Name}
       </div>
       <div>
@@ -41,6 +46,9 @@ const Preview = () => {
       </div>
       <div>
         Zipcode: {userData.Zipcode}
+        {/* Zipcode: {userData.Zipcode.toString()}
+        {console.log(userData.Zipcode.toString())}
+        {checkString} */}
       </div>
       <div>
         Bank_Name: {userData.Bank_Name}

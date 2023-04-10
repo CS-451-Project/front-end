@@ -90,7 +90,7 @@ const Stepper = ({ steps, currentStep }) => {
             <div className="relative flex flex-col items-center text-teal-600">
                 {/* Step Number */}
             <div
-                className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3  ${
+                className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3 text-md ${
                 step.selected
                     ? "bg-green-600 text-white font-bold border border-green-600 "
                     : ""
@@ -105,7 +105,7 @@ const Stepper = ({ steps, currentStep }) => {
             </div>
             
             <div
-                className={`absolute top-0 pr-12 text-center mt-16 w-1/2 text-xs font-medium uppercase ${
+                className={`absolute top-0 pr-12 text-center mt-16 w-1/2 text-[.65rem]  font-medium uppercase sm:text-[.8rem] ${
                 step.highlighted ? "text-green-500" : "text-gray-400"
                 }`}
             >

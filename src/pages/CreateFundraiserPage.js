@@ -6,7 +6,7 @@ import { UseContextProvider, useStepperContext } from '../components/contexts/St
 
 import FundraiserDetails from '../components/CreateFundraiserPageComponents/FundraiserDetails';
 import BankInformation from '../components/CreateFundraiserPageComponents/BankInfo';
-import Preview from '../components/CreateFundraiserPageComponents/Preview';
+import Review from '../components/CreateFundraiserPageComponents/Review';
 import Confirm from '../components/CreateFundraiserPageComponents/Confirm';
 
 const CreateFundraiserPage = () => {
@@ -15,7 +15,7 @@ const CreateFundraiserPage = () => {
     const steps = [
         "Fundraiser Details",
         "Bank Info",
-        "Preview",
+        "Review",
         "Confirm",
     ];
 
@@ -26,7 +26,7 @@ const CreateFundraiserPage = () => {
         case 2:
             return <BankInformation />;
         case 3:
-            return <Preview />;
+            return <Review />;
         case 4:
             return <Confirm />;
         default:
@@ -39,10 +39,13 @@ const CreateFundraiserPage = () => {
         direction === "next" ? newStep++ : newStep--;
         // check if steps are within bounds
         newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+
+        newStep === 4 && console.log("submit");
     };
 
     return (
-        <div className='p-4'>
+        
+        <div className='p-8'>
             <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
                 {/* Stepper */}
                 <div className="horizontal container mt-5 ">
