@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useStepperContext } from '../contexts/StepperContext'
 // import { TagsInput } from 'react-tag-input-component';
 import TagsInput from 'react-tagsinput'
-import '../../index.css'
+import { AiOutlineCloudUpload } from 'react-icons/ai'
+// import '../../index.css'
 
 const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
   const [selected, setSelected] = useState(userData.tags);
   const [displayedTags, setDisplayedTags] = useState(JSON.stringify(userData.tags));
-  let tagArray = [];
-
-  // useEffect(() => {
-  //   const tagArray = [...userData.tags];
-  //   setSelected(tagArray);
-  // }, []);
   
 
   const handleChange = (e) => {
@@ -29,20 +24,24 @@ const FundraiserDetails = () => {
   return (
     <div>
       <div className='flex flex-col relative'>
-
+        <div>
+          Title
+        </div>
         <div className='pb-8'>
           <label className='flex justify-center'>
             <input
               onChange={handleChange}
               value={userData["Title"] || ""}
               name="Title"
-              placeholder="Enter a title for your fundraiser"
+              placeholder="Name your cause"
               type="text"
               className="w-full appearance-none p-2 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
             />
           </label>
         </div>
-
+        <div>
+          Description
+        </div>
         <div className='pb-8 '>
           <label className='flex justify-center'>
             <textarea
@@ -95,16 +94,54 @@ const FundraiserDetails = () => {
         </div>
 
         <div className='pt-4'>
-          <label className=''>
+          <label>
             <TagsInput 
               value={selected != null ? selected : []} 
               onChange={handleTags} 
-              className='border p-4' 
+              className='border p- transition-colors duration-300 focus:border-green-500' 
+              maxTags = {5}
+              tagProps={{ 
+                className: 'bg-green-500 text-white rounded-lg p-2 m-1 border-none inline-block before:content-[" ×"]',
+                classNameRemove: 'cursor-pointer font-bold'
+              }}
+              inputProps={{
+                placeholder: 'Add up to 5 tags', 
+                className: 'bg-transparent border-none text-gray-700 font-sans text-base font-medium mb-6 mt-1 outline-none p-2 w-80'
+              }}
             />
-            <div className='text-sm pl-2'>
-              press enter to add a tag
+            <div className='text-sm pl-2 italic pb-8'>
+              press enter to add a tag, backspace to delete
             </div>
           </label>
+        </div>
+        <div>
+          <div>
+            Fundraiser Image:
+          </div>
+          <div className='bg-white border-2 border-gray-300 border-dashed rounded-md hover:border-gray-400 focus:outline-none'>
+            <label class="flex justify-center flex-col w-full h-48 px-4 transition appearance-none cursor-pointer">        
+                <span class="flex justify-center items-center space-x-2">
+                  <div className=''>
+                    <AiOutlineCloudUpload size={24} />
+                  </div>
+                  <span class="font-medium text-gray-600">
+                      Drop PNG file to Attach, or browse
+                  </span>
+                </span>
+                <input
+                  onChange={handleChange}
+                  name="FundraiserImage"
+                  placeholder="FundraiserImage"
+                  type="file"
+                  className='hidden'
+                  accept=".png"
+                />
+            </label>
+            <div className='bg-gray-200 text-lg'>
+              {userData.FundraiserImage != null ? userData["FundraiserImage"] : "" }
+            </div>
+          </div>
+          
         </div>
         
       </div>

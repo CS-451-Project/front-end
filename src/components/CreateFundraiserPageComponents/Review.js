@@ -4,68 +4,155 @@ import { useStepperContext } from '../contexts/StepperContext'
 const Preview = () => {
   const { userData, setUserData } = useStepperContext();
   
-  const checkString = typeof userData.Zipcode === "string" ? console.log("true") : console.log("false")
+  // const checkString = typeof userData.Zipcode === "string" ? console.log("true") : console.log("false")
 
   return (
     <div>
-      <div>
-        Title: {userData.Title}
+      <div className='text-2xl pb-4'>
+        Fundraiser Details: 
       </div>
-      <div>
-        GoalTargetAmount: {userData.GoalTargetAmount}
+      <div className='flex flex-wrap'>
+        <div className='w-full lg:w-1/2 pb-8'>
+          <div className='font-bold'>
+            Title: 
+          </div>
+          <div>
+            {userData.Title}
+          </div>
+        </div>
+        <div className='w-full lg:w-1/2 pb-8'>
+          <div className='font-bold'>
+            GoalTargetAmount: 
+          </div>
+          <div>
+            {userData.GoalTargetAmount}
+          </div>
+        </div>
       </div>
+
       <div>
-        Description: {userData.Description}
+        <div className='font-bold'>
+          Description: 
+        </div>
+        <div className='pb-8 w-fit'>
+          {userData.Description}
+        </div>
       </div>
-      {/* {
-        userData.tags.map((tag, index) => {
-          return (
-            <div key={index}>
-              {tag}
+
+      <div className='flex flex-wrap'>
+        <div className='w-full lg:w-1/2 pb-8'>
+          <div className='font-bold pb-1'>
+            tags:
+          </div>
+          <div>
+            {/* {JSON.stringify(userData.tags)} */}
+            {
+              userData.tags?.map((tag, index) => {
+                return (
+                  <span key={index} className='mr-4 p-1 bg-green-500 text-white'>
+                    {tag}
+                  </span>
+                )
+              })
+            }
+          </div>
+        </div>
+        <div>
+          <div className='font-bold'>
+            Fundraiser_Img:
+          </div>
+          <div className='pb-8'>
+            {userData.FundraiserImage}
+          </div>
+        </div>
+      </div>
+
+      <div className='text-2xl pb-4'>
+        Bank Details: 
+      </div>
+
+      <div className='flex flex-wrap justify-between pr-4'>
+          <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Account Name:
             </div>
-          )
-        })
-      } */}
-      <div>
-        tags: {JSON.stringify(userData.tags)}
-      </div>
-      <div>
-        -------------------
-      </div>
-      <div>
-        Account_Name Name: {userData.Account_Name}
-      </div>
-      <div>
-        Address: {userData.Address}
-      </div>
-      <div>
-        City: {userData.City}
-      </div>
-      <div>
-        State: {userData.State}
-      </div>
-      <div>
-        Zipcode: {userData.Zipcode}
-        {/* Zipcode: {userData.Zipcode.toString()}
-        {console.log(userData.Zipcode.toString())}
-        {checkString} */}
-      </div>
-      <div>
-        Bank_Name: {userData.Bank_Name}
-      </div>
-      <div>
-        Account_Num: {userData.Account_Num}
-      </div>
-      <div>
-        Routing_Num: {userData.Routing_Num}
-      </div>
-      <div>
-        Account_Type: {userData.Account_Type}
+            <div className='pb-8'>
+              {userData.Account_Name}
+            </div>
+          </div>
+          <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Address:
+            </div>
+            <div className='pb-8'>
+              {userData.Address}
+            </div>
+          </div>
+          <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              City:
+            </div>
+            <div className='pb-8'>
+              {userData.City}
+            </div>
+          </div>
       </div>
       
-      {/* <div>
-        {userData["tags"].map((tag) => tag) || ""}
-      </div> */}
+      <div className='flex flex-wrap justify-between pr-4'>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              State:
+            </div>
+            <div className='pb-8'>
+              {userData.State}
+            </div>
+        </div>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Zipcode: 
+            </div>
+            <div className='pb-8'>
+              {userData.Zipcode.toString()}
+              {console.log(userData.Zipcode.toString())}
+              {/* {checkString} */}
+            </div>
+        </div>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Bank_Name: 
+            </div>
+            <div className='pb-8'>
+              {userData.Bank_Name}
+            </div>
+        </div>
+      </div>
+
+      <div className='flex flex-wrap justify-between pr-4'>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Account_Num: 
+            </div>
+            <div className='pb-8'>
+              {userData.Account_Num.toString()}
+            </div>
+        </div>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Routing_Num: 
+            </div>
+            <div className='pb-8'>
+              {userData.Routing_Num.toString()}
+            </div>
+        </div>
+        <div className='w-full lg:w-1/3 '>
+            <div className='font-bold'>
+              Account_Type: 
+            </div>
+            <div className='pb-8'>
+              {userData.Account_Type}
+            </div>
+        </div>
+      </div>
     </div>
   )
 }

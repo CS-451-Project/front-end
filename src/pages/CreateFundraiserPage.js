@@ -45,7 +45,7 @@ const CreateFundraiserPage = () => {
 
     return (
         
-        <div className='p-8'>
+        <div className='px-4 py-8'>
             <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
                 {/* Stepper */}
                 <div className="horizontal container mt-5 ">
@@ -79,7 +79,6 @@ const CreateFundraiserPage = () => {
                 )}
             </div>
         </div>
-        
     )
 }
 
