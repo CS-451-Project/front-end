@@ -16,6 +16,7 @@ const Stepper = ({ steps, currentStep }) => {
         //current step
         if (count === stepNumber) {
           newSteps[count] = {
+             // ...spread operator is used to copy the properties of an object to another object so that we don't mutate the original object
             ...newSteps[count],
             highlighted: true,
             selected: true,
@@ -48,9 +49,6 @@ const Stepper = ({ steps, currentStep }) => {
       return newSteps;
   };
 
-  
-  // ...spread operator is used to copy the properties of an object to another object so that we don't mutate the original object
-
   useEffect(() => {
     // This is the steps array that we will use to update the steps
       const stepsState = steps.map((step, index) =>
@@ -66,27 +64,30 @@ const Stepper = ({ steps, currentStep }) => {
           }
         )
       );
-
+      
+      // We update the stepsRef.current with the new stepsState array
       stepsRef.current = stepsState;
-      // console.log(stepsRef.current)
 
+      // current is the array from the updateStep function
       const current = updateStep(currentStep - 1, stepsRef.current);
       
+      // We update the newStep state with the current array
       setNewStep(current);
   }, [steps, currentStep]);
 
   return (
     <div className="mx-4 p-4 pt-8 flex justify-between items-center">
+      {/* Map through the newStep array */}
       {newStep.map((step, index) => {
         return (
-        <div
-            key={index}
-            className={
-            index !== newStep.length - 1
-                ? "w-full flex items-center"
-                : "flex items-center"
-            }
-        >
+            <div
+                key={index}
+                className={
+                index !== newStep.length - 1
+                    ? "w-full flex items-center"
+                    : "flex items-center"
+                }
+            >
             <div className="relative flex flex-col items-center text-teal-600">
                 {/* Step Number */}
             <div
@@ -103,7 +104,7 @@ const Stepper = ({ steps, currentStep }) => {
                 index + 1
                 )}
             </div>
-            
+            {/* Step name */}
             <div
                 className={`absolute top-0 pr-12 text-center mt-16 w-1/2 text-[.65rem]  font-medium uppercase sm:text-[.8rem] ${
                 step.highlighted ? "text-green-500" : "text-gray-400"

@@ -9,6 +9,9 @@ const StepperContext = createContext({ userData: "", setUserData: null });
 export function UseContextProvider({ children }) {
   const [userData, setUserData] = useState("");
 
+  // returns the component StepperContext.Provider that wraps the children components
+  // and passes the state and the function to update the state to the children components
+  // the children components can access the state and the function to update the state by using the hook useStepperContext
   return (
     <StepperContext.Provider value={{ userData, setUserData }}>
       {children}

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStepperContext } from '../contexts/StepperContext'
-// import { TagsInput } from 'react-tag-input-component';
 import TagsInput from 'react-tagsinput'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
-// import '../../index.css'
 
 const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
@@ -54,7 +52,6 @@ const FundraiserDetails = () => {
           </label>
         </div>
         
-          
         <div className='flex flex-wrap'>
           <div className='w-full md:w-1/2 pb-4'>
             <div>
@@ -134,7 +131,7 @@ const FundraiserDetails = () => {
                   placeholder="FundraiserImage"
                   type="file"
                   className='hidden'
-                  accept=".png"
+                  accept=".jpg"
                 />
             </label>
             <div className='bg-gray-200 text-lg'>

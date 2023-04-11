@@ -21,7 +21,7 @@ function App() {
     // This is the main container that holds all the pages
     // This is where you can add css to the whole app
     // className is the css class that is imported from App.css
-    <div className='bg-green-300 min-h-screen relative min-w-fit'>
+    <div className='bg-green-300 min-h-screen relative '>
 
       {/* Imported npm package that displays messages throughout the browser pages */}
         {/* Container that hold different routes in the pages */}

@@ -40,9 +40,9 @@ const Preview = () => {
       </div>
 
       <div className='flex flex-wrap'>
-        <div className='w-full lg:w-1/2 pb-8'>
+        <div className='w-full lg:w-1/3 pb-8'>
           <div className='font-bold pb-1'>
-            tags:
+            Fundraiser Tags:
           </div>
           <div>
             {/* {JSON.stringify(userData.tags)} */}
@@ -57,13 +57,24 @@ const Preview = () => {
             }
           </div>
         </div>
-        <div>
+        <div className='w-full lg:w-1/3 pb-8'>
           <div className='font-bold'>
-            Fundraiser_Img:
+            Fundraiser Image:
           </div>
           <div className='pb-8'>
             {userData.FundraiserImage}
           </div>
+        </div>
+        <div className='w-full lg:w-1/3 pb-8'>
+          <div className='font-bold'>
+            Planned End Date:
+          </div>
+          <div className='pb-8'>
+            {userData.PlannedEndDate}
+          </div>
+        </div>
+        <div>
+          
         </div>
       </div>
 

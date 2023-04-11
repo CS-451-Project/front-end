@@ -8,6 +8,7 @@ import FundraiserDetails from '../components/CreateFundraiserPageComponents/Fund
 import BankInformation from '../components/CreateFundraiserPageComponents/BankInfo';
 import Review from '../components/CreateFundraiserPageComponents/Review';
 import Confirm from '../components/CreateFundraiserPageComponents/Confirm';
+import Confetti from 'react-confetti'
 
 const CreateFundraiserPage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -33,50 +34,59 @@ const CreateFundraiserPage = () => {
         }
     };
 
+    // this function is passed to the StepperControl component
+    // it is used to control the buttons for the multi-step form
     const handleClick = (direction) => {
         let newStep = currentStep;
 
+        // if direction is next we increment the step else we decrement the step
         direction === "next" ? newStep++ : newStep--;
+
         // check if steps are within bounds
+        // if so we set the current step to the new step else we do nothing
         newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
 
         newStep === 4 && console.log("submit");
     };
 
     return (
-        
-        <div className='px-4 py-8'>
-            <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
-                {/* Stepper */}
-                <div className="horizontal container mt-5 ">
-                    {/* This is the progression bar for the multi-step form */}
-                    <Stepper steps={steps} currentStep={currentStep} />
+        <div>
+            {/* if we are on the last step of the form we have sucessfully created the fundraiser and show confetti */}
+            {currentStep === steps.length &&
+                <Confetti
+                    width={window.innerWidth}
+                    height={window.innerHeight - 20}
+                    numberOfPieces={500}
+                    recycle={false}
+                    tweenDuration={1000}
+                    // color={['#ff0000', '#00ff00', '#0000ff']}
+                />
+            }
+            <div className='px-4 py-8'>
+                <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
+                    {/* Stepper */}
+                    <div className="horizontal container mt-5 ">
+                        {/* This component is the progression bar for the multi-step form */}
+                        <Stepper steps={steps} currentStep={currentStep} />
 
-                    {/* This is the content (in this case the different forms) of the multi-step form */}
-                    {/* This is wrapped in a useContext so all the variables can be shared within the different forms */}
-                    <div className="my-10 p-10 ">
-                    <UseContextProvider>
-                        {displayStep(currentStep)}
-                    </UseContextProvider>
+                        {/* This is the content (in this case the different forms) of the multi-step form */}
+                        {/* This is wrapped in a useContext so all the variables can be shared within the different forms */}
+                        <div className="my-10 p-10 ">
+                        <UseContextProvider>
+                            {displayStep(currentStep)}
+                        </UseContextProvider>
+                        </div>
                     </div>
+
+                    {/* navigation buttons */}
+                    {currentStep !== steps.length &&
+                        <StepperControl
+                        handleClick={handleClick}
+                        currentStep={currentStep}
+                        steps={steps}
+                        />
+                    }
                 </div>
-
-                {/* navigation buttons */}
-                {currentStep !== steps.length ? (
-                    <StepperControl
-                    handleClick={handleClick}
-                    currentStep={currentStep}
-                    steps={steps}
-                    />
-                )
-                : (
-                    <div className="cursor-pointer flex justify-center mt-4 mb-8">
-                        <button className='mx-4 p-4  rounded-lg bg-green-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white'>
-                            <a href="/fundraisers">Go to Fundraiser</a>
-                        </button>
-                    </div>
-                     
-                )}
             </div>
         </div>
     )
