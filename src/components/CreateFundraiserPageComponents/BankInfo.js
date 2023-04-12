@@ -10,7 +10,7 @@ const BankInfo = () => {
     if(name === "Zipcode" && value.length > 5){
       return;
     }
-    if(name === "Account_Num" && value.length > 17){
+    if(name === "Account_Num" && value.length > 12){
       return;
     }
     if(name === "Routing_Num" && value.length > 9){
@@ -151,7 +151,7 @@ const BankInfo = () => {
                 onChange={handleChange}  
                 value={userData["Account_Num"] || ""}
                 name="Account_Num"
-                placeholder="XXXXXXXXXXXXXXX"
+                placeholder="XXXXXXXXXXXX"
                 type="number"
                 className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
               />

@@ -45,8 +45,6 @@ const CreateFundraiserPage = () => {
         // check if steps are within bounds
         // if so we set the current step to the new step else we do nothing
         newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-
-        newStep === 4 && console.log("submit");
     };
 
     return (
@@ -62,6 +60,7 @@ const CreateFundraiserPage = () => {
                     // color={['#ff0000', '#00ff00', '#0000ff']}
                 />
             }
+            <UseContextProvider>
             <div className='px-4 py-8'>
                 <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-3/4">
                     {/* Stepper */}
@@ -72,9 +71,9 @@ const CreateFundraiserPage = () => {
                         {/* This is the content (in this case the different forms) of the multi-step form */}
                         {/* This is wrapped in a useContext so all the variables can be shared within the different forms */}
                         <div className="my-10 p-10 ">
-                        <UseContextProvider>
+                        
                             {displayStep(currentStep)}
-                        </UseContextProvider>
+                        
                         </div>
                     </div>
 
@@ -88,6 +87,7 @@ const CreateFundraiserPage = () => {
                     }
                 </div>
             </div>
+            </UseContextProvider>
         </div>
     )
 }

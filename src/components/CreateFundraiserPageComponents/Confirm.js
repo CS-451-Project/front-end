@@ -1,29 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useStepperContext } from '../contexts/StepperContext'
 import { useNavigate } from 'react-router-dom'
-import Confetti from 'react-confetti'
 
 const Confirm = () => {
   const navigate = useNavigate()
   const { userData, setUserData } = useStepperContext();
-
-  useEffect(() => {
-    // fetch(`https://localhost:7000/api/donation`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(donate)
-    //         })
-    //         // head
-    //         .then(response => {
-    //             console.log(response)
-    //             navigate(`/approved`)
-    //         })
-  }, [])
+  const userId = localStorage.getItem("userId")
+  const formData = new FormData();
+  formData.append('FundraiserImage', userData.FundraiserImage);
 
   const handleClick = () => {
-    navigate(`/`)
+    navigate(`/organizer/${userId}/fundraiser/${sessionStorage.getItem('fundraiserId')}`)
   }
   
   return (

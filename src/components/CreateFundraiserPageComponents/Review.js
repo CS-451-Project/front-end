@@ -123,9 +123,7 @@ const Preview = () => {
               Zipcode: 
             </div>
             <div className='pb-8'>
-              {userData.Zipcode.toString()}
-              {console.log(userData.Zipcode.toString())}
-              {/* {checkString} */}
+              {userData.Zipcode}
             </div>
         </div>
         <div className='w-full lg:w-1/3 '>
@@ -144,7 +142,7 @@ const Preview = () => {
               Account_Num: 
             </div>
             <div className='pb-8'>
-              {userData.Account_Num.toString()}
+              {userData.Account_Num}
             </div>
         </div>
         <div className='w-full lg:w-1/3 '>
@@ -152,7 +150,7 @@ const Preview = () => {
               Routing_Num: 
             </div>
             <div className='pb-8'>
-              {userData.Routing_Num.toString()}
+              {userData.Routing_Num}
             </div>
         </div>
         <div className='w-full lg:w-1/3 '>

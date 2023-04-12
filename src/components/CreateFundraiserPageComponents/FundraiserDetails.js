@@ -122,7 +122,7 @@ const FundraiserDetails = () => {
                     <AiOutlineCloudUpload size={24} />
                   </div>
                   <span class="font-medium text-gray-600">
-                      Drop PNG file to Attach, or browse
+                      Drop JPG file to Attach, or browse
                   </span>
                 </span>
                 <input
