@@ -5,8 +5,6 @@ import { useStepperContext } from '../contexts/StepperContext'
 // buttons are controled by the currentStep and the total number of steps
 const StepperControl = ({ handleClick, currentStep, steps }) => {
   const { userData, setUserData } = useStepperContext();
-  // const { fundraiserId, setFundraiserId } = useState('');
-  // const { bankAccountId, setBankAccountId } = useState('');
   var base64 = require('base-64');
 
   const fundraiser = {
@@ -30,6 +28,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
   }
 
   const createFundraiser = () => {
+    sessionStorage.clear();
     // create the fundraiser
     fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/fundraiser`, {
       method: 'POST',
@@ -44,6 +43,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
           if (response.ok) {
           // handle successful response
               return response.text();
+              
           } 
           else {
           // handle error response
@@ -56,85 +56,83 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
           // console.log(data)
           // console.log(userData.fundraiserId)
           sessionStorage.setItem('fundraiserId', data);
+          console.log("FUNDRAISER REQUEST"+sessionStorage.getItem('fundraiserId'))
+          if(userData.FundraiserImage === undefined) {
+            console.log("no image")
+          }
+          else {
+            const formData = new FormData();
+          formData.append('FundraiserImage', userData.FundraiserImage);
+          for (const entry of formData.entries()) {
+            console.log(entry[0]+ ': ' + entry[1].name); 
+          }
+          // Add image for fundraiser
+          userData.FundraiserImage && fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/fundraiser/${sessionStorage.getItem('fundraiserId')}/image`, {
+            method: 'POST',
+            headers: {
+              // 'Content-Type': 'multipart/form-data',
+              // 'Content-Type': userData.FundraiserImage.type,
+              // 'Content-Length': userData.FundraiserImage.size,
+              "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
+            },
+            body: formData
+            })
+            // head
+            .then(response => {
+                if (response.ok) {
+                // handle successful response
+                    console.log('File uploaded successfully');
+                } 
+                else {
+                // handle error response
+                    console.error('An error occurred while uploading the file');
+                }
+            })
+            // body (function)
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+          }
       })
       .catch(error => {
           console.error('Error:', error);
       });
   }
 
-  // const createBankAccount = () => {
-  //   // create the bank account
-  //   fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/bankaccount`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
-  //     },
-  //     body: JSON.stringify(bankAccount)
-  //     })
-  //     // head
-  //     .then(response => {
-  //         if (response.ok) {
-  //         // handle successful response
-  //             return response.text();
-  //         } 
-  //         else {
-  //         // handle error response
-  //             throw new Error('Something went wrong when creating your bank account'); 
-  //         }
-  //     })
-  //     // body (function)
-  //     .then(data => {
-  //         // setUserData({ ...userData, bankAccountId: data });
-  //         // console.log(data)
-  //         // console.log(userData.bankAccountId)
-  //         sessionStorage.setItem('bankAccountId', data);
-  //     })
-  //     .catch(error => {
-  //         console.error('Error:', error);
-  //     });
-  // }
-
-  const addFundraiserImage = () => {
-    if(userData.FundraiserImage === undefined) {
-      console.log("no image")
-    }
-    else {
-      const formData = new FormData();
-      formData.append('FundraiserImage', userData.FundraiserImage);
-      for (const entry of formData.entries()) {
-        console.log(entry[0]+ ': ' + entry[1].name); 
-      }
-      // Add image for fundraiser
-      userData.FundraiserImage && fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/fundraiser/${sessionStorage.getItem('fundraiserId')}/image`, {
-        method: 'POST',
-        headers: {
-          // 'Content-Type': 'multipart/form-data',
-          // 'Content-Type': userData.FundraiserImage.type,
-          // 'Content-Length': userData.FundraiserImage.size,
-          "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
-        },
-        body: formData
-        })
-        // head
-        .then(response => {
-            if (response.ok) {
-            // handle successful response
-                console.log('File uploaded successfully');
-            } 
-            else {
-            // handle error response
-                console.error('An error occurred while uploading the file');
-            }
-        })
-        // body (function)
-        .then(data => {
-            console.log(data)
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
+  const createBankAccount = () => {
+    // create the bank account
+    fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/bankaccount`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
+      },
+      body: JSON.stringify(bankAccount)
+      })
+      // head
+      .then(response => {
+          if (response.ok) {
+          // handle successful response
+              return response.text();
+          } 
+          else {
+          // handle error response
+              throw new Error('Something went wrong when creating your bank account'); 
+          }
+      })
+      // body (function)
+      .then(data => {
+          // setUserData({ ...userData, bankAccountId: data });
+          // console.log(data)
+          // console.log(userData.bankAccountId)
+          sessionStorage.setItem('bankAccountId', data);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
   }
 
   return (
@@ -154,8 +152,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
           onClick={() => {
           handleClick("next")
           createFundraiser();
-          // createBankAccount();
-          addFundraiserImage();
+          createBankAccount();
         }}
           className="cursor-pointer rounded-lg bg-green-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
         >
