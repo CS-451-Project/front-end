@@ -45,6 +45,7 @@ const FundraiserDetails = () => {
               placeholder="Name your cause"
               type="text"
               className="w-full appearance-none p-2 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+              required
             />
           </label>
         </div>
@@ -59,6 +60,7 @@ const FundraiserDetails = () => {
               name="Description"
               placeholder="Tell us more about your cause"
               className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border h-48 transition-colors duration-300 focus:border-green-500"
+              required
             />
           </label>
         </div>
@@ -80,6 +82,7 @@ const FundraiserDetails = () => {
                 min="1" 
                 maxLength={3}
                 className="w-[14rem] appearance-none p-1 pl-4 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               />
             </label>
           </div>
@@ -96,6 +99,7 @@ const FundraiserDetails = () => {
                 type="date"
                 min={new Date().toISOString().split("T")[0]}
                 className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               />
             </label>
           </div>
@@ -116,6 +120,7 @@ const FundraiserDetails = () => {
                 placeholder: 'Add up to 5 tags', 
                 className: 'bg-transparent border-none text-gray-700 font-sans text-base font-medium mb-6 mt-1 outline-none p-2 w-80'
               }}
+              required
             />
             <div className='text-sm pl-2 italic pb-8'>
               press enter to add a tag, backspace to delete

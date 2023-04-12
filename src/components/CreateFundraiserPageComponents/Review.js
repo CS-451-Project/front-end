@@ -8,77 +8,77 @@ const Preview = () => {
 
   return (
     <div>
-      <div className='text-2xl pb-4'>
-        Fundraiser Details: 
-      </div>
-      <div className='flex flex-wrap'>
-        <div className='w-full lg:w-1/2 pb-8'>
-          <div className='font-bold'>
-            Title: 
+      <div className='border-b'>
+        <div className='text-2xl pb-4'>
+          Fundraiser Details: 
+        </div>
+        <div className='flex flex-wrap'>
+          <div className='w-full lg:w-1/2 pb-8'>
+            <div className='font-bold'>
+              Title: 
+            </div>
+            <div>
+              {userData.Title}
+            </div>
           </div>
-          <div>
-            {userData.Title}
+          <div className='w-full lg:w-1/2 pb-8'>
+            <div className='font-bold'>
+              GoalTargetAmount: 
+            </div>
+            <div>
+              ${userData.GoalTargetAmount}
+            </div>
           </div>
         </div>
-        <div className='w-full lg:w-1/2 pb-8'>
-          <div className='font-bold'>
-            GoalTargetAmount: 
-          </div>
-          <div>
-            {userData.GoalTargetAmount}
-          </div>
-        </div>
-      </div>
 
-      <div>
-        <div className='font-bold'>
-          Description: 
-        </div>
-        <div className='pb-8 w-fit'>
-          {userData.Description}
-        </div>
-      </div>
-
-      <div className='flex flex-wrap'>
-        <div className='w-full lg:w-1/3 pb-8'>
-          <div className='font-bold pb-1'>
-            Fundraiser Tags:
-          </div>
-          <div>
-            {/* {JSON.stringify(userData.tags)} */}
-            {
-              userData.tags?.map((tag, index) => {
-                return (
-                  <span key={index} className='mr-4 p-1 bg-green-500 text-white'>
-                    {tag}
-                  </span>
-                )
-              })
-            }
-          </div>
-        </div>
-        <div className='w-full lg:w-1/3 pb-8'>
-          <div className='font-bold'>
-            Fundraiser Image:
-          </div>
-          <div className='pb-8'>
-            {userData.FundraiserImage?.name !== undefined ? userData.FundraiserImage.name : "No Image"}
-          </div>
-        </div>
-        <div className='w-full lg:w-1/3 pb-8'>
-          <div className='font-bold'>
-            Planned End Date:
-          </div>
-          <div className='pb-8'>
-            {userData.PlannedEndDate}
-          </div>
-        </div>
         <div>
-          
+          <div className='font-bold'>
+            Description: 
+          </div>
+          <div className='pb-8 w-fit'>
+            {userData.Description}
+          </div>
+        </div>
+
+        <div className='flex flex-wrap'>
+          <div className='w-full lg:w-1/3 pb-8'>
+            <div className='font-bold pb-1'>
+              Fundraiser Tags:
+            </div>
+            <div>
+              {/* {JSON.stringify(userData.tags)} */}
+              {
+                userData.tags?.map((tag, index) => {
+                  return (
+                    <span key={index} className='mr-4 p-1 bg-green-500 text-white'>
+                      {tag}
+                    </span>
+                  )
+                })
+              }
+            </div>
+          </div>
+          <div className='w-full lg:w-1/3 pb-8'>
+            <div className='font-bold'>
+              Fundraiser Image:
+            </div>
+            <div className='pb-8'>
+              {userData.FundraiserImage?.name !== undefined ? userData.FundraiserImage.name : "No Image"}
+            </div>
+          </div>
+          <div className='w-full lg:w-1/3 pb-8'>
+            <div className='font-bold'>
+              Planned End Date:
+            </div>
+            <div className='pb-8'>
+              {userData.PlannedEndDate}
+            </div>
+          </div>
         </div>
       </div>
+      
 
-      <div className='text-2xl pb-4'>
+      <div className='text-2xl pb-4 pt-8'>
         Bank Details: 
       </div>
 

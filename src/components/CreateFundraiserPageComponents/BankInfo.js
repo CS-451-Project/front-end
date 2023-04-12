@@ -38,6 +38,7 @@ const BankInfo = () => {
                 placeholder="Full Name"
                 type="text"
                 className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               />
             </label>
           </div>
@@ -54,6 +55,7 @@ const BankInfo = () => {
                 placeholder="Number, street name, and any additional details"
                 type="text"
                 className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               />
             </label>
           </div>
@@ -72,6 +74,7 @@ const BankInfo = () => {
                   placeholder="City of residence"
                   type="text"
                   className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                  required
                 />
               </label>
             </div>
@@ -81,19 +84,12 @@ const BankInfo = () => {
                 State:
               </div>
               <label className='flex justify-center pb-8'>
-                {/* <input
-                  onChange={handleChange}  
-                  value={userData["State"] || ""}
-                  name="State"
-                  placeholder="State"
-                  type="text"
-                  className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
-                /> */}
                 <select
                   onChange={handleChange}
                   value={userData["State"] || ""}
                   name="State"
                   className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                  required
                 >
                   <option value="" disabled selected>Select a State</option>
                   {states?.map((state) => (
@@ -117,6 +113,7 @@ const BankInfo = () => {
                   placeholder="XXXXX"
                   type="number"
                   className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                  required
                 />
               </label>
             </div>
@@ -139,6 +136,7 @@ const BankInfo = () => {
             placeholder="Enter the Financial Institution Name"
             type="text"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+            required
           />
         </label>
         <div className='flex flex-wrap justify-between '>
@@ -154,6 +152,7 @@ const BankInfo = () => {
                 placeholder="XXXXXXXXXXXX"
                 type="number"
                 className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               />
             </label>
           </div>
@@ -170,6 +169,7 @@ const BankInfo = () => {
               placeholder="XXXXXXXXX"
               type="number"
               className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+              required
             />
           </label>
           </div>
@@ -185,6 +185,7 @@ const BankInfo = () => {
                 name="Account_Type"
                 placeholder='Account Type'
                 className="w-full appearance-none p-1  text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                required
               >
                 <option value ="" disabled selected>Select</option>
                 <option value="Checking">Checking</option>
