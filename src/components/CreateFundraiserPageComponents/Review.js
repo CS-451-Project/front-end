@@ -62,7 +62,7 @@ const Preview = () => {
             Fundraiser Image:
           </div>
           <div className='pb-8'>
-            {userData.FundraiserImage}
+            {userData.FundraiserImage.name}
           </div>
         </div>
         <div className='w-full lg:w-1/3 pb-8'>

@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage.js';
 import SignupPage from './pages/SignupPage.js';
 import FundraiserPage from './pages/FundraiserPage';
-import Dashboard from './pages/Dashboard';
+import UserDashboardPage from './pages/UserDashboardPage';
 import DonationPage from './pages/DonationPage';
 import ApprovedDonation from './pages/ApprovedDonationPage';
 import CreateFundraiserPage from './pages/CreateFundraiserPage';
@@ -45,7 +45,6 @@ function App() {
               />
           </div>
 
-
         {/* Routes in the browser to different pages */}
         <Routes>
           {/* The path is how you get to the page and the element is what shows on the page */}
@@ -53,7 +52,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/organizer/:userId/fundraiser/:fundraiserId" element={<FundraiserPage />} />
-          <Route path="dashboard/user/:userId" element={<Dashboard />} />
+          <Route path="/dashboard/:userId" element={<UserDashboardPage />} />
           <Route path="/organizer/:userId/fundraiser/:fundraiserId/donation" element={<DonationPage />} />
           <Route path="/approved" element={<ApprovedDonation />} />
           <Route path="/createFundraiser" element={<CreateFundraiserPage />} />

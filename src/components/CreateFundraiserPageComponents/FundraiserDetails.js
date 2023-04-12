@@ -6,12 +6,23 @@ import { AiOutlineCloudUpload } from 'react-icons/ai'
 const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
   const [selected, setSelected] = useState(userData.tags);
+  const [file, setFile] = useState(null);
+  const [displayFile, setDisplayFile] = useState(null);
   const [displayedTags, setDisplayedTags] = useState(JSON.stringify(userData.tags));
   
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+  };
+
+  const handleFile = (e) => {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+    setUserData({ ...userData, FundraiserImage: e.target.files[0] });
+    // console.log("file " +file)
+    // console.log(e.target.files[0])
+    // console.log(e.target.files[0].name)
   };
 
   const handleTags = (tags) => {
@@ -126,7 +137,7 @@ const FundraiserDetails = () => {
                   </span>
                 </span>
                 <input
-                  onChange={handleChange}
+                  onChange={handleFile}
                   name="FundraiserImage"
                   placeholder="FundraiserImage"
                   type="file"
@@ -135,7 +146,13 @@ const FundraiserDetails = () => {
                 />
             </label>
             <div className='bg-gray-200 text-lg'>
-              {userData.FundraiserImage != null ? userData["FundraiserImage"] : "" }
+              {file?.size > 1000000 ? "File size too large" : file != null ? file.name : "No file chosen"}
+              {/* {file != null ? file.name : "No file chosen" } */}
+              {/* {console.log(JSON.stringify(file))}
+              {console.log(file?.name)}
+              {console.log(file?.size)}
+              {console.log(file?.type)}
+              {console.log(userData.FundraiserImage?.name)} */}
             </div>
           </div>
           

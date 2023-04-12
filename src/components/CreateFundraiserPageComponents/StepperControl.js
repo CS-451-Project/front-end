@@ -62,38 +62,38 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
       });
   }
 
-  const createBankAccount = () => {
-    // create the bank account
-    fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/bankaccount`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
-      },
-      body: JSON.stringify(bankAccount)
-      })
-      // head
-      .then(response => {
-          if (response.ok) {
-          // handle successful response
-              return response.text();
-          } 
-          else {
-          // handle error response
-              throw new Error('Something went wrong when creating your bank account'); 
-          }
-      })
-      // body (function)
-      .then(data => {
-          // setUserData({ ...userData, bankAccountId: data });
-          // console.log(data)
-          // console.log(userData.bankAccountId)
-          sessionStorage.setItem('bankAccountId', data);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-  }
+  // const createBankAccount = () => {
+  //   // create the bank account
+  //   fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/bankaccount`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
+  //     },
+  //     body: JSON.stringify(bankAccount)
+  //     })
+  //     // head
+  //     .then(response => {
+  //         if (response.ok) {
+  //         // handle successful response
+  //             return response.text();
+  //         } 
+  //         else {
+  //         // handle error response
+  //             throw new Error('Something went wrong when creating your bank account'); 
+  //         }
+  //     })
+  //     // body (function)
+  //     .then(data => {
+  //         // setUserData({ ...userData, bankAccountId: data });
+  //         // console.log(data)
+  //         // console.log(userData.bankAccountId)
+  //         sessionStorage.setItem('bankAccountId', data);
+  //     })
+  //     .catch(error => {
+  //         console.error('Error:', error);
+  //     });
+  // }
 
   const addFundraiserImage = () => {
     if(userData.FundraiserImage === undefined) {
@@ -102,10 +102,16 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
     else {
       const formData = new FormData();
       formData.append('FundraiserImage', userData.FundraiserImage);
+      for (const entry of formData.entries()) {
+        console.log(entry[0]+ ': ' + entry[1].name); 
+      }
       // Add image for fundraiser
       userData.FundraiserImage && fetch(`https://localhost:7000/api/user/${localStorage.getItem("userId")}/fundraiser/${sessionStorage.getItem('fundraiserId')}/image`, {
         method: 'POST',
         headers: {
+          // 'Content-Type': 'multipart/form-data',
+          // 'Content-Type': userData.FundraiserImage.type,
+          // 'Content-Length': userData.FundraiserImage.size,
           "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
         },
         body: formData
@@ -118,7 +124,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
             } 
             else {
             // handle error response
-                console.error('Server returned an error');
+                console.error('An error occurred while uploading the file');
             }
         })
         // body (function)
@@ -148,7 +154,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
           onClick={() => {
           handleClick("next")
           createFundraiser();
-          createBankAccount();
+          // createBankAccount();
           addFundraiserImage();
         }}
           className="cursor-pointer rounded-lg bg-green-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
