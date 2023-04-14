@@ -16,7 +16,7 @@ const Confirm = () => {
   return (
     <div className='flex justify-center flex-col'>
       <div className='text-center pb-8 text-2xl'>
-        Congradulations! You have successfully created a fundraiser!
+        Congratulations! You have successfully created a fundraiser!
       </div>
       <div className="cursor-pointer mt-4 mb-8 flex justify-center">
           <button
