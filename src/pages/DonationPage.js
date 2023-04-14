@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import DonateWindow from '../components/DonationPageComponents/DonateWindow'
+import DonateForm from '../components/DonationPageComponents/DonateForm'
 import { format } from 'date-fns'
 import { useParams } from 'react-router-dom'
 
@@ -26,7 +26,7 @@ const DonationPage = () => {
 
   return (
     <div className='p-16'>
-        <DonateWindow 
+        <DonateForm 
             id = {fundraiser.FundraiserId}
             title={fundraiser.title}
             description={fundraiser.description}

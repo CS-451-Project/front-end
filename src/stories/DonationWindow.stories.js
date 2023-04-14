@@ -1,11 +1,11 @@
 import React from "react";
-import DonateWindow from "../components/DonationPageComponents/DonateWindow";
+import DonateForm from "../components/DonationPageComponents/DonateForm";
 import { withRouter } from 'storybook-addon-react-router-v6';
 import '../App.css';
 
 export default {
     title: 'Ex/Donation Window',
-    component: DonateWindow,
+    component: DonateForm,
     decorators: [withRouter],
     parameters: {
         reactRouter: {
@@ -14,6 +14,6 @@ export default {
     }
 };
 
-const Template = () => <DonateWindow/>;
+const Template = () => <DonateForm/>;
 
 export const DefaultDonationWindow = Template.bind({});

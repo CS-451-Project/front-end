@@ -73,12 +73,13 @@ describe("Home Page", () => {
     // using test.skip will skip this test
 
     test('Home page title', () => {
+        
         const textElement = screen.getByText(/Make a difference in someone's life/i);
         expect(textElement).toBeInTheDocument();
     });
 
-    test('Render Home page title', () => {
-        const { queryAllByTestId } = render(<HomePage/>);
+    test('Render Home page components', () => {
+        const { queryAllByTestId } = render(<Router><HomePage/></Router>);
         // This assertion if there are the child components with the test id names
         expect(queryAllByTestId('button-test-id')).toBeTruthy();
         expect(queryAllByTestId('feat-fundraiser-test-id')).toBeTruthy();
@@ -109,7 +110,7 @@ describe("Featured fundraiser", () => {
 describe("Carousel Slides and the display section", () => {
     test('render the carousel', () => {
         // This test checks if the carousel is rendered
-        const { queryAllByTestId } = render(<FundraiserCarousel data = {testData}/>);
+        const { queryAllByTestId } = render(<Router><FundraiserCarousel data = {testData}/></Router>);
         // This assertion if there is the link component with the test id 'link-to-fundraiser'
         expect(queryAllByTestId('link-to-fundraiser')).toBeTruthy();
         // This assertion checks if there is a child compoenent of displaying the fundraiser information
@@ -118,16 +119,20 @@ describe("Carousel Slides and the display section", () => {
     });
 
     test('render display section', () => {
-        render(<FundraiserDisplaySection 
-            id = {1}
-            title = {"Mock Fundraiser"}
-            goalTargetAmount = {1000}
-            description = {"This is a fundraiser for a good cause"}
-            createdDate = {format(new Date(), 'MM/dd/yyyy')}
-            goalReachedDate = {format(new Date(), 'MM/dd/yyyy')}
-            plannedEndDate = {format(new Date(), 'MM/dd/yyyy')}
-            tags = {["tag1","tag2"]}
-            />
+        render(
+            <Router>
+                <FundraiserDisplaySection 
+                    id = {1}
+                    title = {"Mock Fundraiser"}
+                    goalTargetAmount = {1000}
+                    description = {"This is a fundraiser for a good cause"}
+                    createdDate = {format(new Date(), 'MM/dd/yyyy')}
+                    goalReachedDate = {format(new Date(), 'MM/dd/yyyy')}
+                    plannedEndDate = {format(new Date(), 'MM/dd/yyyy')}
+                    tags = {["tag1","tag2"]}
+                />
+            </Router>
+        
         );
         // This assertion checks if the title is rendered
         const textElement = screen.getByText(/Mock Fundraiser/i);
