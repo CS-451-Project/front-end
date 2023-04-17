@@ -174,7 +174,7 @@ const SignupWindow = () => {
                             />
                         </div>
                         <div className='flex justify-center'>
-                            <input type="submit" value="Sign Up" className='p-4 border bg-green-400 hover:bg-green-600 duration-200' />
+                            <input type="submit" value="Sign Up" className='p-4 border rounded-md bg-green-500 hover:bg-green-700 duration-200 text-white font-bold cursor-pointer' />
                         </div>
                         <div>
                             <p className='text-red-500'>{ageError}</p>
