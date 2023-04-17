@@ -2,29 +2,25 @@ import React, { useState } from 'react'
 import PasswordChecklist from "react-password-checklist"
 import UseFetch from '../components/UseFetch';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 const SignupWindow = () => {
+    const navigate = useNavigate();
 
-    const [employee, setEmployee] = useState({
-        name:'',
-        age:0,
-        address:'',
-        mobileNumber:'',
-        username:'',
-        password:'',
+    const [user, setUser] = useState({
+        FirstName:'',
+        MiddleInitial:'',
+        LastName:'',
+        Email:'',
+        Password:''
     });
 
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [setPasswordError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const [ageError, setAgeError] = useState('');
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-    // const [requestOptions, setRequestOptions] = useState({});
-    // const { data, loading, error } = UseFetch("https://localhost:7160/api/employees", requestOptions);
-    
-    // UseFetch("https://localhost:7160/api/employees", requestOptions);
 
 
     const handleSubmit = (e) => {
@@ -32,22 +28,31 @@ const SignupWindow = () => {
         e.preventDefault();
         const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         // Tests validation based on regex above.
-        if (!passwordValidation.test(employee.password)) {
+        if (!passwordValidation.test(user.Password)) {
         setPasswordError(
             'Password must contain at least 8 characters, including 1 letter, 1 number, and 1 special character (@$!%*#?&).'
         );
         return;
         }
-        if (employee.age < 21) {
-        setAgeError(
-            'Must be older than 21'
-        );
-        return;
-        }
+
+        // console.log(user);
         
-        // setRequestOptions({ method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(employee) });
-        
-        // Perform authentication here.
+        fetch(`https://localhost:7000/api/user`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+            })
+            // head
+            .then(response => {
+                console.log(response)
+            })
+            .then(data => {
+                console.log(data)
+                navigate(`/login`)
+            })
+
     };
 
     
@@ -64,18 +69,18 @@ const SignupWindow = () => {
                 <div className='flex flex-col'>
 
                     <form onSubmit={handleSubmit}>
-                        {/* name */}
+                        {/* First Name */}
                         <label className='flex flex-col py-4'>
                             <input 
                                 type="text"
-                                name="name"
-                                value={employee.name}
-                                placeholder='Enter name'
+                                name="FirstName"
+                                value={user.FirstName}
+                                placeholder='Enter First Name'
                                 onChange={(event) => 
-                                        setEmployee({
+                                        setUser({
                                             // This is the spread operator. It copies the values of the object into a new object.
                                             // so we can change the properties of the object without changing the original object.
-                                        ...employee,
+                                        ...user,
                                         [event.target.name]: (event.target.value),
                                         })
                                     }
@@ -83,19 +88,19 @@ const SignupWindow = () => {
                                 required 
                                 />
                         </label>
-                        {/* age */}
+                        {/* Middle Initial */}
                         <label className='flex flex-col py-4'>
                             <input 
-                                type="number"
-                                pattern="[0-9]*"
-                                name="age"
-                                value={employee.age}
-                                placeholder='Enter age'
+                                type="text"
+                                name="MiddleInitial"
+                                maxLength="1" 
+                                value={user.MiddleInitial}
+                                placeholder='Enter middle initial'
                                 onChange={(event) => 
-                                        setEmployee({
+                                        setUser({
                                             // This is the spread operator. It copies the values of the object into a new object.
                                             // so we can change the properties of the object without changing the original object.
-                                        ...employee,
+                                        ...user,
                                         [event.target.name]: (event.target.value),
                                         })
                                     }
@@ -103,56 +108,37 @@ const SignupWindow = () => {
                                 required 
                                 />
                         </label>
-                        {/* address */}
+                        {/* Last Name */}
                         <label className='flex flex-col py-4'>
                             <input 
                                 type="text"
-                                name="address"
-                                value={employee.address}
-                                placeholder='Enter address'
+                                name="LastName"
+                                value={user.LastName}
+                                placeholder='Enter Last Name'
                                 onChange={(event) => 
-                                        setEmployee({
+                                        setUser({
                                             // This is the spread operator. It copies the values of the object into a new object.
                                             // so we can change the properties of the object without changing the original object.
-                                            ...employee,
-                                        [event.target.name]: (event.target.value)
+                                        ...user,
+                                        [event.target.name]: (event.target.value),
                                         })
                                     }
                                 className='border min-w-36 p-2'
                                 required 
                                 />
                         </label>
-                        {/* mobile number */}
+                        {/* Email */}
                         <label className='flex flex-col py-4'>
                             <input 
-                                type="text"
-                                name="mobileNumber"
-                                value={employee.mobileNumber}
-                                placeholder='Enter mobile number'
+                                type="email"
+                                name="Email"
+                                value={user.Email}
+                                placeholder='Enter Email'
                                 onChange={(event) => 
-                                        setEmployee({
-                                            // This is the spread operator. It copies the values of the object into a new object.
-                                            // so we can change the properties of the object without changing the original object.
-                                            ...employee,
-                                        [event.target.name]: (event.target.value)
-                                        })
-                                    }
-                                className='border min-w-36 p-2'
-                                required 
-                                />
-                        </label>
-                        {/* Username */}
-                        <label className='flex flex-col py-4'>
-                            <input 
-                                type="text"
-                                name="username"
-                                value={employee.username}
-                                placeholder='Enter Username'
-                                onChange={(event) => 
-                                    setEmployee({
+                                    setUser({
                                         // This is the spread operator. It copies the values of the object into a new object.
                                         // so we can change the properties of the object without changing the original object.
-                                        ...employee,
+                                        ...user,
                                     [event.target.name]: (event.target.value)
                                     })
                                 }
@@ -164,14 +150,14 @@ const SignupWindow = () => {
                         <label className='flex flex-col py-4'>
                             <input 
                                 type={showPassword ? "text" : "password"}
-                                name="password"
-                                value={employee.password}
+                                name="Password"
+                                value={user.Password}
                                 placeholder='Enter Password'
                                 onChange={(event) => 
-                                    setEmployee({
+                                    setUser({
                                         // This is the spread operator. It copies the values of the object into a new object.
                                         // so we can change the properties of the object without changing the original object.
-                                        ...employee,
+                                        ...user,
                                     [event.target.name]: (event.target.value)
                                     })
                                 }
@@ -203,7 +189,7 @@ const SignupWindow = () => {
                             <PasswordChecklist
                                 rules={["minLength","specialChar","number","match"]}
                                 minLength={8}
-                                value={employee.password}
+                                value={user.Password}
                                 valueAgain={confirmPassword}
                                 onChange={(isValid) => {}}
                             />
