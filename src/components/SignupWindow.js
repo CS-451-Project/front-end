@@ -9,7 +9,6 @@ const SignupWindow = () => {
 
     const [user, setUser] = useState({
         FirstName:'',
-        MiddleInitial:'',
         LastName:'',
         Email:'',
         Password:''
@@ -76,26 +75,6 @@ const SignupWindow = () => {
                                 name="FirstName"
                                 value={user.FirstName}
                                 placeholder='Enter First Name'
-                                onChange={(event) => 
-                                        setUser({
-                                            // This is the spread operator. It copies the values of the object into a new object.
-                                            // so we can change the properties of the object without changing the original object.
-                                        ...user,
-                                        [event.target.name]: (event.target.value),
-                                        })
-                                    }
-                                className='border min-w-36 p-2'
-                                required 
-                                />
-                        </label>
-                        {/* Middle Initial */}
-                        <label className='flex flex-col py-4'>
-                            <input 
-                                type="text"
-                                name="MiddleInitial"
-                                maxLength="1" 
-                                value={user.MiddleInitial}
-                                placeholder='Enter middle initial'
                                 onChange={(event) => 
                                         setUser({
                                             // This is the spread operator. It copies the values of the object into a new object.
