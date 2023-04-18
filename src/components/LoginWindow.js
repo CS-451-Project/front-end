@@ -125,7 +125,7 @@ const LoginWindow = () => {
                             type="submit" 
                             // the value attribute is used to set the value of the input field
                             value="Log In" 
-                            className='p-4 border rounded-md bg-green-500 hover:bg-green-700 duration-200 text-white font-bold' 
+                            className='p-4 border rounded-md bg-green-500 hover:bg-green-700 duration-200 text-white font-bold cursor-pointer' 
                         />
                     </div>
                 </form>

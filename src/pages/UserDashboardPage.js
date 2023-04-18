@@ -44,34 +44,38 @@ const UserDashboardPage = () => {
             }
         );
     
-        }, [])
+    }, [])
 
     return (
-        <div className='pl-48 pt-12'>
-            <div className='text-5xl'>Welcome back, {user.firstName}</div>
-            <div className='text-3xl pt-10'>Your Information</div>
-            <div className='pl-4 pt-8'>
-                <table>
-                <tbody>
-                <tr>
-                    <td>
-                        <CgProfile  size={40} />
-                    </td>
-                    <td className='pl-4 flex flex-col flex-wrap'>
-                        <div className='flex text-lg'>{user.firstName + " " + user.lastName}</div>
-                        <div className='flex text-lg pt-2'>{user.email}</div>
-                    </td>
-                    <td>
-                        <button className='pl-8'>
-                            <img src={editButtonImage} className='w-8'></img>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-                </table>
+        <div className=' pt-12'>
+            <div className='px-16'>
+                <div className='text-5xl'>Welcome back, {user.firstName}</div>
+                    <div className='text-3xl pt-10'>Your Information</div>
+                    <div className='pl-4 pt-8'>
+                        <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <CgProfile  size={40} />
+                            </td>
+                            <td className='pl-4 flex flex-col flex-wrap'>
+                                <div className='flex text-lg'>{user.firstName + " " + user.lastName}</div>
+                                <div className='flex text-lg pt-2'>{user.email}</div>
+                            </td>
+                            <td>
+                                <button className='pl-8'>
+                                    <img src={editButtonImage} className='w-8'></img>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                <div className='text-3xl pt-10'>Your Fundraisers</div>
             </div>
-            <div className='pt-10' data-testid="carousel-test-id">
-                <div className='text-3xl'>Your Fundraisers</div>
+            
+            <div className='' data-testid="carousel-test-id">
+                
                 <UserFundraiserCarousel data={userFundraisers}/>
             </div>
         </div>
