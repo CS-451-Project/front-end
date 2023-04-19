@@ -73,9 +73,7 @@ const UserDashboardPage = () => {
                     </div>
                 <div className='text-3xl pt-10'>Your Fundraisers</div>
             </div>
-            
-            <div className='' data-testid="carousel-test-id">
-                
+            <div className='px-2' data-testid="carousel-test-id">
                 <UserFundraiserCarousel data={userFundraisers}/>
             </div>
         </div>

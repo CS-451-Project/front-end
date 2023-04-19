@@ -36,7 +36,7 @@ const UserFundraiserCarousel = (props) => {
                         <div>
                             <UserFundraiserDisplaySection
                             fundraiserId = {fundraiser.fundraiserId }
-                            fundraiserImg = {fundraiser.fundraiserImg}
+                            fundraiserImg = {fundraiser.pictureId}
                             organizerId={fundraiser.organizerId}
                             title = {fundraiser.title}
                             goalTargetAmount = {fundraiser.goalTargetAmount}
