@@ -66,7 +66,7 @@ const FundraiserDetails = () => {
         </div>
         
         <div className='flex flex-wrap'>
-          <div className='w-full md:w-1/2 pb-4'>
+          <div className='w-full sm:w-1/2 pb-4'>
             <div>
               How much do you need to raise?
             </div>
@@ -81,12 +81,12 @@ const FundraiserDetails = () => {
                 step="0.01"
                 min="1" 
                 maxLength={3}
-                className="w-[14rem] appearance-none p-1 pl-4 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                className="w-3/4 appearance-none p-1 pl-4 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
                 required
               />
             </label>
           </div>
-          <div className='w-full md:w-1/2 pb-4'>
+          <div className='w-full sm:w-1/2 pb-4'>
             <div>
               Planned End Date
             </div>
@@ -98,7 +98,7 @@ const FundraiserDetails = () => {
                 placeholder="Planned End Date"
                 type="date"
                 min={new Date().toISOString().split("T")[0]}
-                className="w-full appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
+                className="w-3/4 appearance-none p-1 px-2 text-gray-800 outline-none border-b transition-colors duration-300 focus:border-green-500"
                 required
               />
             </label>
@@ -152,12 +152,6 @@ const FundraiserDetails = () => {
             </label>
             <div className='bg-gray-200 text-lg'>
               {file?.size > 1000000 ? "File size too large" : file != null ? file.name : "No file chosen"}
-              {/* {file != null ? file.name : "No file chosen" } */}
-              {/* {console.log(JSON.stringify(file))}
-              {console.log(file?.name)}
-              {console.log(file?.size)}
-              {console.log(file?.type)}
-              {console.log(userData.FundraiserImage?.name)} */}
             </div>
           </div>
           
