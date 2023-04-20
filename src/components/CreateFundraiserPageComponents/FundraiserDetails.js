@@ -7,8 +7,6 @@ const FundraiserDetails = () => {
   const { userData, setUserData } = useStepperContext();
   const [selected, setSelected] = useState(userData.tags);
   const [file, setFile] = useState(null);
-  const [displayFile, setDisplayFile] = useState(null);
-  const [displayedTags, setDisplayedTags] = useState(JSON.stringify(userData.tags));
   
 
   const handleChange = (e) => {
@@ -20,9 +18,6 @@ const FundraiserDetails = () => {
     setFile(e.target.files[0]);
     console.log(e.target.files[0]);
     setUserData({ ...userData, FundraiserImage: e.target.files[0] });
-    // console.log("file " +file)
-    // console.log(e.target.files[0])
-    // console.log(e.target.files[0].name)
   };
 
   const handleTags = (tags) => {

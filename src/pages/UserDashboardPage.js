@@ -3,6 +3,7 @@ import {  useParams } from "react-router-dom";
 import UserFundraiserCarousel from '../components/UserDashboardPageComponents/UserFundraiserCarousel';
 import { CgProfile } from 'react-icons/cg'
 import editButtonImage from '../imgs/icons8-edit-48.png'
+import { Link } from 'react-router-dom';
 
 const UserDashboardPage = () => {
     const [user, setUser] = useState([]);
@@ -39,8 +40,9 @@ const UserDashboardPage = () => {
             //head
             .then(response => response.json())
             .then(data => {
-            setUserFundraisers(data);
-            console.log(userFundraisers)
+                console.log(data)
+                setUserFundraisers(data);
+                // console.log(userFundraisers)
             }
         );
     
@@ -50,8 +52,8 @@ const UserDashboardPage = () => {
         <div className=' pt-12'>
             <div className='px-16'>
                 <div className='text-5xl'>Welcome back, {user.firstName}</div>
-                    <div className='text-3xl pt-10'>Your Information</div>
-                    <div className='pl-4 pt-8'>
+                    <div className='text-3xl pt-10 pb-4'>Your Information</div>
+                    <div className='pl-4  bg-gray-100 w-fit'>
                         <table>
                         <tbody>
                         <tr>
@@ -76,6 +78,19 @@ const UserDashboardPage = () => {
             <div className='px-2' data-testid="carousel-test-id">
                 <UserFundraiserCarousel data={userFundraisers}/>
             </div>
+            {/* {userFundraisers.map((fundraiser) => {
+                // return(
+                //     <Link to={`/organizer/${userId}/fundraiser/${fundraiser.fundraiserId}/edit`} data-testid='link-to-fundraiser'>
+                //         <div className="py-16" key={fundraiser.fundraiserId}>
+                //         {fundraiser.title}
+                //         {fundraiser.description}
+                //         {fundraiser.goalTargetAmount}
+                //     </div>
+                //     </Link>
+                // );
+                console.log(fundraiser.title)
+                console.log(fundraiser.goalTargetAmount)
+            })} */}
         </div>
         
     )

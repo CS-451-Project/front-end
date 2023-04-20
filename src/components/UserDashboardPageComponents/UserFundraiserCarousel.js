@@ -45,7 +45,7 @@ const UserFundraiserCarousel = (props) => {
                             goalReachedDate = {format(new Date(fundraiser.goalReachedDate), 'MM/dd/yyyy')}
                             plannedEndDate = {format(new Date(fundraiser.plannedEndDate), 'MM/dd/yyyy')}
                             tags = {fundraiser.tags}
-                            />
+                        />
                         </div>
                     </div>
                 );
