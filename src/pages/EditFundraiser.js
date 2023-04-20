@@ -60,7 +60,7 @@ const EditFundraiser = () => {
             .then(data => {
                 console.log(data)
                 navigate(`/dashboard/${userId}`)
-                toast.success('Your changes were saved!', {
+                toast.success('Your fundraiser changes were saved!', {
                     position: "top-right",
                     autoClose: 1500,
                     hideProgressBar: false,

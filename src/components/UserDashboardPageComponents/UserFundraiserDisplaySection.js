@@ -11,14 +11,12 @@ const UserFundraiserDisplaySection = (props) => {
   const handleDelete = () => {
     if(window.confirm('Are you sure you wish to delete this fundraiser?')){
       // delete the fundraiser
-
       fetch(`https://localhost:7000/api/user/${userId}/fundraiser/${props.fundraiserId}/close`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             "Authorization": `Basic ${base64.encode(`${localStorage.getItem("AuthHeader")}`)}`
         },
-        // body: JSON.stringify(user)
         })
         // head
         .then(response => {
@@ -31,14 +29,13 @@ const UserFundraiserDisplaySection = (props) => {
     }
   };
 
-  const handleEdit = () => {
-    navigate(`/organizer/${userId}/fundraiser/${props.fundraiserId}/edit`);
-  };
-
-
   return (
     <div className='w-96 h-fit bg-green-600 truncate text-white'>
-        <img src={props.fundraiserImg == null ? placeHolderFundraiser : props.fundraiserImg} alt="Logo"/>
+        <img 
+          src={props.fundraiserImg == null ? placeHolderFundraiser : props.fundraiserImg} 
+          className='w-full h-48 object-cover'
+          alt="Logo"
+        />
         <div className='p-4'>
             <h1 className='text-2xl mb-4 truncate'>
               {props.title}
@@ -55,7 +52,7 @@ const UserFundraiserDisplaySection = (props) => {
               </div>
             </Link>
             <div className='flex flex-inline pl-2'>
-                <button className='bg-gray-200 text-black text-lg rounded py-1 px-8 hover:bg-gray-300 duration-200' onClick={handleEdit}>Edit</button>
+                <button className='bg-gray-200 text-black text-lg rounded py-1 px-8 hover:bg-gray-300 duration-200' onClick={() => navigate(`/organizer/${userId}/fundraiser/${props.fundraiserId}/edit`)}>Edit</button>
             </div>
             <div className='flex flex-inline pl-2'>
                 <button className='bg-gray-200 text-black text-lg rounded py-1 px-8 hover:bg-gray-300 duration-200' onClick={handleDelete}>Delete</button>
