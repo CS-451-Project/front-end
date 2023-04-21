@@ -180,9 +180,7 @@ const SignupWindow = () => {
                             <p className='text-red-500'>{ageError}</p>
                         </div>
                     </form>
-
                 </div>
-                
             </div>
         </div>
     </div>

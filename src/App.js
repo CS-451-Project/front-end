@@ -10,11 +10,13 @@ import UserDashboardPage from './pages/UserDashboardPage';
 import DonationPage from './pages/DonationPage';
 import ApprovedDonation from './pages/ApprovedDonationPage';
 import CreateFundraiserPage from './pages/CreateFundraiserPage';
+import EditFundraiser from './pages/EditFundraiser';
 
 // react router dom is a package that allows you to navigate between pages
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import EditUser from './pages/EditUser';
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
           <Route path="/organizer/:userId/fundraiser/:fundraiserId/donation" element={<DonationPage />} />
           <Route path="/approved" element={<ApprovedDonation />} />
           <Route path="/createFundraiser" element={<CreateFundraiserPage />} />
+          <Route path="/organizer/:userId/fundraiser/:fundraiserId/edit" element={<EditFundraiser />} />
+          <Route path="/dashboard/:userId/edit" element={<EditUser />} />
         </Routes>
       </Router>
 

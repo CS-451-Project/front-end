@@ -41,6 +41,7 @@ const FundraiserCarousel = (props) => {
                             <div data-testid="fundraiser-section-id">
                                 <FundraiserDisplaySection
                                 id = {fundraiser.fundraiserId }
+                                fundraiserImg = {fundraiser.pictureId}
                                 title = {fundraiser.title}
                                 goalTargetAmount = {fundraiser.goalTargetAmount}
                                 description = {fundraiser.description}
