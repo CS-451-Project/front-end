@@ -47,13 +47,12 @@ const UserDashboardPage = () => {
 
     return (
         <div className=' pt-12'>
-            <div className='px-16'>
-                <div className='text-5xl'>Welcome back, {user.firstName}</div>
-                    <div className='text-3xl pt-10 pb-4'>Your Information</div>
-                        <UserInfo props={user}/>
-                <div className='text-3xl pt-10'>Your Fundraisers</div>
+            <div className='px-16 grid place-items-center'>
+                <div className='text-5xl font-bold'>Welcome back, {user.firstName}</div>
+                <UserInfo props={user}/>
             </div>
-            <div className='px-2' data-testid="carousel-test-id">
+            <div className='text-3xl pt-10 px-14 font-semibold'>Your Fundraisers</div>
+            <div className='' data-testid="carousel-test-id">
                 <UserFundraiserCarousel data={userFundraisers}/>
             </div>
         </div>

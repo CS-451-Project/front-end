@@ -39,15 +39,16 @@ const DonateArea = (props) => {
         return (
         <div className='flex-row bg-gray-100 lg:p-6 py-2 w-full lg:rounded-lg rounded-t-lg border-solid max-lg:border-t border-yellow-500'>
             <div className='flex m-auto lg:w-full w-1/2 lg:pb-4 max-lg:pt-2'>
-                <ProgressBar className='flex w-full' bgcolor="#6a1b9a"
-                completed={progressBarCompletionAmount(props.currentBalance, props.goalAmount)}
+                <ProgressBar 
+                    className='flex w-full' bgcolor="#6a1b9a"
+                    completed={progressBarCompletionAmount(props.currentBalance, props.goalAmount)}
                 />
             </div>
             <div className='flex-row inline-flex lg:inline justify-center w-full lg:py-4 max-lg:py-2'>
-                <div className='flex inline-flex lg:inline text-lg font-bold  justify-center'>
+                <div className='lg:inline text-lg font-bold  justify-center'>
                     { props.currentBalance == undefined ? currencyFormatter.format(0.0) : currencyFormatter.format(props.currentBalance) }
                 </div>
-                <div className='flex inline-flex lg:pl-1 pl-2 pt-1 text-sm italic lg:inline justify-center'> 
+                <div className='lg:pl-1 pl-2 pt-1 text-sm italic lg:inline justify-center'> 
                     raised out of {props.goalAmount == undefined ? currencyFormatter.format(0.0) :  currencyFormatter.format(props.goalAmount) }
                 </div>
             </div>

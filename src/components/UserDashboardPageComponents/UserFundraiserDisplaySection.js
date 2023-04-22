@@ -30,20 +30,16 @@ const UserFundraiserDisplaySection = (props) => {
   };
 
   return (
-    <div className='w-96 h-fit bg-green-600 truncate text-white'>
+    <div className='w-96 h-fit bg-green-600 truncate text-white rounded-lg'>
         <img 
           src={props.fundraiserImg == null ? placeHolderFundraiser : props.fundraiserImg} 
           className='w-full h-48 object-cover'
           alt="Logo"
         />
         <div className='p-4'>
-            <h1 className='text-2xl mb-4 truncate'>
-              {props.title}
-              {/* {props.fundraiserId} */}
-            </h1>
-            <p className='line-clamp-6'>
-              {props.description}
-            </p>
+            <h1 className='text-2xl truncate'>{props.title}</h1>
+            <p className='mb-4 text-sm'>Created on: {props.createdDate}</p>
+            <p className='line-clamp-6'>{props.description}</p>
           <div className='flex pt-4 justify-center pb-1'>
             {/* Link to the fundraiser page */}
             <Link to={`/organizer/${props.organizerId}/fundraiser/${props.fundraiserId}`} data-testid='link-to-fundraiser'>

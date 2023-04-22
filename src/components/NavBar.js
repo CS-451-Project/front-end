@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
+import { SiCircle } from 'react-icons/si'
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -39,8 +40,13 @@ const NavBar = () => {
               {/* Logo and menu button */}
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="/">
-                            <h2 className="text-2xl font-bold text-black">GIVING CIRCLE</h2>
+                        <a href="/" className='flex flex-row'>
+                            <h2 className="text-2xl font-bold text-black ">GIVING </h2>
+                            <div className='grid place-items-center px-1'>
+                                <SiCircle size={20}/>
+                            </div>
+                            <h2 className="text-2xl font-bold text-black">CIRCLE</h2>
+                            
                         </a>
                         {/* Small screen menu/close buttons */}
                         {/* This will be hidden on screens at least `md` in size. */}
