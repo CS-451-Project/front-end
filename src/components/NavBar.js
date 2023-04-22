@@ -40,7 +40,7 @@ const NavBar = () => {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
-                            <h2 className="text-2xl font-bold text-black">DEMO</h2>
+                            <h2 className="text-2xl font-bold text-black">GIVING CIRCLE</h2>
                         </a>
                         {/* Small screen menu/close buttons */}
                         {/* This will be hidden on screens at least `md` in size. */}
@@ -76,9 +76,6 @@ const NavBar = () => {
                                 <a href="/">Home</a>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Fundraisers</a>
-                            </li>
-                            <li className="text-black hover:text-green-600 duration-200">
                                 <button onClick={localStorage.length === 0 ? 
                                     () => {
                                         navigate("/login")
@@ -96,7 +93,24 @@ const NavBar = () => {
                                     () => navigate("/createFundraiser")}>Create Fundraiser</button>
                             </li>
                             <li className="text-black hover:text-green-600 duration-200">
-                                <a href="/">Contact Us</a>
+                                <button onClick={localStorage.length === 0 ? 
+                                    () => {
+                                        navigate("/login")
+                                        toast.warn('You need to be logged in to view your dashboard', {
+                                        position: "top-right",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "light",
+                                    });
+                                    } : 
+                                    () => navigate(`/dashboard/${localStorage.getItem("userId")}`)}>Dashboard</button>
+                            </li>
+                            <li className="text-black hover:text-green-600 duration-200">
+                                <a href="/AboutUs">About Us</a>
                             </li>
                         </ul>
                         {/* Login and signup buttons  for small screens*/}

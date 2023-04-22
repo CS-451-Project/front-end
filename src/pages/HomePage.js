@@ -103,7 +103,7 @@ const HomePage = () => {
             </div>
             
             {/* FEATURED FUNDRAISER */}
-            <div className='pt-16 px-8' data-testid="feat-fundraiser-test-id">
+            <div className='pt-16 px-16' data-testid="feat-fundraiser-test-id">
                 {/* THe list of objects from the post request is being set as the props */}
                 <HomePageFeatFundraiser data={data}/>
             </div>

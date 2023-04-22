@@ -41,7 +41,7 @@ const UserFundraiserDisplaySection = (props) => {
               {props.title}
               {/* {props.fundraiserId} */}
             </h1>
-            <p className='truncate'>
+            <p className='line-clamp-6'>
               {props.description}
             </p>
           <div className='flex pt-4 justify-center pb-1'>

@@ -14,8 +14,7 @@ const FundraiserDisplaySection = (props) => {
             <h1 className='text-2xl mb-4 truncate'>
             {props.title}
             </h1>
-            {/* {props.id} */}
-            <p className='truncate '>
+            <p className='line-clamp-4'>
                 {props.description}
             </p>
         </div>

@@ -30,7 +30,10 @@ module.exports = {
       },
       screens: {
         '3xl': '1600px',
-      }
+      },
+      lineClamp: {
+        10: '10',
+      },
     }
   },
   plugins: [],
