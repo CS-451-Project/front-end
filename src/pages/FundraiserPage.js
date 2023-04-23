@@ -80,10 +80,8 @@ const FundraiserPage = () => {
                         organizerName={user.firstName + " " + user.lastName}
                         organizerEmail={user.email}
                         fundraiserPictureUrl={fundraiser.pictureId}
-                        />
-                    <Donations
-                        donations = {donations}
-                        />
+                    />
+                    <Donations donations = {donations}/>
                 </div>
             </div>
             {/* The donation area */}

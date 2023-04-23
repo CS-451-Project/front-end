@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
-      Header: ["Merriweather"],
-      HomePageHeading: ["Golos+Text"],
-      Approved: ["IBM+Plex+Sans"],
+      Merriweather: ["Merriweather"],
+      HomePageHeading: ["Golos","Text"],
+      Approved: ["IBM","Plex","Sans"],
+      headingTest: ['Castoro Titling'],
+      Poppins: ['Poppins'],
     },
     extend: {
       spacing: {
@@ -30,7 +32,10 @@ module.exports = {
       },
       screens: {
         '3xl': '1600px',
-      }
+      },
+      lineClamp: {
+        9: '9',
+      },
     }
   },
   plugins: [],
